@@ -7,151 +7,62 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
-        <h1>ChatSVG</h1>
-        <ol class="instructions">
-            <li>Everyday I take a photo</li>
-            <li>I ask ChatGPT to describe it</li>
-            <li>I ask ChatGPT to generate SVG code from that description</li>
-        </ol>
-      </header>
-  <div class="grid-container">
-    <div class="grid-item">
-        <!-- SVG -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
-            <!-- Background Kitchen Setting -->
-            <rect width="100%" height="100%" fill="#F5F5F5" />
-            
-            <!-- Child's Face and Hair -->
-            <circle cx="150" cy="90" r="50" fill="#D2A282" />
-            <path d="M100,50 Q150,10 200,50 Q210,70 150,130 Q90,70 100,50" fill="#4D3326" />
-            
-            <!-- Child's Eyes -->
-            <circle cx="130" cy="85" r="7" fill="#333" />
-            <circle cx="170" cy="85" r="7" fill="#333" />
-            
-            <!-- Child's Mouth -->
-            <path d="M140,115 Q150,125 160,115" stroke="#A56953" stroke-width="2" fill="none" />
-            
-            <!-- Bib -->
-            <path d="M110,130 Q150,160 190,130 Q180,190 120,190 Q110,160 110,130" fill="#505050" />
-            <circle cx="140" cy="160" r="5" fill="#6AB84C" />
-            <circle cx="160" cy="170" r="5" fill="#FF0000" />
-          
-            <!-- Child's Hands -->
-            <rect x="120" y="170" width="15" height="30" rx="7" ry="7" fill="#D2A282" />
-            <rect x="165" y="170" width="15" height="30" rx="7" ry="7" fill="#D2A282" />
-            
-            <!-- Spoon in Right Hand -->
-            <rect x="180" y="190" width="40" height="10" fill="#3A82DA" />
-            
-            <!-- Bowl of Food -->
-            <ellipse cx="150" cy="220" rx="50" ry="20" fill="#E0E0E0" />
-            <circle cx="140" cy="215" r="5" fill="#D2B48C" />
-            <circle cx="160" cy="215" r="5" fill="#D2B48C" />
-            <rect x="130" y="210" width="40" height="5" fill="#8CCB5E" />
-            
-            <!-- Cup with Label -->
-            <rect x="60" y="230" width="40" height="50" rx="10" ry="10" fill="#FFD700" />
-            <rect x="65" y="250" width="30" height="10" fill="#FFF" />
-            <text x="67" y="258" font-family="Arial" font-size="6" fill="#000">Juditta</text>
-          
-            <!-- High Chair -->
-            <rect x="100" y="200" width="100" height="40" fill="#B08B5B" />
-            
-        </svg>
-          
-      <img src="img/9_9_24_kai.jpg" class="hover-image">
-      <div class="overlay">
-        <h3>9/8/2024</h3>
-        <input type="checkbox" id="toggle1" class="toggle">
-        <p class="description">
-          Sample description goes here. This is a much longer text that will initially be truncated.
-        </p>
-        <label for="toggle1" class="see-more">See more</label>
-        <label for="toggle1" class="see-less">See less</label>
+  <header class="header">
+    <h1>ChatSVG <img src="info.png" width="24px"> </h1>
+    <div id="rules">
+      <h2>Rules</h2>
+      <div class="row">
+        <div class="emoji">📸</div>
+        <h3>Everyday I take a photo</h3>
+      </div>
+      <div class="row">
+        <div class="emoji">📝</div>
+        <h3>I ask ChatGPT to describe it</h3>
+      </div>
+      <div class="row">
+        <div class="emoji">🖼️</div>
+        <h3>I ask ChatGPT to generate SVG code from that description</h3>
       </div>
     </div>
+</header>
+    <div class="grid-container">
+        <div class="grid-item" id="grid-item-1">
+            <!-- SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+                <!-- Background Kitchen Setting -->
+                <rect width="100%" height="100%" fill="#F5F5F5" />
+                <!-- SVG Content -->
+            </svg>
+            <img src="img/9_9_24_kai.jpg" class="hover-image">
+            <div class="overlay">
+                <h4>9/8/2024</h4>
+                <p class="description">Sample description goes here. This is a much longer text that will initially be truncated.</p>
+                <span class="see-more" onclick="toggleBlur('grid-item-1')">See more</span>
+                <span class="see-less" onclick="toggleBlur('grid-item-1')">See less</span>
+            </div>
+        </div>
 
-    <div class="grid-item">
-        
-        <!-- SVG -->
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <!-- Background sky -->
-            <rect width="500" height="300" fill="skyblue" />
-          
-            <!-- Clouds -->
-            <circle cx="100" cy="60" r="30" fill="white" />
-            <circle cx="130" cy="80" r="20" fill="white" />
-            <circle cx="170" cy="70" r="25" fill="white" />
-            <circle cx="350" cy="50" r="30" fill="white" />
-            <circle cx="380" cy="70" r="20" fill="white" />
-          
-            <!-- Window frames -->
-            <rect x="50" y="0" width="100" height="300" fill="lightgray" />
-            <rect x="200" y="0" width="100" height="300" fill="lightgray" />
-            <rect x="350" y="0" width="100" height="300" fill="lightgray" />
-          
-            <!-- Railing -->
-            <rect x="0" y="220" width="500" height="10" fill="white" />
-            <rect x="50" y="180" width="10" height="50" fill="white" />
-            <rect x="100" y="180" width="10" height="50" fill="white" />
-            <rect x="150" y="180" width="10" height="50" fill="white" />
-            <rect x="200" y="180" width="10" height="50" fill="white" />
-            <rect x="250" y="180" width="10" height="50" fill="white" />
-            <rect x="300" y="180" width="10" height="50" fill="white" />
-            <rect x="350" y="180" width="10" height="50" fill="white" />
-            <rect x="400" y="180" width="10" height="50" fill="white" />
-            <rect x="450" y="180" width="10" height="50" fill="white" />
-          
-            <!-- Potted plants -->
-            <rect x="60" y="210" width="30" height="10" fill="brown" />
-            <circle cx="75" cy="190" r="15" fill="green" />
-            
-            <rect x="120" y="210" width="30" height="10" fill="brown" />
-            <circle cx="135" cy="190" r="15" fill="darkgreen" />
-          
-            <rect x="180" y="210" width="30" height="10" fill="brown" />
-            <circle cx="195" cy="190" r="15" fill="lightgreen" />
-          
-            <rect x="240" y="210" width="30" height="10" fill="brown" />
-            <circle cx="255" cy="190" r="15" fill="green" />
-          
-            <rect x="300" y="210" width="30" height="10" fill="brown" />
-            <circle cx="315" cy="190" r="15" fill="darkgreen" />
-          
-            <rect x="360" y="210" width="30" height="10" fill="brown" />
-            <circle cx="375" cy="190" r="15" fill="green" />
-          
-            <!-- Outdoor elements -->
-            <rect x="80" y="250" width="30" height="50" fill="gray" transform="rotate(10 80 250)" />
-            <circle cx="400" cy="250" r="40" fill="green" />
-          
-            <!-- String lights -->
-            <line x1="50" y1="100" x2="450" y2="150" stroke="black" stroke-width="2" />
-            <circle cx="100" cy="110" r="3" fill="yellow" />
-            <circle cx="150" cy="120" r="3" fill="yellow" />
-            <circle cx="200" cy="130" r="3" fill="yellow" />
-            <circle cx="250" cy="140" r="3" fill="yellow" />
-            <circle cx="300" cy="145" r="3" fill="yellow" />
-            <circle cx="350" cy="150" r="3" fill="yellow" />
-          
-        </svg>
-        <!-- SVG -->
-          
-      <img src="img/8_9_24_view.jpeg" class="hover-image">
-      <div class="overlay">
-        <h3>9/8/2024</h3>
-        <input type="checkbox" id="toggle2" class="toggle">
-        <p class="description">
-          The image shows a row of potted plants placed on a window sill behind a white railing. The windows are large and clear, with sunlight streaming through them, casting shadows. Beyond the windows, a bright blue sky with scattered clouds is visible, along with some string lights hanging outside. There is also a glimpse of outdoor greenery, including trees and a large outdoor umbrella. The overall scene feels peaceful and filled with natural light, with the plants neatly arranged and flourishing.
-        </p>
-        <label for="toggle2" class="see-more">See more</label>
-        <label for="toggle2" class="see-less">See less</label>
-      </div>
+        <div class="grid-item" id="grid-item-2">
+            <!-- SVG -->
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <!-- SVG Content -->
+            </svg>
+            <img src="img/8_9_24_view.jpeg" class="hover-image">
+            <div class="overlay">
+                <h4>9/8/2024</h4>
+                <p class="description">The image shows a row of potted plants placed on a window sill behind a white railing. The windows are large and clear, with sunlight streaming through them, casting shadows. Beyond the windows, a bright blue sky with scattered clouds is visible, along with some string lights hanging outside. There is also a glimpse of outdoor greenery, including trees and a large outdoor umbrella. The overall scene feels peaceful and filled with natural light, with the plants neatly arranged and flourishing.</p>
+                <span class="see-more" onclick="toggleBlur('grid-item-2')">See more</span>
+                <span class="see-less" onclick="toggleBlur('grid-item-2')">See less</span>
+            </div>
+        </div>
     </div>
 
-  </div>
-
+    <script>
+      function toggleBlur(gridItemId) {
+        const gridItem = document.getElementById(gridItemId);
+        gridItem.classList.toggle('blur-active');
+      }
+    </script>
 </body>
 </html>
+      
