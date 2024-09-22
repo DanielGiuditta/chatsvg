@@ -4,37 +4,33 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: Helvetica, Arial, sans-serif;
-  padding: 24px;
-}
-
+/* Header and h1 alignment with the grid */
 .header {
   text-align: left;
-  margin-bottom: 16px;
+  margin-top: 24px;
+  margin-bottom: 8px;
   position: relative;
-  /* Assuming the grid container starts at 24px from the edge, adjust this as necessary */
+  /* Assuming the grid container starts at 24px from the edge */
 }
 
 .header h1 {
   color: rgb(100, 100, 100);
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
+  font-weight: bold;
   line-height: normal;
-  display: inline-flex; /* Keep the element size based on content */
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 8px 8px 40px; /* Add extra left padding for hover alignment */
+  padding: 8px 8px 8px 40px; /* Left padding for hover alignment */
   position: relative;
   z-index: 1;
-  background-color: transparent; /* No background in normal state */
-  transition: background-color 0.3s ease; /* Smooth hover effect */
+  background-color: transparent;
+  transition: background-color 0.3s ease;
 }
 
 .header h1:hover {
-  background-color: transparent; /* Hover background handled by pseudo-element */
+  background-color: transparent;
 }
 
 .header h1::before {
@@ -46,41 +42,39 @@ body {
   width: calc(100% - 20px); /* Ensures the background aligns with grid */
   background-color: rgb(245, 245, 245);
   border-radius: 8px;
-  z-index: -1; /* Behind the text */
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.3s ease; /* Smooth transition */
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .header h1:hover::before {
   opacity: 1; /* Reveal background on hover */
 }
 
-
+/* Rules overlay */
 #rules {
   position: absolute;
   top: 100%;
   left: 0;
   width: 360px;
-  padding: 24px 24px 0px 24px;
+  padding: 24px 24px 0 24px;
   margin-top: 16px;
   margin-left: 20px;
   background-color: white;
-  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.25);
-  display: none; /* Initially hidden */
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+  display: none;
   z-index: 10;
   border-radius: 16px;
-  
 }
 
 .header h1:hover + #rules {
-  display: block; /* Show rules on hover */
-
+  display: block;
 }
 
-/* Styling for the rows inside the rules */
+/* Rows inside the rules */
 .row {
   display: flex;
-  align-items: top;
+  align-items: flex-start;
   margin-bottom: 24px;
 }
 
@@ -89,35 +83,27 @@ body {
   margin-right: 24px;
 }
 
-h2{
+h2 {
   color: rgb(100, 100, 100);
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 800;
   font-size: 28px;
   margin-bottom: 20px;
-  
 }
 
 h3 {
   color: rgb(100, 100, 100);
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 800;
   font-size: 22px;
   margin: 0;
   text-align: left;
 }
 
-.instructions {
-  text-align: left;
-  margin: 0;
-  padding-left: 0;
-  list-style-position: inside;
-}
-
+/* Grid and hover image styling */
 .grid-container {
   display: flex;
   flex-wrap: wrap;
-  /* gap: 10px; */
   padding: 20px;
   justify-content: flex-start;
   align-items: center;
@@ -129,7 +115,6 @@ h3 {
   height: 360px;
   background-color: #f4f4f4;
   overflow: hidden;
-  transition: all 0.3s ease;
 }
 
 .grid-item svg {
@@ -145,86 +130,80 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.3s ease, filter 0.3s ease;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 20px;
-  color: white;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.grid-item:hover .hover-image {
-  opacity: 1;
-}
-
-.grid-item:hover .overlay {
-  opacity: 1;
+  display: none;
 }
 
 .grid-item:hover svg {
-  opacity: 0;
+  display: none;
 }
 
-/* Blur effect for grid item when class is active */
-.blur-active .hover-image {
-  filter: blur(30px);
-  opacity: 1;
+.grid-item:hover .hover-image {
+  display: block;
 }
 
-/* Description styling */
+/* Overlay styling */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 16px); /* Ensure 8px margin around */
+  margin: 8px;
+  padding: 12px;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+  display: none;
+  align-items: flex-start;
+}
+
+.grid-item:hover .overlay {
+  display: block;
+}
+
+/* Description text styling */
 .description {
-  width: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  color: rgb(60, 60, 60);
   display: block;
   overflow: hidden;
+  margin-bottom: 2px;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-height: 1.2em;
   transition: max-height 0.3s ease;
 }
 
-/* Expand description when class is active */
-.blur-active .description {
+.expanded {
   white-space: normal;
-  overflow: visible;
-  max-height: 200px;
+  max-height: none;
 }
 
-/* Styling for "See more" link */
-.see-more {
-  color: white;
+/* h4 text styling */
+h4 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgb(60, 60, 60);
+  margin-bottom: 1px;
+}
+
+/* Styling for see-more and see-less */
+.see-more-box {
+  width: 100%;
+  text-align: left; /* Left-align the see-more and see-less text */
+}
+
+.see-more, .see-less {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  color: #C4C4C4;
   cursor: pointer;
-  font-size: 0.9em;
-  margin-top: 5px;
+  display: block;
+  text-align: left;
 }
 
-/* Hide the "See more" link when class is active */
-.blur-active .see-more {
-  display: none;
-}
-
-/* "See less" link styling */
 .see-less {
   display: none;
-  color: white;
-  cursor: pointer;
-  font-size: 0.9em;
-  margin-top: 5px;
-}
-
-/* Show "See less" link when class is active */
-.blur-active .see-less {
-  display: inline-block;
 }
