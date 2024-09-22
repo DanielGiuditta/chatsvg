@@ -207,3 +207,62 @@ h4 {
 .see-less {
   display: none;
 }
+
+/* Media query for devices with viewport width less than 500px */
+@media (max-width: 500px) {
+  .header {
+    text-align: center; /* Center the entire header content */
+  }
+
+  .header h1 {
+    display: inline-flex;
+    padding: 8px 16px;    /* Add padding around the contents */
+    margin: 0 auto;       /* Center the h1 itself */
+    position: relative;
+  }
+
+  /* Adjust the hover background to fit content + 16px padding */
+  .header h1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto; /* Ensure hover background is centered */
+    width: auto; /* Only cover content width */
+    height: 100%;
+    background-color: rgba(245, 245, 245, 1); /* Hover color */
+    border-radius: 8px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .header h1:hover::before {
+    opacity: 1; /* Reveal background on hover */
+  }
+
+  /* Center the grid-container */
+  .grid-container {
+    justify-content: center; /* Center the grid items on mobile */
+  }
+
+  /* Center #rules */
+  #rules {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 360px; /* Ensure it has a defined width */
+    margin-left: 0; /* Remove the margin-left that offsets #rules */
+  }
+
+  /* Ensure h2 in #rules remains left-aligned */
+  #rules h2 {
+    text-align: left; /* Keep h2 left-aligned in the rules section */
+  }
+}
+
+
+
+
