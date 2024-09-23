@@ -381,6 +381,26 @@
           seeLess.style.display = 'inline';
         }
       }
+      document.addEventListener('DOMContentLoaded', function () {
+    // Check if the browser is Safari on mobile
+    var isMobileSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) && /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobileSafari) {
+      // Add touchstart event to elements that have hover interactions
+      var hoverElements = document.querySelectorAll('.grid-item, .header h1');
+
+      hoverElements.forEach(function (element) {
+        element.addEventListener('touchstart', function () {
+          element.classList.toggle('hover');
+        });
+
+        // Remove hover on touchend or click outside
+        document.addEventListener('touchend', function () {
+          element.classList.remove('hover');
+        });
+      });
+    }
+  });
     </script>
 </body>
 </html>
