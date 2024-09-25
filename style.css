@@ -1,3 +1,5 @@
+@import url('switzer.css');
+
 * {
   margin: 0;
   padding: 0;
@@ -14,8 +16,8 @@
 }
 
 .header h1 {
-  color: rgb(100, 100, 100);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: rgb(0, 0, 0);
+  font-family:'Switzer-Semibold';
   font-size: 32px;
   font-weight: bold;
   line-height: normal;
@@ -63,8 +65,11 @@
   background-color: white;
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
   display: none;
+  border-width: 1;
   z-index: 10;
   border-radius: 16px;
+  /* border */
+  border: 2px solid black;
 }
 
 .header h1:hover + #rules {
@@ -72,32 +77,35 @@
 }
 
 /* Rows inside the rules */
-.row {
+/* .row {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .emoji {
   font-size: 32px;
   margin-right: 24px;
-}
+} */
 
-h2 {
+/* h2 {
   color: rgb(100, 100, 100);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 800;
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-h3 {
-  color: rgb(100, 100, 100);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Switzer-Semibold', Helvetica, Arial, sans-serif;
   font-weight: 800;
   font-size: 22px;
-  margin: 0;
+  margin-bottom: 20px;
+} */
+
+li {
+  color: rgb(0, 0, 0);
+  font-family:'Switzer-Regular', Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  margin-bottom: 20px;
+  margin-left: 20px;
   text-align: left;
+}
+ol li {
+  padding-left: 10px; /* Adjust the value as needed */
 }
 
 /* Grid and hover image styling */
@@ -105,6 +113,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
+  gap: 16px;
   justify-content: flex-start;
   align-items: center;
 }
@@ -115,6 +124,8 @@ h3 {
   height: 360px;
   background-color: #f4f4f4;
   overflow: hidden;
+  border: 2px solid black;
+  border-radius: 16px;
 }
 
 .grid-item svg {
@@ -158,11 +169,13 @@ h3 {
 
 .grid-item:hover .overlay {
   display: block;
+  border: 2px solid black;
+  
 }
 
 /* Description text styling */
 .description {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Switzer-Medium', Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 12px;
   color: rgb(60, 60, 60);
@@ -172,6 +185,7 @@ h3 {
   white-space: nowrap;
   text-overflow: ellipsis;
   transition: max-height 0.3s ease;
+
 }
 
 .expanded {
@@ -181,7 +195,7 @@ h3 {
 
 /* h4 text styling */
 h4 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Switzer-Semibold', Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 16px;
   color: rgb(60, 60, 60);
@@ -195,7 +209,7 @@ h4 {
 }
 
 .see-more, .see-less {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Switzer-Semibold', Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 12px;
   color: #C4C4C4;

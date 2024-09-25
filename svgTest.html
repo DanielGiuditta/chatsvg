@@ -1,65 +1,82 @@
 <html>
-  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <!-- Background Sky -->
-    <rect width="100" height="40" fill="lightblue" />
+  <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="#e8e4da"/>
+    
+    <!-- Sky and distant background -->
+    <rect y="0" width="100%" height="150" fill="#a0d8e8" />
+    <rect y="150" width="100%" height="50" fill="#7fa97f" />
+    
+    <!-- Trees and leaves -->
+    <g id="tree-branches">
+      <!-- Branches -->
+      <line x1="100" y1="100" x2="60" y2="150" stroke="#8b4513" stroke-width="8"/>
+      <line x1="80" y1="80" x2="40" y2="130" stroke="#8b4513" stroke-width="6"/>
+      <line x1="300" y1="100" x2="340" y2="140" stroke="#8b4513" stroke-width="8"/>
+      <line x1="320" y1="80" x2="360" y2="130" stroke="#8b4513" stroke-width="6"/>
+      
+      <!-- Leaves -->
+      <circle cx="60" cy="150" r="20" fill="#6b8e23"/>
+      <circle cx="40" cy="130" r="15" fill="#6b8e23"/>
+      <circle cx="340" cy="140" r="20" fill="#6b8e23"/>
+      <circle cx="360" cy="130" r="15" fill="#6b8e23"/>
+    </g>
   
-    <!-- Distant Trees -->
-    <rect x="15" y="30" width="1.5" height="40" fill="darkslategray" opacity="0.5" />
-    <rect x="22" y="25" width="1" height="45" fill="darkslategray" opacity="0.5" />
-    <rect x="28" y="33" width="1" height="37" fill="darkslategray" opacity="0.5" />
-    <rect x="36" y="28" width="1.5" height="42" fill="darkslategray" opacity="0.5" />
-    <rect x="46" y="30" width="1.5" height="40" fill="darkslategray" opacity="0.5" />
-    <rect x="54" y="25" width="1.5" height="45" fill="darkslategray" opacity="0.5" />
-    <rect x="62" y="33" width="1" height="37" fill="darkslategray" opacity="0.5" />
-    <rect x="70" y="28" width="1.5" height="42" fill="darkslategray" opacity="0.5" />
-    <rect x="78" y="30" width="1.5" height="40" fill="darkslategray" opacity="0.5" />
+    <!-- Monkeys (detailed) -->
+    <g id="monkeys">
+      <!-- Upper left monkey -->
+      <circle cx="60" cy="130" r="15" fill="#000" />
+      <circle cx="60" cy="130" r="12" fill="#fff" />
+      <circle cx="60" cy="130" r="8" fill="#000" />
+      <rect x="55" y="140" width="10" height="30" fill="#000" />
+      <circle cx="55" cy="170" r="6" fill="#000" />
+      <!-- Upper right monkey -->
+      <circle cx="340" cy="130" r="15" fill="#000" />
+      <circle cx="340" cy="130" r="12" fill="#fff" />
+      <circle cx="340" cy="130" r="8" fill="#000" />
+      <rect x="335" y="140" width="10" height="30" fill="#000" />
+      <circle cx="335" cy="170" r="6" fill="#000" />
+      
+      <!-- Lower left monkey -->
+      <circle cx="100" cy="200" r="15" fill="#000" />
+      <circle cx="100" cy="200" r="12" fill="#fff" />
+      <circle cx="100" cy="200" r="8" fill="#000" />
+      <rect x="95" y="210" width="10" height="30" fill="#000" />
+      <circle cx="95" cy="240" r="6" fill="#000" />
+      <!-- Lower right monkey -->
+      <circle cx="300" cy="200" r="15" fill="#000" />
+      <circle cx="300" cy="200" r="12" fill="#fff" />
+      <circle cx="300" cy="200" r="8" fill="#000" />
+      <rect x="295" y="210" width="10" height="30" fill="#000" />
+      <circle cx="295" cy="240" r="6" fill="#000" />
+    </g>
   
-    <!-- Mid-ground Trees -->
-    <rect x="10" y="25" width="2" height="55" fill="saddlebrown" />
-    <rect x="30" y="20" width="1.5" height="60" fill="saddlebrown" />
-    <rect x="50" y="30" width="2" height="50" fill="saddlebrown" />
-    <rect x="70" y="22" width="1.5" height="58" fill="saddlebrown" />
-    <rect x="85" y="28" width="2" height="52" fill="saddlebrown" />
+    <!-- Woman figure (detailed) -->
+    <g id="woman">
+      <!-- Head -->
+      <circle cx="200" cy="300" r="15" fill="#3a3a3a"/>
+      <!-- Body -->
+      <rect x="190" y="315" width="20" height="50" fill="#3a3a3a" />
+      <!-- Arm -->
+      <line x1="200" y1="325" x2="230" y2="330" stroke="#3a3a3a" stroke-width="6"/>
+      <!-- Purse -->
+      <rect x="205" y="360" width="15" height="20" fill="#4d4d4d"/>
+    </g>
   
-    <!-- Tree Leaves (Autumn Foliage) -->
-    <circle cx="12" cy="25" r="6" fill="orange" />
-    <circle cx="8" cy="22" r="5" fill="yellow" />
-    <circle cx="32" cy="23" r="6" fill="red" />
-    <circle cx="28" cy="19" r="5" fill="orange" />
-    <circle cx="52" cy="33" r="6" fill="yellow" />
-    <circle cx="48" cy="29" r="5" fill="orange" />
-    <circle cx="72" cy="24" r="6" fill="red" />
-    <circle cx="68" cy="20" r="5" fill="yellow" />
-    <circle cx="87" cy="28" r="6" fill="orange" />
-  
-    <!-- Forest Floor -->
-    <rect x="0" y="75" width="100" height="15" fill="darkgreen" />
-    <!-- Moss and rocks -->
-    <circle cx="18" cy="82" r="4" fill="gray" />
-    <circle cx="35" cy="85" r="4" fill="gray" />
-    <circle cx="60" cy="83" r="4" fill="gray" />
-    <circle cx="80" cy="80" r="4" fill="gray" />
-    <!-- Mossy patches -->
-    <ellipse cx="20" cy="90" rx="5" ry="2" fill="forestgreen" />
-    <ellipse cx="40" cy="90" rx="6" ry="3" fill="forestgreen" />
-    <ellipse cx="60" cy="90" rx="5" ry="2" fill="forestgreen" />
-  
-    <!-- Birch Tree -->
-    <rect x="40" y="28" width="2" height="47" fill="white" />
-    <line x1="40" y1="32" x2="42" y2="35" stroke="black" stroke-width="0.3" />
-    <line x1="41" y1="38" x2="42" y2="42" stroke="black" stroke-width="0.3" />
-    <line x1="40" y1="45" x2="42" y2="48" stroke="black" stroke-width="0.3" />
-  
-    <!-- Fallen Logs -->
-    <rect x="75" y="85" width="8" height="3" fill="sienna" />
-    <ellipse cx="79" cy="85" rx="4" ry="1" fill="sienna" />
-  
-    <!-- Wooden Display Frame -->
-    <rect x="0" y="0" width="100" height="100" fill="none" stroke="saddlebrown" stroke-width="5"/>
-  
-    <!-- Plaque -->
-    <rect x="20" y="90" width="60" height="7" fill="lightgray" />
-    <text x="25" y="94" font-size="3" fill="black">Autumn Forest Diorama</text>
+    <!-- Child figure (detailed) -->
+    <g id="child">
+      <!-- Head -->
+      <circle cx="240" cy="320" r="12" fill="#b5651d"/>
+      <!-- Body -->
+      <rect x="230" y="330" width="20" height="40" fill="#87ceeb"/>
+      <!-- Palm tree shirt pattern -->
+      <path d="M240,330 L250,350" stroke="#008000" stroke-width="2"/>
+      <circle cx="245" cy="340" r="3" fill="#ff6347"/>
+      <!-- Striped pants -->
+      <line x1="230" y1="370" x2="250" y2="370" stroke="#ffffff" stroke-width="3"/>
+      <line x1="230" y1="375" x2="250" y2="375" stroke="#ffffff" stroke-width="3"/>
+      <line x1="230" y1="380" x2="250" y2="380" stroke="#ffffff" stroke-width="3"/>
+    </g>
   </svg>
   
 </html>
