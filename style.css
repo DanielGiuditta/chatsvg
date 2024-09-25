@@ -19,7 +19,6 @@
   color: rgb(0, 0, 0);
   font-family:'Switzer-Semibold';
   font-size: 32px;
-  font-weight: bold;
   line-height: normal;
   display: inline-flex;
   align-items: center;
@@ -175,10 +174,9 @@ ol li {
 
 /* Description text styling */
 .description {
-  font-family: 'Switzer-Medium', Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 12px;
-  color: rgb(60, 60, 60);
+  font-family: 'Switzer-Regular';
+  font-size: 14px;
+  color: rgb(0, 0, 0);
   display: block;
   overflow: hidden;
   margin-bottom: 2px;
@@ -195,8 +193,7 @@ ol li {
 
 /* h4 text styling */
 h4 {
-  font-family: 'Switzer-Semibold', Helvetica, Arial, sans-serif;
-  font-weight: bold;
+  font-family: 'Switzer-Semibold';
   font-size: 16px;
   color: rgb(60, 60, 60);
   margin-bottom: 1px;
@@ -209,8 +206,7 @@ h4 {
 }
 
 .see-more, .see-less {
-  font-family: 'Switzer-Semibold', Helvetica, Arial, sans-serif;
-  font-weight: bold;
+  font-family: 'Switzer-Semibold';
   font-size: 12px;
   color: #C4C4C4;
   cursor: pointer;
