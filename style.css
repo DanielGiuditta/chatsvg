@@ -161,7 +161,6 @@ ol li {
   white-space: nowrap;
   text-overflow: ellipsis;
   transition: max-height 0.3s ease;
-
 }
 
 .expanded {
