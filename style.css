@@ -10,7 +10,16 @@
   margin-top: 24px;
   margin-bottom: 8px;
   position: relative;
-}
+  }
+footer{
+    text-align: left;
+    font-family: 'Switzer-Semibold';
+    font-size: 16px;
+    margin-left: 20px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
 
 .header h1 {
   color: rgb(0, 0, 0);
