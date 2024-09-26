@@ -96,21 +96,24 @@ ol li {
 
 .grid-item {
   position: relative;
-  width: 100%;           /* Changed from width: 360px; */
-  max-width: 360px;      /* Added max-width */
+  width: 100%;
+  max-width: 360px;
   background-color: #f4f4f4;
   overflow: hidden;
   border: 2px solid black;
   border-radius: 16px;
-  aspect-ratio: 1 / 1;   /* Maintain 1:1 aspect ratio */
+  aspect-ratio: 1 / 1; /* Maintain 1:1 aspect ratio */
+  font-size: 0; /* Add this to remove font-size spacing */
 }
 
 .grid-item svg {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
-  vertical-align: top;
+  display: block; /* Change display to block */
+  margin: 0; /* Remove any margins */
+  padding: 0; /* Remove any padding */
+  line-height: 0; /* Set line-height to zero */
+  vertical-align: top; /* Align SVG to the top */
 }
 
 .hover-image {
