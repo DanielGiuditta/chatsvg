@@ -1007,69 +1007,7 @@
         </div>
     </div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-  // Check if the device is mobile (iOS or Android)
-  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-  if (isMobile) {
-    // Select elements that need hover-like behavior
-    var hoverElements = document.querySelectorAll('.hover-image, .description, .grid-item, .header h1');
-
-    hoverElements.forEach(function (element) {
-      // Add touchstart event to toggle hover class on mobile
-      element.addEventListener('touchstart', function (e) {
-        e.preventDefault(); // Prevent default touch behavior (optional, depending on your app's needs)
-
-        // If the element already has the hover-active class, remove it (toggle off)
-        if (element.classList.contains('hover-active')) {
-          element.classList.remove('hover-active');
-        } else {
-          // Otherwise, add the hover-active class (toggle on)
-          element.classList.add('hover-active');
-        }
-
-        // Stop propagation to prevent touchend from immediately removing the class
-        e.stopPropagation();
-      });
-    });
-
-    // Remove hover state when tapping anywhere outside the hover elements
-    document.addEventListener('touchstart', function (e) {
-      hoverElements.forEach(function (element) {
-        if (!element.contains(e.target)) {
-          element.classList.remove('hover-active'); // Remove hover class when tapping outside
-        }
-      });
-    });
-  }
-
-  // See-more / See-less functionality (works on all devices)
-  var seeMoreButton = document.getElementById('see-more');
-  var seeLessButton = document.getElementById('see-less');
-  var description = document.querySelector('.description');
-
-  if (seeMoreButton && seeLessButton) {
-    seeMoreButton.addEventListener('click', function () {
-      description.style.display = 'block';
-      seeMoreButton.style.display = 'none';
-      seeLessButton.style.display = 'inline';
-    });
-
-    seeLessButton.addEventListener('click', function () {
-      description.style.display = 'none';
-      seeMoreButton.style.display = 'inline';
-      seeLessButton.style.display = 'none';
-    });
-  }
-});
-
-    </script>
-    
-</body>
-</html>
-
-<!-- <script>
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     // Check if the browser is Safari on mobile
     var isMobileSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) && /iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -1090,4 +1028,9 @@
       });
     }
   });
-</script> -->
+</script>
+    
+</body>
+</html>
+
+
