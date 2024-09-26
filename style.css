@@ -67,33 +67,12 @@
   border-width: 1;
   z-index: 10;
   border-radius: 16px;
-  /* border */
   border: 2px solid black;
 }
 
 .header h1:hover + #rules {
   display: block;
 }
-
-/* Rows inside the rules */
-/* .row {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 16px;
-}
-
-.emoji {
-  font-size: 32px;
-  margin-right: 24px;
-} */
-
-/* h2 {
-  color: rgb(100, 100, 100);
-  font-family: 'Switzer-Semibold', Helvetica, Arial, sans-serif;
-  font-weight: 800;
-  font-size: 22px;
-  margin-bottom: 20px;
-} */
 
 li {
   color: rgb(0, 0, 0);
