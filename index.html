@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="header">
-        <h1>ChatSVG T5<img src="info.png" width="24px"></h1>
+        <h1>ChatSVG T6<img src="info.png" width="24px"></h1>
         <div id="rules">
           <ol>
             <li>Everyday I take a picture</li>
@@ -1009,66 +1009,61 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        let lastTouchedElement = null; // Track the last touched element
-    
-        // Function to toggle hover state
-        function toggleHoverState(element) {
-          // If the same element is touched again, remove the hover state
-          if (element === lastTouchedElement) {
-            element.classList.remove('hover');
-            lastTouchedElement = null; // Reset the last touched element
-          } else {
-            // Remove hover state from the previously touched element
-            if (lastTouchedElement) {
-              lastTouchedElement.classList.remove('hover');
-            }
-            // Add hover state to the current element
-            element.classList.add('hover');
-            lastTouchedElement = element; // Update the last touched element
-          }
+  // Check if the device is mobile (iOS or Android)
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    // Select elements that need hover-like behavior
+    var hoverElements = document.querySelectorAll('.hover-image, .description, .grid-item, .header h1');
+
+    hoverElements.forEach(function (element) {
+      // Add touchstart event to toggle hover class on mobile
+      element.addEventListener('touchstart', function (e) {
+        e.preventDefault(); // Prevent default touch behavior (optional, depending on your app's needs)
+
+        // If the element already has the hover-active class, remove it (toggle off)
+        if (element.classList.contains('hover-active')) {
+          element.classList.remove('hover-active');
+        } else {
+          // Otherwise, add the hover-active class (toggle on)
+          element.classList.add('hover-active');
         }
-    
-        // Add touch events to elements that have hover states
-        const hoverElements = document.querySelectorAll('.grid-item, .header h1, #rules, .overlay');
-        hoverElements.forEach(function (element) {
-          element.addEventListener('touchstart', function (event) {
-            // If the target is not "See more" or "See less", toggle the hover state
-            if (!event.target.classList.contains('see-more') && !event.target.classList.contains('see-less')) {
-              toggleHoverState(element);
-            }
-            event.stopPropagation(); // Prevent event bubbling
-          });
-        });
-    
-        // Remove hover state when tapping outside any hoverable element
-        document.addEventListener('touchend', function (event) {
-          // If the tap is outside any hoverable element, remove the hover state
-          if (!event.target.closest('.grid-item, .header h1, #rules, .overlay')) {
-            if (lastTouchedElement) {
-              lastTouchedElement.classList.remove('hover');
-              lastTouchedElement = null;
-            }
-          }
-        });
-    
-        // Function to toggle description expansion (See more / See less)
-        window.toggleDescription = function(button) {
-          const gridItem = button.closest('.grid-item');
-          const description = gridItem.querySelector('.description');
-          const seeMore = gridItem.querySelector('.see-more');
-          const seeLess = gridItem.querySelector('.see-less');
-    
-          if (description.classList.contains('expanded')) {
-            description.classList.remove('expanded');
-            seeMore.style.display = 'inline';
-            seeLess.style.display = 'none';
-          } else {
-            description.classList.add('expanded');
-            seeMore.style.display = 'none';
-            seeLess.style.display = 'inline';
-          }
-        };
+
+        // Stop propagation to prevent touchend from immediately removing the class
+        e.stopPropagation();
       });
+    });
+
+    // Remove hover state when tapping anywhere outside the hover elements
+    document.addEventListener('touchstart', function (e) {
+      hoverElements.forEach(function (element) {
+        if (!element.contains(e.target)) {
+          element.classList.remove('hover-active'); // Remove hover class when tapping outside
+        }
+      });
+    });
+  }
+
+  // See-more / See-less functionality (works on all devices)
+  var seeMoreButton = document.getElementById('see-more');
+  var seeLessButton = document.getElementById('see-less');
+  var description = document.querySelector('.description');
+
+  if (seeMoreButton && seeLessButton) {
+    seeMoreButton.addEventListener('click', function () {
+      description.style.display = 'block';
+      seeMoreButton.style.display = 'none';
+      seeLessButton.style.display = 'inline';
+    });
+
+    seeLessButton.addEventListener('click', function () {
+      description.style.display = 'none';
+      seeMoreButton.style.display = 'inline';
+      seeLessButton.style.display = 'none';
+    });
+  }
+});
+
     </script>
     
 </body>
