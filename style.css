@@ -69,7 +69,6 @@
   border-radius: 16px;
   border: 2px solid black;
 }
-
 .header h1:hover + #rules {
   display: block;
 }
