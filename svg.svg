@@ -1,0 +1,8 @@
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+    <!-- Enlarged Pen nib symbol representing design -->
+    <path d="M50 10 L65 50 L50 70 L35 50 Z" fill="#" stroke="#000" stroke-width="3"/>
+    <circle cx="50" cy="55" r="4" fill="#000"/>
+  
+    <!-- Text symbol "<SVG>" to represent the idea of SVG creation -->
+    <text x="18" y="90" font-family="Arial, sans-serif" font-size="20" fill="#111" font-weight="bold">&lt;SVG&gt;</text>
+  </svg>
