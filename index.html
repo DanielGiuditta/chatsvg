@@ -1008,42 +1008,61 @@
     </div>
 
     <script>
-      function toggleDescription(button) {
-        const gridItem = button.closest('.grid-item');
-        const description = gridItem.querySelector('.description');
-        const seeMore = gridItem.querySelector('.see-more');
-        const seeLess = gridItem.querySelector('.see-less');
-
-        if (description.classList.contains('expanded')) {
-          description.classList.remove('expanded');
-          seeMore.style.display = 'inline';
-          seeLess.style.display = 'none';
-        } else {
-          description.classList.add('expanded');
-          seeMore.style.display = 'none';
-          seeLess.style.display = 'inline';
-        }
-      }
       document.addEventListener('DOMContentLoaded', function () {
-    // Check if the browser is Safari on mobile
-    var isMobileSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) && /iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-    if (isMobileSafari) {
-      // Add touchstart event to elements that have hover interactions
-      var hoverElements = document.querySelectorAll('.grid-item, .header h1');
-
-      hoverElements.forEach(function (element) {
-        element.addEventListener('touchstart', function () {
-          element.classList.toggle('hover');
+        var lastTouchedElement = null; // Keep track of the last touched element
+    
+        // Function to toggle hover state
+        function toggleHoverState(element) {
+          // Check if the same element was tapped again
+          if (element === lastTouchedElement) {
+            element.classList.toggle('hover');
+          } else {
+            if (lastTouchedElement) {
+              lastTouchedElement.classList.remove('hover');
+            }
+            element.classList.add('hover');
+          }
+          lastTouchedElement = element; // Update the last touched element
+        }
+    
+        // Add touch events to grid items and header h1
+        var hoverElements = document.querySelectorAll('.grid-item, .header h1');
+        hoverElements.forEach(function (element) {
+          element.addEventListener('touchstart', function (event) {
+            toggleHoverState(element);
+            event.stopPropagation(); // Prevent propagation to avoid immediate removal
+          });
         });
-
-        // Remove hover on touchend or click outside
-        document.addEventListener('touchend', function () {
-          element.classList.remove('hover');
+    
+        // Click outside any element removes hover state
+        document.addEventListener('touchend', function (event) {
+          if (!event.target.closest('.grid-item, .header h1')) {
+            if (lastTouchedElement) {
+              lastTouchedElement.classList.remove('hover');
+              lastTouchedElement = null;
+            }
+          }
         });
+    
+        // Function to toggle description expansion
+        function toggleDescription(button) {
+          const gridItem = button.closest('.grid-item');
+          const description = gridItem.querySelector('.description');
+          const seeMore = gridItem.querySelector('.see-more');
+          const seeLess = gridItem.querySelector('.see-less');
+    
+          if (description.classList.contains('expanded')) {
+            description.classList.remove('expanded');
+            seeMore.style.display = 'inline';
+            seeLess.style.display = 'none';
+          } else {
+            description.classList.add('expanded');
+            seeMore.style.display = 'none';
+            seeLess.style.display = 'inline';
+          }
+        }
       });
-    }
-  });
     </script>
+    
 </body>
 </html>
