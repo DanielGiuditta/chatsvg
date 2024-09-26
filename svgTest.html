@@ -1,82 +1,66 @@
 <html>
-  <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500">
     <!-- Background -->
-    <rect width="100%" height="100%" fill="#e8e4da"/>
+    <rect width="100%" height="100%" fill="lightblue" />
+    <rect y="75%" width="100%" height="25%" fill="#c8b897" />
     
-    <!-- Sky and distant background -->
-    <rect y="0" width="100%" height="150" fill="#a0d8e8" />
-    <rect y="150" width="100%" height="50" fill="#7fa97f" />
+    <!-- City buildings in the background -->
+    <rect x="340" y="50" width="80" height="230" fill="gray" />
+    <rect x="380" y="30" width="60" height="270" fill="darkgray" />
+    <rect x="360" y="120" width="60" height="40" fill="lightgray" />
+    <rect x="410" y="70" width="40" height="100" fill="#b0b0b0" />
+  
+    <!-- Atrium structure (glass walls and frames) -->
+    <line x1="50" y1="0" x2="50" y2="500" stroke="gray" stroke-width="3" />
+    <line x1="100" y1="0" x2="100" y2="500" stroke="gray" stroke-width="3" />
+    <line x1="150" y1="0" x2="150" y2="500" stroke="gray" stroke-width="3" />
+    <line x1="200" y1="0" x2="200" y2="500" stroke="gray" stroke-width="3" />
+    <line x1="0" y1="100" x2="500" y2="100" stroke="gray" stroke-width="2" />
+    <line x1="0" y1="200" x2="500" y2="200" stroke="gray" stroke-width="2" />
+    <line x1="0" y1="300" x2="500" y2="300" stroke="gray" stroke-width="2" />
     
-    <!-- Trees and leaves -->
-    <g id="tree-branches">
-      <!-- Branches -->
-      <line x1="100" y1="100" x2="60" y2="150" stroke="#8b4513" stroke-width="8"/>
-      <line x1="80" y1="80" x2="40" y2="130" stroke="#8b4513" stroke-width="6"/>
-      <line x1="300" y1="100" x2="340" y2="140" stroke="#8b4513" stroke-width="8"/>
-      <line x1="320" y1="80" x2="360" y2="130" stroke="#8b4513" stroke-width="6"/>
-      
-      <!-- Leaves -->
-      <circle cx="60" cy="150" r="20" fill="#6b8e23"/>
-      <circle cx="40" cy="130" r="15" fill="#6b8e23"/>
-      <circle cx="340" cy="140" r="20" fill="#6b8e23"/>
-      <circle cx="360" cy="130" r="15" fill="#6b8e23"/>
-    </g>
+    <!-- Planetary models hanging from the ceiling -->
+    <circle cx="280" cy="160" r="50" fill="lightgray" />
+    <circle cx="340" cy="130" r="30" fill="gold" />
+    <circle cx="380" cy="250" r="70" fill="saddlebrown" />
+    <circle cx="250" cy="170" r="40" fill="lightyellow" />
   
-    <!-- Monkeys (detailed) -->
-    <g id="monkeys">
-      <!-- Upper left monkey -->
-      <circle cx="60" cy="130" r="15" fill="#000" />
-      <circle cx="60" cy="130" r="12" fill="#fff" />
-      <circle cx="60" cy="130" r="8" fill="#000" />
-      <rect x="55" y="140" width="10" height="30" fill="#000" />
-      <circle cx="55" cy="170" r="6" fill="#000" />
-      <!-- Upper right monkey -->
-      <circle cx="340" cy="130" r="15" fill="#000" />
-      <circle cx="340" cy="130" r="12" fill="#fff" />
-      <circle cx="340" cy="130" r="8" fill="#000" />
-      <rect x="335" y="140" width="10" height="30" fill="#000" />
-      <circle cx="335" cy="170" r="6" fill="#000" />
-      
-      <!-- Lower left monkey -->
-      <circle cx="100" cy="200" r="15" fill="#000" />
-      <circle cx="100" cy="200" r="12" fill="#fff" />
-      <circle cx="100" cy="200" r="8" fill="#000" />
-      <rect x="95" y="210" width="10" height="30" fill="#000" />
-      <circle cx="95" cy="240" r="6" fill="#000" />
-      <!-- Lower right monkey -->
-      <circle cx="300" cy="200" r="15" fill="#000" />
-      <circle cx="300" cy="200" r="12" fill="#fff" />
-      <circle cx="300" cy="200" r="8" fill="#000" />
-      <rect x="295" y="210" width="10" height="30" fill="#000" />
-      <circle cx="295" cy="240" r="6" fill="#000" />
-    </g>
+    <!-- Suspended rods for planets -->
+    <line x1="280" y1="160" x2="280" y2="50" stroke="gray" stroke-width="3" />
+    <line x1="340" y1="130" x2="340" y2="30" stroke="gray" stroke-width="2" />
+    <line x1="380" y1="250" x2="380" y2="50" stroke="gray" stroke-width="4" />
+    <line x1="250" y1="170" x2="250" y2="60" stroke="gray" stroke-width="2" />
   
-    <!-- Woman figure (detailed) -->
-    <g id="woman">
-      <!-- Head -->
-      <circle cx="200" cy="300" r="15" fill="#3a3a3a"/>
-      <!-- Body -->
-      <rect x="190" y="315" width="20" height="50" fill="#3a3a3a" />
-      <!-- Arm -->
-      <line x1="200" y1="325" x2="230" y2="330" stroke="#3a3a3a" stroke-width="6"/>
-      <!-- Purse -->
-      <rect x="205" y="360" width="15" height="20" fill="#4d4d4d"/>
-    </g>
+    <!-- Walkway railings -->
+    <line x1="50" y1="400" x2="450" y2="400" stroke="darkgray" stroke-width="5" />
+    <line x1="50" y1="390" x2="450" y2="390" stroke="gray" stroke-width="2" />
   
-    <!-- Child figure (detailed) -->
-    <g id="child">
-      <!-- Head -->
-      <circle cx="240" cy="320" r="12" fill="#b5651d"/>
-      <!-- Body -->
-      <rect x="230" y="330" width="20" height="40" fill="#87ceeb"/>
-      <!-- Palm tree shirt pattern -->
-      <path d="M240,330 L250,350" stroke="#008000" stroke-width="2"/>
-      <circle cx="245" cy="340" r="3" fill="#ff6347"/>
-      <!-- Striped pants -->
-      <line x1="230" y1="370" x2="250" y2="370" stroke="#ffffff" stroke-width="3"/>
-      <line x1="230" y1="375" x2="250" y2="375" stroke="#ffffff" stroke-width="3"/>
-      <line x1="230" y1="380" x2="250" y2="380" stroke="#ffffff" stroke-width="3"/>
-    </g>
+    <!-- Woman with stroller -->
+    <rect x="80" y="330" width="30" height="90" fill="#343a40" />
+    <circle cx="95" cy="320" r="18" fill="#343a40" />
+    <ellipse cx="95" cy="375" rx="25" ry="10" fill="#212529" />
+    <rect x="100" y="420" width="40" height="40" fill="black" />
+    <circle cx="115" cy="420" r="20" fill="black" />
+    <!-- Stroller details -->
+    <rect x="80" y="410" width="45" height="20" fill="black" />
+    <circle cx="85" cy="440" r="10" fill="darkgray" />
+    <circle cx="115" cy="440" r="10" fill="darkgray" />
+    <circle cx="100" cy="440" r="8" fill="gray" />
+  
+    <!-- Child walking -->
+    <rect x="150" y="355" width="30" height="50" fill="#77b582" />
+    <rect x="148" y="390" width="34" height="25" fill="#dedede" />
+    <circle cx="165" cy="340" r="18" fill="#c49778" />
+    <!-- Child's legs and shoes -->
+    <rect x="155" y="410" width="10" height="25" fill="lightgray" />
+    <rect x="170" y="410" width="10" height="25" fill="lightgray" />
+    <rect x="152" y="435" width="15" height="8" fill="yellow" />
+    <rect x="168" y="435" width="15" height="8" fill="yellow" />
+  
+    <!-- Shadows to add depth -->
+    <ellipse cx="95" cy="420" rx="20" ry="8" fill="rgba(0,0,0,0.2)" />
+    <ellipse cx="165" cy="425" rx="20" ry="8" fill="rgba(0,0,0,0.2)" />
   </svg>
+  
   
 </html>

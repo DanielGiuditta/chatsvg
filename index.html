@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="header">
-        <h1>ChatSVG<img src="info.png" width="24px"></h1>
+        <h1>ChatSVG T5<img src="info.png" width="24px"></h1>
         <div id="rules">
           <ol>
             <li>Everyday I take a picture</li>
@@ -1013,36 +1013,37 @@
     
         // Function to toggle hover state
         function toggleHoverState(element) {
-          // If the same element was tapped again, remove the hover state
+          // If the same element is touched again, remove the hover state
           if (element === lastTouchedElement) {
             element.classList.remove('hover');
-            lastTouchedElement = null; // Reset last touched element
+            lastTouchedElement = null; // Reset the last touched element
           } else {
             // Remove hover state from the previously touched element
             if (lastTouchedElement) {
               lastTouchedElement.classList.remove('hover');
             }
-            // Add hover state to the currently touched element
+            // Add hover state to the current element
             element.classList.add('hover');
             lastTouchedElement = element; // Update the last touched element
           }
         }
     
-        // Add touch events to grid items and header h1
-        const hoverElements = document.querySelectorAll('.grid-item, .header h1');
+        // Add touch events to elements that have hover states
+        const hoverElements = document.querySelectorAll('.grid-item, .header h1, #rules, .overlay');
         hoverElements.forEach(function (element) {
           element.addEventListener('touchstart', function (event) {
             // If the target is not "See more" or "See less", toggle the hover state
             if (!event.target.classList.contains('see-more') && !event.target.classList.contains('see-less')) {
               toggleHoverState(element);
             }
-            event.stopPropagation(); // Prevent event bubbling to avoid immediate removal
+            event.stopPropagation(); // Prevent event bubbling
           });
         });
     
-        // Remove hover state when clicking outside any hoverable element
+        // Remove hover state when tapping outside any hoverable element
         document.addEventListener('touchend', function (event) {
-          if (!event.target.closest('.grid-item, .header h1')) {
+          // If the tap is outside any hoverable element, remove the hover state
+          if (!event.target.closest('.grid-item, .header h1, #rules, .overlay')) {
             if (lastTouchedElement) {
               lastTouchedElement.classList.remove('hover');
               lastTouchedElement = null;
@@ -1070,6 +1071,28 @@
       });
     </script>
     
-    
 </body>
 </html>
+
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Check if the browser is Safari on mobile
+    var isMobileSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) && /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobileSafari) {
+      // Add touchstart event to elements that have hover interactions
+      var hoverElements = document.querySelectorAll('.grid-item, .header h1');
+
+      hoverElements.forEach(function (element) {
+        element.addEventListener('touchstart', function () {
+          element.classList.toggle('hover');
+        });
+
+        // Remove hover on touchend or click outside
+        document.addEventListener('touchend', function () {
+          element.classList.remove('hover');
+        });
+      });
+    }
+  });
+</script> -->
