@@ -691,7 +691,7 @@
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
           <!-- Background -->
-          <rect width="100%" height="100%" fill="ivory"/>
+          <rect width="100%" height="100%" fill="beige/>
         
           <!-- High chair tray -->
           <rect x="100" y="250" rx="20" ry="20" width="200" height="40" fill="#e0e0e0"/>
@@ -1008,48 +1008,42 @@
     </div>
 
     <script>
-document.addEventListener('DOMContentLoaded', function () {
-    // This function will handle toggling the hover class
-    function toggleHover(element) {
-        // If the element already has the hover class, remove it
-        if (element.classList.contains('hover')) {
-            element.classList.remove('hover');
+      function toggleDescription(button) {
+        const gridItem = button.closest('.grid-item');
+        const description = gridItem.querySelector('.description');
+        const seeMore = gridItem.querySelector('.see-more');
+        const seeLess = gridItem.querySelector('.see-less');
+
+        if (description.classList.contains('expanded')) {
+          description.classList.remove('expanded');
+          seeMore.style.display = 'inline';
+          seeLess.style.display = 'none';
         } else {
-            // Add the hover class to the element
-            element.classList.add('hover');
+          description.classList.add('expanded');
+          seeMore.style.display = 'none';
+          seeLess.style.display = 'inline';
         }
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+    // Check if the browser is Safari on mobile
+    var isMobileSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) && /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobileSafari) {
+      // Add touchstart event to elements that have hover interactions
+      var hoverElements = document.querySelectorAll('.grid-item, .header h1');
+
+      hoverElements.forEach(function (element) {
+        element.addEventListener('touchstart', function () {
+          element.classList.toggle('hover');
+        });
+
+        // Remove hover on touchend or click outside
+        document.addEventListener('touchend', function () {
+          element.classList.remove('hover');
+        });
+      });
     }
-
-    // Select all elements that should show an overlay on hover
-    var hoverElements = document.querySelectorAll('.grid-item, .header h1');
-
-    // Add touchstart event to each hoverable element
-    hoverElements.forEach(function (element) {
-        element.addEventListener('touchstart', function (event) {
-            // Prevent this event from affecting any parent elements
-            event.stopPropagation();
-
-            // Toggle the hover class on the element
-            toggleHover(element);
-        });
-
-        // Optional: If you want to remove hover on touchend or click outside
-        // It might interfere with tapping the same element to close it, consider removing it if unnecessary
-        document.addEventListener('touchend', function (e) {
-            if (!element.contains(e.target)) {
-                element.classList.remove('hover');
-            }
-        });
-    });
-
-    // This is to prevent the overlay from showing when clicking "See more" or "See less"
-    document.querySelectorAll('.see-more, .see-less').forEach(function(button) {
-        button.addEventListener('touchstart', function(e) {
-            e.stopPropagation(); // Stop the event from triggering the hover toggle on the grid-item
-        });
-    });
-});
-
+  });
     </script>
 </body>
 </html>
