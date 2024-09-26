@@ -1008,61 +1008,48 @@
     </div>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        var lastTouchedElement = null; // Keep track of the last touched element
-    
-        // Function to toggle hover state
-        function toggleHoverState(element) {
-          // Check if the same element was tapped again
-          if (element === lastTouchedElement) {
-            element.classList.toggle('hover');
-          } else {
-            if (lastTouchedElement) {
-              lastTouchedElement.classList.remove('hover');
-            }
+document.addEventListener('DOMContentLoaded', function () {
+    // This function will handle toggling the hover class
+    function toggleHover(element) {
+        // If the element already has the hover class, remove it
+        if (element.classList.contains('hover')) {
+            element.classList.remove('hover');
+        } else {
+            // Add the hover class to the element
             element.classList.add('hover');
-          }
-          lastTouchedElement = element; // Update the last touched element
         }
-    
-        // Add touch events to grid items and header h1
-        var hoverElements = document.querySelectorAll('.grid-item, .header h1');
-        hoverElements.forEach(function (element) {
-          element.addEventListener('touchstart', function (event) {
-            toggleHoverState(element);
-            event.stopPropagation(); // Prevent propagation to avoid immediate removal
-          });
+    }
+
+    // Select all elements that should show an overlay on hover
+    var hoverElements = document.querySelectorAll('.grid-item, .header h1');
+
+    // Add touchstart event to each hoverable element
+    hoverElements.forEach(function (element) {
+        element.addEventListener('touchstart', function (event) {
+            // Prevent this event from affecting any parent elements
+            event.stopPropagation();
+
+            // Toggle the hover class on the element
+            toggleHover(element);
         });
-    
-        // Click outside any element removes hover state
-        document.addEventListener('touchend', function (event) {
-          if (!event.target.closest('.grid-item, .header h1')) {
-            if (lastTouchedElement) {
-              lastTouchedElement.classList.remove('hover');
-              lastTouchedElement = null;
+
+        // Optional: If you want to remove hover on touchend or click outside
+        // It might interfere with tapping the same element to close it, consider removing it if unnecessary
+        document.addEventListener('touchend', function (e) {
+            if (!element.contains(e.target)) {
+                element.classList.remove('hover');
             }
-          }
         });
-    
-        // Function to toggle description expansion
-        function toggleDescription(button) {
-          const gridItem = button.closest('.grid-item');
-          const description = gridItem.querySelector('.description');
-          const seeMore = gridItem.querySelector('.see-more');
-          const seeLess = gridItem.querySelector('.see-less');
-    
-          if (description.classList.contains('expanded')) {
-            description.classList.remove('expanded');
-            seeMore.style.display = 'inline';
-            seeLess.style.display = 'none';
-          } else {
-            description.classList.add('expanded');
-            seeMore.style.display = 'none';
-            seeLess.style.display = 'inline';
-          }
-        }
-      });
+    });
+
+    // This is to prevent the overlay from showing when clicking "See more" or "See less"
+    document.querySelectorAll('.see-more, .see-less').forEach(function(button) {
+        button.addEventListener('touchstart', function(e) {
+            e.stopPropagation(); // Stop the event from triggering the hover toggle on the grid-item
+        });
+    });
+});
+
     </script>
-    
 </body>
 </html>
