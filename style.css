@@ -214,6 +214,9 @@ h4 {
   .header {
     text-align: center;
   }
+  footer{
+    text-align: center;
+  }
 
   .header h1 {
     display: inline-flex;
