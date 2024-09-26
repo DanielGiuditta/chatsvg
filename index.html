@@ -1008,7 +1008,23 @@
     </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+      function toggleDescription(button) {
+        const gridItem = button.closest('.grid-item');
+        const description = gridItem.querySelector('.description');
+        const seeMore = gridItem.querySelector('.see-more');
+        const seeLess = gridItem.querySelector('.see-less');
+
+        if (description.classList.contains('expanded')) {
+          description.classList.remove('expanded');
+          seeMore.style.display = 'inline';
+          seeLess.style.display = 'none';
+        } else {
+          description.classList.add('expanded');
+          seeMore.style.display = 'none';
+          seeLess.style.display = 'inline';
+        }
+      }
+      document.addEventListener('DOMContentLoaded', function () {
     // Check if the browser is Safari on mobile
     var isMobileSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) && /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
