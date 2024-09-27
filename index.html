@@ -1345,40 +1345,42 @@
       <a href="mailto:danielgiuditta@gmail.com">Say Hello</a> 
     </footer>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  // Check if the device is touch-enabled
-  var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+      function toggleDescription(button) {
+        const gridItem = button.closest('.grid-item');
+        const description = gridItem.querySelector('.description');
+        const seeMore = gridItem.querySelector('.see-more');
+        const seeLess = gridItem.querySelector('.see-less');
 
-  if (isTouchDevice) {
-    // Add touchstart event to elements that have hover interactions
-    var hoverElements = document.querySelectorAll('.grid-item, .header h1');
+        if (description.classList.contains('expanded')) {
+          description.classList.remove('expanded');
+          seeMore.style.display = 'inline';
+          seeLess.style.display = 'none';
+        } else {
+          description.classList.add('expanded');
+          seeMore.style.display = 'none';
+          seeLess.style.display = 'inline';
+        }
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+    // Check if the browser is Safari on mobile
+    var isMobileSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) && /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-    hoverElements.forEach(function (element) {
-      element.addEventListener('touchstart', function (event) {
-        // Prevent the default behavior to avoid triggering other events
-        event.preventDefault();
+    if (isMobileSafari) {
+      // Add touchstart event to elements that have hover interactions
+      var hoverElements = document.querySelectorAll('.grid-item, .header h1');
 
-        // Remove 'hover' class from all elements
-        hoverElements.forEach(function (el) {
-          if (el !== element) {
-            el.classList.remove('hover');
-          }
+      hoverElements.forEach(function (element) {
+        element.addEventListener('touchstart', function () {
+          element.classList.toggle('hover');
         });
 
-        // Toggle 'hover' class on the touched element
-        element.classList.toggle('hover');
-      });
-
-      // Optional: Remove hover when touching outside
-      document.addEventListener('touchstart', function (e) {
-        if (!element.contains(e.target)) {
+        // Remove hover on touchend or click outside
+        document.addEventListener('touchend', function () {
           element.classList.remove('hover');
-        }
+        });
       });
-    });
-  }
-});
-
+    }
+  });
 </script>
 </body>
 </html>
