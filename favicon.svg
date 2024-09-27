@@ -1,10 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 27.9.5, SVG Export Plug-In . SVG Version: 9.03 Build 54986)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:none;stroke:#000000;stroke-width:7.0601;stroke-linejoin:bevel;}
-</style>
-<path class="st0" d="M50,1.5L74.2,66L50,98.3L25.8,66L50,1.5z"/>
-<circle cx="50" cy="67.6" r="6.5"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #000;
+        stroke-linejoin: bevel;
+        stroke-width: 6.83px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3, .cls-2 {
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" width="100" height="100"/>
+  <path class="cls-1" d="m50,8.34l20.78,55.41-20.78,27.71-20.78-27.71L50,8.34Z"/>
+  <circle class="cls-3" cx="50" cy="65.05" r="5.54"/>
 </svg>
