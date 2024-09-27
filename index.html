@@ -1345,42 +1345,60 @@
       <a href="mailto:danielgiuditta@gmail.com">Say Hello</a> 
     </footer>
 <script>
-      function toggleDescription(button) {
-        const gridItem = button.closest('.grid-item');
-        const description = gridItem.querySelector('.description');
-        const seeMore = gridItem.querySelector('.see-more');
-        const seeLess = gridItem.querySelector('.see-less');
+function toggleDescription(button) {
+  const gridItem = button.closest('.grid-item');
+  const description = gridItem.querySelector('.description');
+  const seeMore = gridItem.querySelector('.see-more');
+  const seeLess = gridItem.querySelector('.see-less');
 
-        if (description.classList.contains('expanded')) {
-          description.classList.remove('expanded');
-          seeMore.style.display = 'inline';
-          seeLess.style.display = 'none';
-        } else {
-          description.classList.add('expanded');
-          seeMore.style.display = 'none';
-          seeLess.style.display = 'inline';
-        }
+  if (description.classList.contains('expanded')) {
+    description.classList.remove('expanded');
+    seeMore.style.display = 'inline';
+    seeLess.style.display = 'none';
+  } else {
+    description.classList.add('expanded');
+    seeMore.style.display = 'none';
+    seeLess.style.display = 'inline';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Check if the device is touch-enabled
+  var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+
+  if (isTouchDevice) {
+    // Use event delegation
+    document.body.addEventListener('touchstart', function (event) {
+      var targetElement = event.target;
+
+      // If the touch target is "See more" or "See less", do nothing
+      if (targetElement.closest('.see-more, .see-less')) {
+        return;
       }
-      document.addEventListener('DOMContentLoaded', function () {
-    // Check if the browser is Safari on mobile
-    var isMobileSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) && /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-    if (isMobileSafari) {
-      // Add touchstart event to elements that have hover interactions
-      var hoverElements = document.querySelectorAll('.grid-item, .header h1');
+      // Find the closest hoverable element
+      var hoverElement = targetElement.closest('.grid-item, .header h1');
 
-      hoverElements.forEach(function (element) {
-        element.addEventListener('touchstart', function () {
-          element.classList.toggle('hover');
+      if (hoverElement) {
+        // Remove 'hover' class from other elements
+        document.querySelectorAll('.grid-item.hover, .header h1.hover').forEach(function (el) {
+          if (el !== hoverElement) {
+            el.classList.remove('hover');
+          }
         });
 
-        // Remove hover on touchend or click outside
-        document.addEventListener('touchend', function () {
-          element.classList.remove('hover');
+        // Toggle 'hover' class on the touched element
+        hoverElement.classList.toggle('hover');
+      } else {
+        // Remove 'hover' class from all elements if touch is outside
+        document.querySelectorAll('.grid-item.hover, .header h1.hover').forEach(function (el) {
+          el.classList.remove('hover');
         });
-      });
-    }
-  });
+      }
+    });
+  }
+});
+
 </script>
 </body>
 </html>
