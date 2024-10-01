@@ -1,23 +1,74 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Lift structure -->
-  <rect x="20" y="30" width="60" height="40" fill="blue" />
-  <!-- Ballymore label -->
-  <rect x="40" y="15" width="20" height="5" fill="white" />
-  <text x="41" y="19" font-size="3" fill="blue">BALLYMORE</text>
-  <!-- Transparent panels -->
-  <rect x="22" y="32" width="56" height="36" fill="none" stroke="gray" stroke-width="0.5" />
-  <!-- Chains inside lift -->
-  <line x1="30" y1="32" x2="30" y2="68" stroke="black" stroke-width="0.3" />
-  <line x1="70" y1="32" x2="70" y2="68" stroke="black" stroke-width="0.3" />
-  <!-- Checkered safety decals -->
-  <rect x="22" y="65" width="10" height="5" fill="yellow" />
-  <rect x="32" y="65" width="10" height="5" fill="black" />
-  <rect x="62" y="65" width="10" height="5" fill="yellow" />
-  <rect x="72" y="65" width="10" height="5" fill="black" />
-  <!-- Background shelves and boxes -->
-  <rect x="5" y="50" width="15" height="10" fill="brown" />
-  <rect x="80" y="50" width="15" height="10" fill="brown" />
-  <!-- Christmas decorations -->
-  <circle cx="10" cy="40" r="5" fill="green" />
-  <circle cx="90" cy="40" r="5" fill="red" />
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
+  <!-- Dots -->
+  <circle cx="100" cy="100" r="10" fill="gray" />
+  <circle cx="200" cy="100" r="10" fill="gray" />
+  <circle cx="300" cy="100" r="10" fill="gray" />
+  <circle cx="400" cy="100" r="10" fill="gray" />
+  
+  <circle cx="100" cy="200" r="10" fill="gray" />
+  <circle cx="200" cy="200" r="10" fill="gray" />
+  <circle cx="300" cy="200" r="10" fill="gray" />
+  <circle cx="400" cy="200" r="10" fill="gray" />
+  
+  <circle cx="100" cy="300" r="10" fill="gray" />
+  <circle cx="200" cy="300" r="10" fill="gray" />
+  <circle cx="300" cy="300" r="10" fill="gray" />
+  <circle cx="400" cy="300" r="10" fill="gray" />
+  
+  <circle cx="100" cy="400" r="10" fill="gray" />
+  <circle cx="200" cy="400" r="10" fill="gray" />
+  <circle cx="300" cy="400" r="10" fill="gray" />
+  <circle cx="400" cy="400" r="10" fill="gray" />
+
+  <!-- Curves -->
+  <!-- Top left loop -->
+  <path d="
+    M 100 100 
+    C 100 150, 50 150, 50 200
+    C 50 250, 100 250, 100 300
+    C 100 350, 50 350, 50 400
+    " 
+    stroke="orange" stroke-width="5" fill="transparent" />
+
+  <!-- Top right loop -->
+  <path d="
+    M 100 100 
+    C 150 100, 150 50, 200 50
+    C 250 50, 250 100, 300 100
+    C 350 100, 350 50, 400 50
+    " 
+    stroke="orange" stroke-width="5" fill="transparent" />
+
+  <!-- Bottom left loop -->
+  <path d="
+    M 100 400 
+    C 100 350, 50 350, 50 300
+    C 50 250, 100 250, 100 200
+    C 100 150, 50 150, 50 100
+    " 
+    stroke="orange" stroke-width="5" fill="transparent" />
+
+  <!-- Bottom right loop -->
+  <path d="
+    M 400 100 
+    C 350 100, 350 50, 300 50
+    C 250 50, 250 100, 200 100
+    C 150 100, 150 50, 100 50
+    " 
+    stroke="orange" stroke-width="5" fill="transparent" />
+
+  <!-- Middle paths (loops around center) -->
+  <path d="
+    M 200 200 
+    C 250 200, 250 150, 300 150
+    C 350 150, 350 200, 400 200
+    " 
+    stroke="orange" stroke-width="5" fill="transparent" />
+
+  <path d="
+    M 300 300 
+    C 250 300, 250 350, 200 350
+    C 150 350, 150 300, 100 300
+    " 
+    stroke="orange" stroke-width="5" fill="transparent" />
 </svg>
