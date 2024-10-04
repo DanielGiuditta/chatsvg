@@ -1,74 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
-  <!-- Dots -->
-  <circle cx="100" cy="100" r="10" fill="gray" />
-  <circle cx="200" cy="100" r="10" fill="gray" />
-  <circle cx="300" cy="100" r="10" fill="gray" />
-  <circle cx="400" cy="100" r="10" fill="gray" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Background swamp with water and vegetation patches -->
+  <rect width="400" height="400" fill="#6a7b4d"/>
   
-  <circle cx="100" cy="200" r="10" fill="gray" />
-  <circle cx="200" cy="200" r="10" fill="gray" />
-  <circle cx="300" cy="200" r="10" fill="gray" />
-  <circle cx="400" cy="200" r="10" fill="gray" />
+  <!-- Dark water patches with more intricate shapes -->
+  <path d="M60 80 Q100 72 80 120 T120 140 Q160 120 200 180 T240 200 Q220 280 260 300 Q300 320 340 280 T280 240 Q200 220 260 160 Q280 140 240 120 Q180 100 140 80 Z" fill="#1f3b4d"/>
+  <path d="M40 160 Q80 200 60 240 T100 260 Q140 220 180 280 T160 340 Q100 360 220 360 Q260 340 220 300 Q180 240 220 200 Q260 180 200 140 Q140 180 60 140 Z" fill="#274952"/>
+  <path d="M240 80 Q280 100 260 140 T300 160 Q340 180 380 200 T340 240 Q300 260 340 280 Q360 300 320 320 Q280 340 260 280 T220 200 Q180 160 240 120 Q200 80 280 60 Z" fill="#213741"/>
+
+  <!-- Vegetation patches with more organic and detailed shapes -->
+  <path d="M72 168 Q100 200 80 220 T120 248 Q140 232 160 268 T140 328 Q80 368 180 368 Q220 352 200 320 Q180 280 220 240 Q260 220 200 168 Q140 200 80 160 Z" fill="#7a9a68"/>
+  <path d="M100 100 Q140 120 120 160 T160 180 Q180 200 200 220 T240 260 Q280 280 300 260 Q320 240 280 220 T240 180 Q200 140 160 120 Q120 100 100 100 Z" fill="#8cad73"/>
+  <path d="M200 240 Q240 260 220 300 T260 320 Q280 340 300 320 T340 280 Q360 260 320 240 T280 200 Q240 180 200 220 T180 260 Q140 280 160 320 Q180 340 220 340 Q260 320 240 280 T200 240 Z" fill="#92b284"/>
+
+  <!-- Canoe-like object with enhanced details, highlights, and shadows -->
+  <path d="M100 120 C180 40, 300 40, 340 120 C380 160, 380 260, 340 320 C300 380, 180 380, 100 320 C60 260, 60 160, 100 120 Z" fill="lightblue" stroke="yellow" stroke-width="2"/>
+
+  <!-- Highlights on the canoe -->
+  <path d="M120 140 C200 60, 280 60, 320 120 Q340 220, 320 308 C280 368, 200 368, 120 308 Q100 220, 120 140 Z" fill="none" stroke="#f1f59c" stroke-width="1"/>
+
+  <!-- Shadow detail on the canoe -->
+  <path d="M100 120 C180 80, 260 80, 300 140 C340 200, 340 240, 300 300 C260 360, 180 360, 100 300 C60 240, 60 200, 100 120 Z" fill="none" stroke="darkblue" stroke-width="2" opacity="0.5"/>
+
+  <!-- Finer highlights and reflections for depth and realism -->
+  <path d="M112 152 C192 72, 272 72, 312 132 Q328 220, 312 292 C272 352, 192 352, 112 292 Q96 220, 112 152 Z" fill="none" stroke="#fffacd" stroke-width="0.6"/>
   
-  <circle cx="100" cy="300" r="10" fill="gray" />
-  <circle cx="200" cy="300" r="10" fill="gray" />
-  <circle cx="300" cy="300" r="10" fill="gray" />
-  <circle cx="400" cy="300" r="10" fill="gray" />
-  
-  <circle cx="100" cy="400" r="10" fill="gray" />
-  <circle cx="200" cy="400" r="10" fill="gray" />
-  <circle cx="300" cy="400" r="10" fill="gray" />
-  <circle cx="400" cy="400" r="10" fill="gray" />
-
-  <!-- Curves -->
-  <!-- Top left loop -->
-  <path d="
-    M 100 100 
-    C 100 150, 50 150, 50 200
-    C 50 250, 100 250, 100 300
-    C 100 350, 50 350, 50 400
-    " 
-    stroke="orange" stroke-width="5" fill="transparent" />
-
-  <!-- Top right loop -->
-  <path d="
-    M 100 100 
-    C 150 100, 150 50, 200 50
-    C 250 50, 250 100, 300 100
-    C 350 100, 350 50, 400 50
-    " 
-    stroke="orange" stroke-width="5" fill="transparent" />
-
-  <!-- Bottom left loop -->
-  <path d="
-    M 100 400 
-    C 100 350, 50 350, 50 300
-    C 50 250, 100 250, 100 200
-    C 100 150, 50 150, 50 100
-    " 
-    stroke="orange" stroke-width="5" fill="transparent" />
-
-  <!-- Bottom right loop -->
-  <path d="
-    M 400 100 
-    C 350 100, 350 50, 300 50
-    C 250 50, 250 100, 200 100
-    C 150 100, 150 50, 100 50
-    " 
-    stroke="orange" stroke-width="5" fill="transparent" />
-
-  <!-- Middle paths (loops around center) -->
-  <path d="
-    M 200 200 
-    C 250 200, 250 150, 300 150
-    C 350 150, 350 200, 400 200
-    " 
-    stroke="orange" stroke-width="5" fill="transparent" />
-
-  <path d="
-    M 300 300 
-    C 250 300, 250 350, 200 350
-    C 150 350, 150 300, 100 300
-    " 
-    stroke="orange" stroke-width="5" fill="transparent" />
+  <!-- Additional shadow depth -->
+  <path d="M105 125 C185 55, 295 55, 325 125 C350 160, 350 250, 325 305 C295 365, 185 365, 105 305 C75 250, 75 160, 105 125 Z" fill="none" stroke="darkslateblue" stroke-width="1.2" opacity="0.4"/>
 </svg>

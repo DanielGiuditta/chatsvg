@@ -43,8 +43,291 @@
         </div>
     </header>
     <div class="grid-container">
+            <!-- Dino -->
+            <div class="grid-item">
+              <img src="img/monkey.jpg" class="hover-image">
+              <div class="overlay">
+                  <h4>10/03/2024</h4>
+                  <p class="description">A lush jungle scene with several colobus monkeys perched on branches. The colobus monkeys are distinguished by their black bodies with white fur on their backs and long white tails. They are climbing and resting on tree branches surrounded by thick green foliage, vines, and hanging moss. In the background, there is a hazy sky with a distant landscape of more forested areas. The overall atmosphere feels serene and natural, with monkeys positioned at various heights in the scene.</p>
+                  <div class="see-more-box">
+                      <span class="see-more" onclick="toggleDescription(this)">See more</span>
+                      <span class="see-less" onclick="toggleDescription(this)">See less</span>
+                  </div>
+              </div>
+              <div class="svg-container">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Background sky and distant forest -->
+                  <rect width="200" height="200" fill="lightblue" />
+                  <ellipse cx="100" cy="160" rx="90" ry="30" fill="forestgreen" opacity="0.5"/>
+                  <ellipse cx="100" cy="180" rx="100" ry="20" fill="darkgreen" opacity="0.4"/>
+                
+                  <!-- Tree branches -->
+                  <g id="tree">
+                    <path d="M40 50 C50 30, 80 25, 100 50 S150 90, 170 80" stroke="saddlebrown" stroke-width="5" fill="none"/>
+                    <path d="M30 70 C40 50, 60 60, 90 80 S120 120, 140 100" stroke="saddlebrown" stroke-width="5" fill="none"/>
+                    <path d="M50 110 C60 90, 80 85, 110 110 S130 140, 160 130" stroke="saddlebrown" stroke-width="5" fill="none"/>
+                  </g>
+                
+                  <!-- Leaves on branches -->
+                  <g id="leaves">
+                    <circle cx="50" cy="50" r="6" fill="green" />
+                    <circle cx="55" cy="65" r="5" fill="green" />
+                    <circle cx="100" cy="50" r="7" fill="green" />
+                    <circle cx="110" cy="60" r="5" fill="green" />
+                    <circle cx="150" cy="90" r="6" fill="green" />
+                    <circle cx="70" cy="120" r="7" fill="green" />
+                    <circle cx="130" cy="130" r="6" fill="green" />
+                    <circle cx="160" cy="80" r="5" fill="green" />
+                    <circle cx="90" cy="90" r="7" fill="green" />
+                    <circle cx="100" cy="120" r="6" fill="green" />
+                  </g>
+                
+                  <!-- Colobus Monkeys -->
+                  <g id="monkeys">
+                    <!-- Monkey 1 (left side) -->
+                    <circle cx="40" cy="60" r="6" fill="black"/> <!-- head -->
+                    <rect x="36" y="65" width="8" height="20" fill="black"/> <!-- body -->
+                    <path d="M40 80 C37 85, 43 85, 40 90" fill="black"/> <!-- legs -->
+                    <line x1="40" y1="90" x2="40" y2="120" stroke="white" stroke-width="2"/> <!-- tail -->
+                    <path d="M38 60 C38 58, 42 58, 42 60" stroke="white" stroke-width="1" fill="none"/> <!-- face stripe -->
+                
+                    <!-- Monkey 2 (center, climbing) -->
+                    <circle cx="80" cy="90" r="6" fill="black"/> <!-- head -->
+                    <rect x="76" y="95" width="8" height="20" fill="black"/> <!-- body -->
+                    <path d="M80 110 C77 115, 83 115, 80 120" fill="black"/> <!-- legs -->
+                    <line x1="80" y1="120" x2="80" y2="150" stroke="white" stroke-width="2"/> <!-- tail -->
+                    <path d="M78 90 C78 88, 82 88, 82 90" stroke="white" stroke-width="1" fill="none"/> <!-- face stripe -->
+                
+                    <!-- Monkey 3 (right side) -->
+                    <circle cx="130" cy="70" r="6" fill="black"/> <!-- head -->
+                    <rect x="126" y="75" width="8" height="20" fill="black"/> <!-- body -->
+                    <path d="M130 90 C127 95, 133 95, 130 100" fill="black"/> <!-- legs -->
+                    <line x1="130" y1="100" x2="130" y2="130" stroke="white" stroke-width="2"/> <!-- tail -->
+                    <path d="M128 70 C128 68, 132 68, 132 70" stroke="white" stroke-width="1" fill="none"/> <!-- face stripe -->
+                
+                    <!-- Monkey 4 (back, sitting) -->
+                    <circle cx="150" cy="100" r="5" fill="black"/> <!-- head -->
+                    <rect x="147" y="105" width="6" height="15" fill="black"/> <!-- body -->
+                    <path d="M150 115 C148 118, 152 118, 150 120" fill="black"/> <!-- legs -->
+                    <line x1="150" y1="120" x2="150" y2="140" stroke="white" stroke-width="2"/> <!-- tail -->
+                    <path d="M148 100 C148 99, 152 99, 152 100" stroke="white" stroke-width="1" fill="none"/> <!-- face stripe -->
+                  </g>
+                
+                  <!-- Hanging moss -->
+                  <g id="moss">
+                    <path d="M50 30 C50 40, 55 45, 55 55" stroke="saddlebrown" stroke-width="1.5"/>
+                    <path d="M100 20 C100 30, 105 35, 105 45" stroke="saddlebrown" stroke-width="1.5"/>
+                    <path d="M130 40 C130 50, 135 55, 135 65" stroke="saddlebrown" stroke-width="1.5"/>
+                    <path d="M150 60 C150 70, 155 75, 155 85" stroke="saddlebrown" stroke-width="1.5"/>
+                  </g>
+                </svg>
+                
+              </div>
+        
+              </div>
+      <!-- Dino -->
+        <div class="grid-item">
+        <img src="img/dino.jpg" class="hover-image">
+        <div class="overlay">
+            <h4>10/02/2024</h4>
+            <p class="description">Two large dinosaur skeletons on display in a museum exhibit, featuring an ornithopod species with elongated necks and tails. The foremost skeleton is in a crouched posture with its head lowered, while the second one stands upright behind it with its head elevated, showing a crest-like structure. The scene is set against a clean museum backdrop with soft lighting from ceiling lamps, glass display cases, and a sandy-textured floor beneath the skeletons.</p>
+            <div class="see-more-box">
+                <span class="see-more" onclick="toggleDescription(this)">See more</span>
+                <span class="see-less" onclick="toggleDescription(this)">See less</span>
+            </div>
+        </div>
+        <div class="svg-container">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+            <!-- Background -->
+            <rect width="100%" height="100%" fill="#eaeaea"/>
+          
+            <!-- Foreground Dinosaur (Crouched) -->
+            <g transform="translate(100, 350)">
+              <!-- Body -->
+              <ellipse cx="100" cy="50" rx="60" ry="30" fill="none" stroke="#3b3b3b" stroke-width="3"/>
+              <!-- Tail -->
+              <path d="M100,50 Q150,70 220,60" stroke="#3b3b3b" stroke-width="3" fill="none"/>
+              <!-- Neck -->
+              <path d="M100,40 Q70,20 50,5" stroke="#3b3b3b" stroke-width="3" fill="none"/>
+              <!-- Head -->
+              <ellipse cx="45" cy="5" rx="15" ry="8" fill="none" stroke="#3b3b3b" stroke-width="3"/>
+              <!-- Legs -->
+              <line x1="90" y1="70" x2="80" y2="110" stroke="#3b3b3b" stroke-width="4"/>
+              <line x1="110" y1="70" x2="120" y2="110" stroke="#3b3b3b" stroke-width="4"/>
+              <!-- Feet -->
+              <circle cx="80" cy="110" r="5" fill="#3b3b3b"/>
+              <circle cx="120" cy="110" r="5" fill="#3b3b3b"/>
+              <!-- Front Legs (Arms) -->
+              <line x1="90" y1="50" x2="80" y2="70" stroke="#3b3b3b" stroke-width="3"/>
+              <line x1="110" y1="50" x2="120" y2="70" stroke="#3b3b3b" stroke-width="3"/>
+              <!-- Hands -->
+              <circle cx="80" cy="70" r="4" fill="#3b3b3b"/>
+              <circle cx="120" cy="70" r="4" fill="#3b3b3b"/>
+            </g>
+          
+            <!-- Background Dinosaur (Upright) -->
+            <g transform="translate(200, 150)">
+              <!-- Body -->
+              <ellipse cx="100" cy="50" rx="70" ry="35" fill="none" stroke="#555555" stroke-width="3"/>
+              <!-- Tail -->
+              <path d="M100,50 Q180,100 260,80" stroke="#555555" stroke-width="3" fill="none"/>
+              <!-- Neck -->
+              <path d="M100,40 Q120,20 140,5" stroke="#555555" stroke-width="3" fill="none"/>
+              <!-- Head -->
+              <ellipse cx="145" cy="5" rx="20" ry="10" fill="none" stroke="#555555" stroke-width="3"/>
+              <!-- Crest -->
+              <path d="M155,0 Q160,-20 140,-20" stroke="#555555" stroke-width="2" fill="none"/>
+              <!-- Legs -->
+              <line x1="90" y1="70" x2="85" y2="120" stroke="#555555" stroke-width="4"/>
+              <line x1="110" y1="70" x2="115" y2="120" stroke="#555555" stroke-width="4"/>
+              <!-- Feet -->
+              <circle cx="85" cy="120" r="5" fill="#555555"/>
+              <circle cx="115" cy="120" r="5" fill="#555555"/>
+              <!-- Front Legs (Arms) -->
+              <line x1="90" y1="50" x2="80" y2="70" stroke="#555555" stroke-width="3"/>
+              <line x1="110" y1="50" x2="120" y2="70" stroke="#555555" stroke-width="3"/>
+              <!-- Hands -->
+              <circle cx="80" cy="70" r="4" fill="#555555"/>
+              <circle cx="120" cy="70" r="4" fill="#555555"/>
+            </g>
+          
+            <!-- Ground Texture -->
+            <g fill="#d9d9d9">
+              <circle cx="50" cy="480" r="10"/>
+              <circle cx="100" cy="470" r="8"/>
+              <circle cx="150" cy="460" r="12"/>
+              <circle cx="200" cy="490" r="10"/>
+              <circle cx="250" cy="470" r="8"/>
+              <circle cx="300" cy="460" r="12"/>
+              <circle cx="350" cy="490" r="10"/>
+              <circle cx="400" cy="470" r="8"/>
+            </g>
+          
+            <!-- Museum Lights -->
+            <g fill="#bbbbbb">
+              <circle cx="70" cy="30" r="15"/>
+              <circle cx="430" cy="30" r="15"/>
+              <circle cx="250" cy="30" r="15"/>
+            </g>
+          </svg>
+          
+        </div>
+  
+        </div>
+      <!-- Signs -->
+        <div class="grid-item">
+        <img src="img/signs.jpg" class="hover-image">
+        <div class="overlay">
+            <h4>10/01/2024</h4>
+            <p class="description">A modern office corner with a minimalist design, featuring a wall adorned with a collection of vintage and contemporary street signs. The signs are arranged on two shelves, displaying a mix of international traffic symbols, no-parking signs, directional arrows, and warning signs, in various shapes such as circles, rectangles, and triangles. The lower portion of the wall includes prominent signs like a COVID-19 social distancing warning and a large red and white detour marker. A round white table with red and navy chairs sits nearby, holding a vase with flowers.</p>
+            <div class="see-more-box">
+                <span class="see-more" onclick="toggleDescription(this)">See more</span>
+                <span class="see-less" onclick="toggleDescription(this)">See less</span>
+            </div>
+        </div>
+        <div class="svg-container">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet">
+            <!-- Background wall -->
+            <rect x="0" y="0" width="600" height="600" fill="white" />
+        
+            <!-- Shelves with traffic signs -->
+            <!-- Top shelf -->
+            <rect x="100" y="50" width="400" height="10" fill="lightgray" />
+            <!-- Traffic signs on top shelf (abstract) -->
+            <rect x="110" y="20" width="30" height="50" fill="red" />
+            <rect x="150" y="20" width="20" height="40" fill="yellow" />
+            <circle cx="210" cy="40" r="20" fill="blue" />
+            <rect x="240" y="25" width="40" height="30" fill="green" />
+            <polygon points="310,20 340,50 310,50" fill="orange" />
+            <rect x="350" y="30" width="40" height="40" fill="red" />
+            <circle cx="410" cy="40" r="15" fill="blue" />
+        
+            <!-- Bottom shelf -->
+            <rect x="100" y="150" width="400" height="10" fill="lightgray" />
+            <!-- Traffic signs on bottom shelf (abstract) -->
+            <rect x="110" y="110" width="60" height="60" fill="white" stroke="red" stroke-width="4" />
+            <rect x="180" y="110" width="50" height="80" fill="red" />
+            <circle cx="270" cy="140" r="20" fill="red" />
+            <rect x="300" y="120" width="50" height="70" fill="blue" />
+            <polygon points="370,130 410,160 370,160" fill="yellow" />
+            <rect x="420" y="120" width="50" height="70" fill="gray" />
+        
+            <!-- Table -->
+            <circle cx="350" cy="400" r="60" fill="white" stroke="black" stroke-width="2" />
+        
+            <!-- Chairs -->
+            <ellipse cx="300" cy="430" rx="30" ry="50" fill="blue" />
+            <ellipse cx="400" cy="430" rx="30" ry="50" fill="red" />
+        
+            <!-- Telescope -->
+            <rect x="460" y="360" width="10" height="80" fill="black" />
+            <line x1="465" y1="360" x2="490" y2="340" stroke="black" stroke-width="6" />
+        
+            <!-- Vase with flowers -->
+            <rect x="340" y="370" width="20" height="50" fill="darkblue" />
+            <circle cx="330" cy="370" r="5" fill="pink" />
+            <circle cx="350" cy="360" r="5" fill="lightgreen" />
+            <circle cx="360" cy="380" r="5" fill="purple" />
+          </svg>
+        </div>
+        
+        </div>
+      <!-- Kai Funny train -->
+        <div class="grid-item" style="background-color: rgb(245, 246, 252);">
+              <img src="img/kaiFunnyTrain2.jpg" class="hover-image">
+              <div class="overlay">
+                  <h4>9/30/2024</h4>
+                  <p class="description">A child holding a translucent, futuristic toy spaceship with colorful lights inside, sitting on a dark couch. The child is focused, with soft brown hair, wearing a light-colored shirt. In the background, there is a circular wall art featuring abstract human figures in a geometric structure. The scene captures a sense of curiosity and imagination.</p>
+                  <div class="see-more-box">
+                      <span class="see-more" onclick="toggleDescription(this)">See more</span>
+                      <span class="see-less" onclick="toggleDescription(this)">See less</span>
+                  </div>
+              </div>
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Child's head -->
+                <circle cx="35" cy="50" r="10" fill="#d2a17e" />
+              
+                <!-- Hair -->
+                <path d="M30,45 Q35,35 40,45" fill="#4a2b15" />
+                <path d="M30,47 Q35,40 40,47" fill="#4a2b15" />
+              
+                <!-- Face details -->
+                <!-- Eyes -->
+                <circle cx="33" cy="50" r="1.5" fill="#000" />
+                <circle cx="37" cy="50" r="1.5" fill="#000" />
+                <!-- Mouth -->
+                <path d="M33,54 Q35,56 37,54" stroke="#000" stroke-width="0.5" fill="none" />
+              
+                <!-- Shirt -->
+                <rect x="25" y="60" width="20" height="15" fill="#f1e4d3" />
+                <path d="M27,63 Q32,57 38,63" fill="#f7dcb3" />
+              
+                <!-- Toy spaceship -->
+                <rect x="45" y="45" width="30" height="10" rx="5" ry="5" fill="transparent" stroke="gray" stroke-width="1" />
+                <circle cx="50" cy="50" r="3" fill="red" />
+                <circle cx="60" cy="50" r="3" fill="blue" />
+                <circle cx="70" cy="50" r="3" fill="green" />
+                
+                <!-- Glow effect on toy -->
+                <circle cx="50" cy="50" r="5" fill="none" stroke="red" stroke-width="0.5" opacity="0.7" />
+                <circle cx="60" cy="50" r="5" fill="none" stroke="blue" stroke-width="0.5" opacity="0.7" />
+                <circle cx="70" cy="50" r="5" fill="none" stroke="green" stroke-width="0.5" opacity="0.7" />
+              
+                <!-- Child's hand holding the spaceship -->
+                <circle cx="43" cy="50" r="3.5" fill="#d2a17e" />
+                <circle cx="41" cy="50" r="3.5" fill="#d2a17e" />
+              
+                <!-- Background circle art -->
+                <circle cx="80" cy="30" r="15" fill="#888" />
+                <path d="M70,25 L75,20 L80,25 L85,20 L90,25" stroke="black" fill="none" />
+                <circle cx="80" cy="30" r="3" fill="yellow" />
+                <circle cx="85" cy="33" r="1.5" fill="red" />
+                <circle cx="75" cy="33" r="1.5" fill="green" />
+              </svg>
+              
+        </div>
       <!-- Kai lego -->
-      <div class="grid-item">
+        <div class="grid-item">
         <img src="img/kaiLego.jpg" class="hover-image">
         <div class="overlay">
             <h4>9/29/2024</h4>
@@ -104,9 +387,9 @@
           
         </svg>
         
-      </div>
+        </div>
       <!-- neon Holiday -->
-      <div class="grid-item" style="background-color: rgb(221, 223, 237);">
+        <div class="grid-item" style="background-color: rgb(221, 223, 237);">
         <img src="img/neonHoliday.jpg" class="hover-image">
         <div class="overlay">
             <h4>9/28/2024</h4>
@@ -174,9 +457,9 @@
         </svg>
         
 
-      </div>
+        </div>
       <!-- kai running -->
-      <div class="grid-item">
+        <div class="grid-item">
         <img src="img/kaiRunning.jpg" class="hover-image">
         <div class="overlay">
             <h4>9/27/2024</h4>
@@ -227,7 +510,7 @@
           <circle cx="12.75" cy="57" r="2" fill="#F1C40F"/>
         </svg>
         
-      </div>
+        </div>
       <!-- kaiPasta -->
         <div class="grid-item">
           <img src="img/kaiPasta.png" class="hover-image">
