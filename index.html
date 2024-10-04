@@ -43,479 +43,11 @@
         </div>
     </header>
     <div class="grid-container">
-            <!-- Dino -->
-            <div class="grid-item">
-              <img src="img/monkey.jpg" class="hover-image">
-              <div class="overlay">
-                  <h4>10/03/2024</h4>
-                  <p class="description">A lush jungle scene with several colobus monkeys perched on branches. The colobus monkeys are distinguished by their black bodies with white fur on their backs and long white tails. They are climbing and resting on tree branches surrounded by thick green foliage, vines, and hanging moss. In the background, there is a hazy sky with a distant landscape of more forested areas. The overall atmosphere feels serene and natural, with monkeys positioned at various heights in the scene.</p>
-                  <div class="see-more-box">
-                      <span class="see-more" onclick="toggleDescription(this)">See more</span>
-                      <span class="see-less" onclick="toggleDescription(this)">See less</span>
-                  </div>
-              </div>
-              <div class="svg-container">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Background sky and distant forest -->
-                  <rect width="200" height="200" fill="lightblue" />
-                  <ellipse cx="100" cy="160" rx="90" ry="30" fill="forestgreen" opacity="0.5"/>
-                  <ellipse cx="100" cy="180" rx="100" ry="20" fill="darkgreen" opacity="0.4"/>
-                
-                  <!-- Tree branches -->
-                  <g id="tree">
-                    <path d="M40 50 C50 30, 80 25, 100 50 S150 90, 170 80" stroke="saddlebrown" stroke-width="5" fill="none"/>
-                    <path d="M30 70 C40 50, 60 60, 90 80 S120 120, 140 100" stroke="saddlebrown" stroke-width="5" fill="none"/>
-                    <path d="M50 110 C60 90, 80 85, 110 110 S130 140, 160 130" stroke="saddlebrown" stroke-width="5" fill="none"/>
-                  </g>
-                
-                  <!-- Leaves on branches -->
-                  <g id="leaves">
-                    <circle cx="50" cy="50" r="6" fill="green" />
-                    <circle cx="55" cy="65" r="5" fill="green" />
-                    <circle cx="100" cy="50" r="7" fill="green" />
-                    <circle cx="110" cy="60" r="5" fill="green" />
-                    <circle cx="150" cy="90" r="6" fill="green" />
-                    <circle cx="70" cy="120" r="7" fill="green" />
-                    <circle cx="130" cy="130" r="6" fill="green" />
-                    <circle cx="160" cy="80" r="5" fill="green" />
-                    <circle cx="90" cy="90" r="7" fill="green" />
-                    <circle cx="100" cy="120" r="6" fill="green" />
-                  </g>
-                
-                  <!-- Colobus Monkeys -->
-                  <g id="monkeys">
-                    <!-- Monkey 1 (left side) -->
-                    <circle cx="40" cy="60" r="6" fill="black"/> <!-- head -->
-                    <rect x="36" y="65" width="8" height="20" fill="black"/> <!-- body -->
-                    <path d="M40 80 C37 85, 43 85, 40 90" fill="black"/> <!-- legs -->
-                    <line x1="40" y1="90" x2="40" y2="120" stroke="white" stroke-width="2"/> <!-- tail -->
-                    <path d="M38 60 C38 58, 42 58, 42 60" stroke="white" stroke-width="1" fill="none"/> <!-- face stripe -->
-                
-                    <!-- Monkey 2 (center, climbing) -->
-                    <circle cx="80" cy="90" r="6" fill="black"/> <!-- head -->
-                    <rect x="76" y="95" width="8" height="20" fill="black"/> <!-- body -->
-                    <path d="M80 110 C77 115, 83 115, 80 120" fill="black"/> <!-- legs -->
-                    <line x1="80" y1="120" x2="80" y2="150" stroke="white" stroke-width="2"/> <!-- tail -->
-                    <path d="M78 90 C78 88, 82 88, 82 90" stroke="white" stroke-width="1" fill="none"/> <!-- face stripe -->
-                
-                    <!-- Monkey 3 (right side) -->
-                    <circle cx="130" cy="70" r="6" fill="black"/> <!-- head -->
-                    <rect x="126" y="75" width="8" height="20" fill="black"/> <!-- body -->
-                    <path d="M130 90 C127 95, 133 95, 130 100" fill="black"/> <!-- legs -->
-                    <line x1="130" y1="100" x2="130" y2="130" stroke="white" stroke-width="2"/> <!-- tail -->
-                    <path d="M128 70 C128 68, 132 68, 132 70" stroke="white" stroke-width="1" fill="none"/> <!-- face stripe -->
-                
-                    <!-- Monkey 4 (back, sitting) -->
-                    <circle cx="150" cy="100" r="5" fill="black"/> <!-- head -->
-                    <rect x="147" y="105" width="6" height="15" fill="black"/> <!-- body -->
-                    <path d="M150 115 C148 118, 152 118, 150 120" fill="black"/> <!-- legs -->
-                    <line x1="150" y1="120" x2="150" y2="140" stroke="white" stroke-width="2"/> <!-- tail -->
-                    <path d="M148 100 C148 99, 152 99, 152 100" stroke="white" stroke-width="1" fill="none"/> <!-- face stripe -->
-                  </g>
-                
-                  <!-- Hanging moss -->
-                  <g id="moss">
-                    <path d="M50 30 C50 40, 55 45, 55 55" stroke="saddlebrown" stroke-width="1.5"/>
-                    <path d="M100 20 C100 30, 105 35, 105 45" stroke="saddlebrown" stroke-width="1.5"/>
-                    <path d="M130 40 C130 50, 135 55, 135 65" stroke="saddlebrown" stroke-width="1.5"/>
-                    <path d="M150 60 C150 70, 155 75, 155 85" stroke="saddlebrown" stroke-width="1.5"/>
-                  </g>
-                </svg>
-                
-              </div>
-        
-              </div>
-      <!-- Dino -->
-        <div class="grid-item">
-        <img src="img/dino.jpg" class="hover-image">
-        <div class="overlay">
-            <h4>10/02/2024</h4>
-            <p class="description">Two large dinosaur skeletons on display in a museum exhibit, featuring an ornithopod species with elongated necks and tails. The foremost skeleton is in a crouched posture with its head lowered, while the second one stands upright behind it with its head elevated, showing a crest-like structure. The scene is set against a clean museum backdrop with soft lighting from ceiling lamps, glass display cases, and a sandy-textured floor beneath the skeletons.</p>
-            <div class="see-more-box">
-                <span class="see-more" onclick="toggleDescription(this)">See more</span>
-                <span class="see-less" onclick="toggleDescription(this)">See less</span>
-            </div>
-        </div>
-        <div class="svg-container">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
-            <!-- Background -->
-            <rect width="100%" height="100%" fill="#eaeaea"/>
-          
-            <!-- Foreground Dinosaur (Crouched) -->
-            <g transform="translate(100, 350)">
-              <!-- Body -->
-              <ellipse cx="100" cy="50" rx="60" ry="30" fill="none" stroke="#3b3b3b" stroke-width="3"/>
-              <!-- Tail -->
-              <path d="M100,50 Q150,70 220,60" stroke="#3b3b3b" stroke-width="3" fill="none"/>
-              <!-- Neck -->
-              <path d="M100,40 Q70,20 50,5" stroke="#3b3b3b" stroke-width="3" fill="none"/>
-              <!-- Head -->
-              <ellipse cx="45" cy="5" rx="15" ry="8" fill="none" stroke="#3b3b3b" stroke-width="3"/>
-              <!-- Legs -->
-              <line x1="90" y1="70" x2="80" y2="110" stroke="#3b3b3b" stroke-width="4"/>
-              <line x1="110" y1="70" x2="120" y2="110" stroke="#3b3b3b" stroke-width="4"/>
-              <!-- Feet -->
-              <circle cx="80" cy="110" r="5" fill="#3b3b3b"/>
-              <circle cx="120" cy="110" r="5" fill="#3b3b3b"/>
-              <!-- Front Legs (Arms) -->
-              <line x1="90" y1="50" x2="80" y2="70" stroke="#3b3b3b" stroke-width="3"/>
-              <line x1="110" y1="50" x2="120" y2="70" stroke="#3b3b3b" stroke-width="3"/>
-              <!-- Hands -->
-              <circle cx="80" cy="70" r="4" fill="#3b3b3b"/>
-              <circle cx="120" cy="70" r="4" fill="#3b3b3b"/>
-            </g>
-          
-            <!-- Background Dinosaur (Upright) -->
-            <g transform="translate(200, 150)">
-              <!-- Body -->
-              <ellipse cx="100" cy="50" rx="70" ry="35" fill="none" stroke="#555555" stroke-width="3"/>
-              <!-- Tail -->
-              <path d="M100,50 Q180,100 260,80" stroke="#555555" stroke-width="3" fill="none"/>
-              <!-- Neck -->
-              <path d="M100,40 Q120,20 140,5" stroke="#555555" stroke-width="3" fill="none"/>
-              <!-- Head -->
-              <ellipse cx="145" cy="5" rx="20" ry="10" fill="none" stroke="#555555" stroke-width="3"/>
-              <!-- Crest -->
-              <path d="M155,0 Q160,-20 140,-20" stroke="#555555" stroke-width="2" fill="none"/>
-              <!-- Legs -->
-              <line x1="90" y1="70" x2="85" y2="120" stroke="#555555" stroke-width="4"/>
-              <line x1="110" y1="70" x2="115" y2="120" stroke="#555555" stroke-width="4"/>
-              <!-- Feet -->
-              <circle cx="85" cy="120" r="5" fill="#555555"/>
-              <circle cx="115" cy="120" r="5" fill="#555555"/>
-              <!-- Front Legs (Arms) -->
-              <line x1="90" y1="50" x2="80" y2="70" stroke="#555555" stroke-width="3"/>
-              <line x1="110" y1="50" x2="120" y2="70" stroke="#555555" stroke-width="3"/>
-              <!-- Hands -->
-              <circle cx="80" cy="70" r="4" fill="#555555"/>
-              <circle cx="120" cy="70" r="4" fill="#555555"/>
-            </g>
-          
-            <!-- Ground Texture -->
-            <g fill="#d9d9d9">
-              <circle cx="50" cy="480" r="10"/>
-              <circle cx="100" cy="470" r="8"/>
-              <circle cx="150" cy="460" r="12"/>
-              <circle cx="200" cy="490" r="10"/>
-              <circle cx="250" cy="470" r="8"/>
-              <circle cx="300" cy="460" r="12"/>
-              <circle cx="350" cy="490" r="10"/>
-              <circle cx="400" cy="470" r="8"/>
-            </g>
-          
-            <!-- Museum Lights -->
-            <g fill="#bbbbbb">
-              <circle cx="70" cy="30" r="15"/>
-              <circle cx="430" cy="30" r="15"/>
-              <circle cx="250" cy="30" r="15"/>
-            </g>
-          </svg>
-          
-        </div>
-  
-        </div>
-      <!-- Signs -->
-        <div class="grid-item">
-        <img src="img/signs.jpg" class="hover-image">
-        <div class="overlay">
-            <h4>10/01/2024</h4>
-            <p class="description">A modern office corner with a minimalist design, featuring a wall adorned with a collection of vintage and contemporary street signs. The signs are arranged on two shelves, displaying a mix of international traffic symbols, no-parking signs, directional arrows, and warning signs, in various shapes such as circles, rectangles, and triangles. The lower portion of the wall includes prominent signs like a COVID-19 social distancing warning and a large red and white detour marker. A round white table with red and navy chairs sits nearby, holding a vase with flowers.</p>
-            <div class="see-more-box">
-                <span class="see-more" onclick="toggleDescription(this)">See more</span>
-                <span class="see-less" onclick="toggleDescription(this)">See less</span>
-            </div>
-        </div>
-        <div class="svg-container">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet">
-            <!-- Background wall -->
-            <rect x="0" y="0" width="600" height="600" fill="white" />
-        
-            <!-- Shelves with traffic signs -->
-            <!-- Top shelf -->
-            <rect x="100" y="50" width="400" height="10" fill="lightgray" />
-            <!-- Traffic signs on top shelf (abstract) -->
-            <rect x="110" y="20" width="30" height="50" fill="red" />
-            <rect x="150" y="20" width="20" height="40" fill="yellow" />
-            <circle cx="210" cy="40" r="20" fill="blue" />
-            <rect x="240" y="25" width="40" height="30" fill="green" />
-            <polygon points="310,20 340,50 310,50" fill="orange" />
-            <rect x="350" y="30" width="40" height="40" fill="red" />
-            <circle cx="410" cy="40" r="15" fill="blue" />
-        
-            <!-- Bottom shelf -->
-            <rect x="100" y="150" width="400" height="10" fill="lightgray" />
-            <!-- Traffic signs on bottom shelf (abstract) -->
-            <rect x="110" y="110" width="60" height="60" fill="white" stroke="red" stroke-width="4" />
-            <rect x="180" y="110" width="50" height="80" fill="red" />
-            <circle cx="270" cy="140" r="20" fill="red" />
-            <rect x="300" y="120" width="50" height="70" fill="blue" />
-            <polygon points="370,130 410,160 370,160" fill="yellow" />
-            <rect x="420" y="120" width="50" height="70" fill="gray" />
-        
-            <!-- Table -->
-            <circle cx="350" cy="400" r="60" fill="white" stroke="black" stroke-width="2" />
-        
-            <!-- Chairs -->
-            <ellipse cx="300" cy="430" rx="30" ry="50" fill="blue" />
-            <ellipse cx="400" cy="430" rx="30" ry="50" fill="red" />
-        
-            <!-- Telescope -->
-            <rect x="460" y="360" width="10" height="80" fill="black" />
-            <line x1="465" y1="360" x2="490" y2="340" stroke="black" stroke-width="6" />
-        
-            <!-- Vase with flowers -->
-            <rect x="340" y="370" width="20" height="50" fill="darkblue" />
-            <circle cx="330" cy="370" r="5" fill="pink" />
-            <circle cx="350" cy="360" r="5" fill="lightgreen" />
-            <circle cx="360" cy="380" r="5" fill="purple" />
-          </svg>
-        </div>
-        
-        </div>
-      <!-- Kai Funny train -->
-        <div class="grid-item" style="background-color: rgb(245, 246, 252);">
-              <img src="img/kaiFunnyTrain2.jpg" class="hover-image">
-              <div class="overlay">
-                  <h4>9/30/2024</h4>
-                  <p class="description">A child holding a translucent, futuristic toy spaceship with colorful lights inside, sitting on a dark couch. The child is focused, with soft brown hair, wearing a light-colored shirt. In the background, there is a circular wall art featuring abstract human figures in a geometric structure. The scene captures a sense of curiosity and imagination.</p>
-                  <div class="see-more-box">
-                      <span class="see-more" onclick="toggleDescription(this)">See more</span>
-                      <span class="see-less" onclick="toggleDescription(this)">See less</span>
-                  </div>
-              </div>
-              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <!-- Child's head -->
-                <circle cx="35" cy="50" r="10" fill="#d2a17e" />
-              
-                <!-- Hair -->
-                <path d="M30,45 Q35,35 40,45" fill="#4a2b15" />
-                <path d="M30,47 Q35,40 40,47" fill="#4a2b15" />
-              
-                <!-- Face details -->
-                <!-- Eyes -->
-                <circle cx="33" cy="50" r="1.5" fill="#000" />
-                <circle cx="37" cy="50" r="1.5" fill="#000" />
-                <!-- Mouth -->
-                <path d="M33,54 Q35,56 37,54" stroke="#000" stroke-width="0.5" fill="none" />
-              
-                <!-- Shirt -->
-                <rect x="25" y="60" width="20" height="15" fill="#f1e4d3" />
-                <path d="M27,63 Q32,57 38,63" fill="#f7dcb3" />
-              
-                <!-- Toy spaceship -->
-                <rect x="45" y="45" width="30" height="10" rx="5" ry="5" fill="transparent" stroke="gray" stroke-width="1" />
-                <circle cx="50" cy="50" r="3" fill="red" />
-                <circle cx="60" cy="50" r="3" fill="blue" />
-                <circle cx="70" cy="50" r="3" fill="green" />
-                
-                <!-- Glow effect on toy -->
-                <circle cx="50" cy="50" r="5" fill="none" stroke="red" stroke-width="0.5" opacity="0.7" />
-                <circle cx="60" cy="50" r="5" fill="none" stroke="blue" stroke-width="0.5" opacity="0.7" />
-                <circle cx="70" cy="50" r="5" fill="none" stroke="green" stroke-width="0.5" opacity="0.7" />
-              
-                <!-- Child's hand holding the spaceship -->
-                <circle cx="43" cy="50" r="3.5" fill="#d2a17e" />
-                <circle cx="41" cy="50" r="3.5" fill="#d2a17e" />
-              
-                <!-- Background circle art -->
-                <circle cx="80" cy="30" r="15" fill="#888" />
-                <path d="M70,25 L75,20 L80,25 L85,20 L90,25" stroke="black" fill="none" />
-                <circle cx="80" cy="30" r="3" fill="yellow" />
-                <circle cx="85" cy="33" r="1.5" fill="red" />
-                <circle cx="75" cy="33" r="1.5" fill="green" />
-              </svg>
-              
-        </div>
-      <!-- Kai lego -->
-        <div class="grid-item">
-        <img src="img/kaiLego.jpg" class="hover-image">
-        <div class="overlay">
-            <h4>9/29/2024</h4>
-            <p class="description">A young child with short brown hair is standing beside a white play table filled with colorful toy building blocks. The child is wearing a white shirt with a Snoopy design and is focused on the blocks, which are in primary colors (red, blue, yellow, green). The table has two compartments, one filled with blocks and the other with some additional pieces, possibly ramps or slides, in a red tray. The wooden floor and modern chairs in the background complete the cozy, indoor setting.</p>
-            <div class="see-more-box">
-                <span class="see-more" onclick="toggleDescription(this)">See more</span>
-                <span class="see-less" onclick="toggleDescription(this)">See less</span>
-            </div>
-        </div>
-        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-          <!-- Background (wooden floor) -->
-          <rect x="0" y="0" width="100%" height="100%" fill="oldlace"/>
-        
-          <!-- Table structure -->
-          <rect x="50" y="200" width="300" height="150" fill="white" stroke="black" stroke-width="4"/>
-          
-          <!-- Left compartment filled with colorful blocks -->
-          <rect x="60" y="210" width="140" height="130" fill="none" stroke="black" stroke-width="2"/>
-          <!-- Blocks inside left compartment -->
-          <rect x="70" y="220" width="30" height="30" fill="red"/>
-          <rect x="110" y="220" width="40" height="20" fill="blue"/>
-          <rect x="160" y="220" width="30" height="30" fill="green"/>
-          <rect x="70" y="260" width="40" height="20" fill="yellow"/>
-          <rect x="120" y="260" width="40" height="30" fill="red"/>
-          <rect x="170" y="260" width="30" height="40" fill="green"/>
-        
-          <!-- Right compartment with ramps/slides -->
-          <rect x="210" y="210" width="130" height="130" fill="none" stroke="black" stroke-width="2"/>
-          <rect x="220" y="220" width="100" height="20" fill="red"/>
-          <rect x="220" y="250" width="50" height="10" fill="blue"/>
-          <rect x="220" y="270" width="80" height="15" fill="yellow"/>
-        
-          <!-- Enlarged child figure -->
-          <circle cx="200" cy="120" r="35" fill="#F5C1A8" /> <!-- Head -->
-          <rect x="170" y="160" width="60" height="70" fill="white" stroke="black"/> <!-- Shirt -->
-          
-          <!-- Facial features -->
-          <circle cx="190" cy="115" r="5" fill="black"/> <!-- Left eye -->
-          <circle cx="210" cy="115" r="5" fill="black"/> <!-- Right eye -->
-          <path d="M185 135 Q200 145 215 135" stroke="black" stroke-width="2" fill="none"/> <!-- Smile -->
-        
-          <!-- Arms -->
-          <line x1="175" y1="160" x2="175" y2="190" stroke="black" stroke-width="4"/> <!-- Left arm -->
-          <line x1="225" y1="160" x2="225" y2="190" stroke="black" stroke-width="4"/> <!-- Right arm -->
-        
-          <!-- Detailed Snoopy design on shirt -->
-          <!-- Snoopy head -->
-          <circle cx="200" cy="180" r="12" fill="white" stroke="black" stroke-width="2"/> 
-          <circle cx="195" cy="178" r="2" fill="black"/> <!-- Snoopy's nose -->
-          <circle cx="202" cy="174" r="2" fill="black"/> <!-- Snoopy's eye -->
-          <!-- Snoopy's ear -->
-          <path d="M200 170 Q190 175 192 182" fill="black"/>
-          <!-- Snoopy's body -->
-          <ellipse cx="200" cy="195" rx="6" ry="10" fill="white" stroke="black" stroke-width="2"/>
-          <line x1="200" y1="185" x2="200" y2="205" stroke="black" stroke-width="2"/> <!-- Snoopy's leg -->
-          <circle cx="200" cy="200" r="1.5" fill="black"/> <!-- Snoopy's foot -->
-          
-        </svg>
-        
-        </div>
-      <!-- neon Holiday -->
-        <div class="grid-item" style="background-color: rgb(221, 223, 237);">
-        <img src="img/neonHoliday.jpg" class="hover-image">
-        <div class="overlay">
-            <h4>9/28/2024</h4>
-            <p class="description">A vibrant display of holiday neon lights featuring a snowman with a top hat, scarf, and a large snowflake. The snowman is outlined in red, white, and green neon lights, while the top hat has blue accents. The snowflake is in glittery white with glowing neon edges. Behind the snowman are additional festive neon shapes like mittens and stars. The neon colors are bold and bright, creating a glowing, festive holiday atmosphere.</p>
-            <div class="see-more-box">
-                <span class="see-more" onclick="toggleDescription(this)">See more</span>
-                <span class="see-less" onclick="toggleDescription(this)">See less</span>
-            </div>
-        </div>
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <!-- Snowman Body -->
-          <circle cx="50" cy="65" r="15" fill="none" stroke="#00FF00" stroke-width="2" />
-          <circle cx="50" cy="45" r="10" fill="none" stroke="#FFFFFF" stroke-width="2" />
-          
-          <!-- Snowman Hat -->
-          <rect x="42" y="30" width="16" height="5" fill="none" stroke="#0000FF" stroke-width="2" />
-          <line x1="40" y1="35" x2="60" y2="35" stroke="#0000FF" stroke-width="2" />
-          <ellipse cx="50" cy="28" rx="10" ry="2" fill="none" stroke="#0000FF" stroke-width="2" />
-          
-          <!-- Snowman Face and Details -->
-          <circle cx="47" cy="42" r="1.5" fill="#FFFFFF" />
-          <circle cx="53" cy="42" r="1.5" fill="#FFFFFF" />
-          <circle cx="50" cy="46" r="2" fill="#FFA500" />  <!-- Orange nose -->
-          <path d="M 48 48 Q 50 50 52 48" stroke="#FF0000" stroke-width="0.5" fill="none" /> <!-- Smile -->
-          <line x1="47" y1="55" x2="53" y2="55" stroke="#FF0000" stroke-width="2" /> <!-- Scarf horizontal -->
-          <path d="M 50 55 Q 55 60 52 65" stroke="#FF0000" stroke-width="2" fill="none" /> <!-- Scarf end -->
-        
-          <!-- Snowman's Arms -->
-          <line x1="45" y1="50" x2="40" y2="60" stroke="#FFFFFF" stroke-width="2" />
-          <line x1="55" y1="50" x2="60" y2="60" stroke="#FFFFFF" stroke-width="2" />
-          
-          <!-- Snowflake -->
-          <g stroke="#FFFFFF" stroke-width="2">
-            <line x1="25" y1="35" x2="35" y2="45" />
-            <line x1="25" y1="45" x2="35" y2="35" />
-            <line x1="30" y1="30" x2="30" y2="50" />
-            <line x1="20" y1="40" x2="40" y2="40" />
-            <circle cx="30" cy="40" r="3" fill="none" stroke="#00FF00" />
-            <line x1="27" y1="37" x2="33" y2="43" stroke="#00FF00" />
-            <line x1="33" y1="37" x2="27" y2="43" stroke="#00FF00" />
-          </g>
-          
-          <!-- Background festive shapes -->
-          <!-- Red mitten -->
-          <path d="M 65 25 Q 68 28 72 25 Q 74 20 72 18 Q 68 18 65 22 Z" fill="none" stroke="#FF0000" stroke-width="2" />
-          <!-- Yellow star -->
-          <polygon points="65,45 67,48 70,46 68,50 70,54 65,52 60,54 62,50 60,46 63,48" fill="none" stroke="#FFFF00" stroke-width="2" />
-          
-          <!-- Blue candy cane -->
-          <path d="M 15 55 Q 17 50 22 52 T 25 62 T 22 68 Q 20 70 18 68 Q 16 65 18 62 T 22 60 T 25 62" fill="none" stroke="#0000FF" stroke-width="2" />
-          
-          <!-- Green Christmas Tree -->
-          <polygon points="80,60 85,55 90,60 85,65" fill="none" stroke="#00FF00" stroke-width="2" />
-          <polygon points="83,63 85,60 87,63" fill="none" stroke="#00FF00" stroke-width="2" />
-          <rect x="84" y="66" width="2" height="3" fill="#964B00" /> <!-- Tree trunk -->
-        
-          <!-- Snowman's Buttons -->
-          <circle cx="50" cy="55" r="1.5" fill="#FFFFFF" />
-          <circle cx="50" cy="60" r="1.5" fill="#FFFFFF" />
-          <circle cx="50" cy="65" r="1.5" fill="#FFFFFF" />
-          
-          <!-- Decorative Neon Effect Lines -->
-          <path d="M 10 20 Q 20 30 30 20" stroke="#00FF00" stroke-width="1.5" fill="none" />
-          <path d="M 70 80 Q 75 85 80 80" stroke="#FF0000" stroke-width="1.5" fill="none" />
-        </svg>
-        
-
-        </div>
-      <!-- kai running -->
-        <div class="grid-item">
-        <img src="img/kaiRunning.jpg" class="hover-image">
-        <div class="overlay">
-            <h4>9/27/2024</h4>
-            <p class="description">A cozy indoor scene with a child in pajamas standing on wooden floors, surrounded by toys. A train track curves across the floor, with a toy box and puzzle board nearby. Behind the child, there's a play kitchen set with miniature dishes and utensils. The room has modern decor, featuring a large, round abstract art piece on the left wall and a graphic, wavy black-and-white print on the right. A soft, dark sofa and a floor lamp are in the background under soft lighting.</p>
-            <div class="see-more-box">
-                <span class="see-more" onclick="toggleDescription(this)">See more</span>
-                <span class="see-less" onclick="toggleDescription(this)">See less</span>
-            </div>
-        </div>
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <!-- Background with wooden floor pattern -->
-          <rect width="100" height="100" fill="#F4E0B5"/>
-          
-          <!-- Round abstract art piece on the left -->
-          <circle cx="25" cy="20" r="10" fill="#2C3E50"/>
-          <path d="M22 20 A8 8 0 0 1 28 20 L25 15 Z" fill="#ECF0F1"/>
-          
-          <!-- Wavy black and white art on the right -->
-          <rect x="70" y="10" width="20" height="30" fill="#ECF0F1"/>
-          <path d="M70 10 Q75 20 70 30 Q75 40 70 50" stroke="#000" stroke-width="1" fill="none"/>
-          <path d="M90 10 Q85 20 90 30 Q85 40 90 50" stroke="#000" stroke-width="1" fill="none"/>
-          
-          <!-- Child figure with face -->
-          <circle cx="40" cy="55" r="5" fill="#F1C40F"/>
-          <!-- Eyes -->
-          <circle cx="39" cy="54" r="0.5" fill="#000"/>
-          <circle cx="41" cy="54" r="0.5" fill="#000"/>
-          <!-- Mouth -->
-          <path d="M39 56 Q40 57 41 56" stroke="#000" stroke-width="0.5" fill="none"/>
-          
-          <!-- Body and clothing -->
-          <rect x="37" y="60" width="6" height="10" fill="#ECF0F1"/>
-          
-          <!-- Train track on the floor -->
-          <path d="M30 70 Q40 60 50 70" stroke="#8E44AD" stroke-width="1" fill="none"/>
-          
-          <!-- Toy box -->
-          <rect x="55" y="70" width="10" height="5" fill="#E74C3C"/>
-          
-          <!-- Play kitchen set -->
-          <rect x="70" y="60" width="15" height="10" fill="#3498DB"/>
-          <rect x="70" y="60" width="5" height="3" fill="#ECF0F1"/>
-          <rect x="80" y="60" width="3" height="3" fill="#ECF0F1"/>
-        
-          <!-- Sofa and lamp in the background -->
-          <rect x="10" y="65" width="20" height="7" fill="#34495E"/>
-          <rect x="12" y="57" width="1.5" height="5" fill="#F39C12"/>
-          <circle cx="12.75" cy="57" r="2" fill="#F1C40F"/>
-        </svg>
-        
-        </div>
       <!-- kaiPasta -->
         <div class="grid-item">
           <img src="img/kaiPasta.png" class="hover-image">
           <div class="overlay">
-              <h4>9/26/2024</h4>
+              <h4>10/04/2024</h4>
               <p class="description">A joyful toddler with brown hair is seated at a rustic wooden table in a lively restaurant. The child is playfully stretching food with both hands, creating a fun, dynamic moment. The toddler wears a black bib with small colorful spots, and the partially eaten plate in front contains some food remnants, such as pasta with sauce and a few vegetables. The background includes a green wall and an industrial, outdoor setting with scaffolding visible outside. A cup with a yellow cap sits to the left of the child.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -571,7 +103,7 @@
         <div class="grid-item" style="background-color: skyblue;">
           <img src="img/roofMaple.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/25/2024</h4>
+              <h4>10/03/2024</h4>
               <p class="description">A close-up view of a Japanese maple tree against a bright blue sky with scattered clouds. The tree has a mix of deep red and green leaves. The vibrant red leaves dominate the upper section of the image, sharply contrasting against the sky, while the green leaves are seen in the lower portion. The leaves have a jagged, star-like shape, with the red ones appearing freshly sprouted and more prominent in the sunlight. The blue sky and soft white clouds provide a calming, natural backdrop, enhancing the vividness of the foliage.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -612,7 +144,7 @@
         <div class="grid-item">
           <img src="img/kaiEatingCup.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/24/2024</h4>
+              <h4>10/02/2024</h4>
               <p class="description">A young child with medium-length brown hair is seated at a wooden high chair, focused on eating. The child wears a dark-colored bib with light green and red details, and holds a blue-handled spoon in one hand while using the other hand to grab food from a bowl. The bowl contains a mix of rice, vegetables, and sesame seeds. Next to the bowl is a small cup with a yellow lid and the name "Juditta" written on a label. The setting is a modern kitchen with neutral tones, visible countertop appliances, and a fridge in the background with colorful drawings attached to it.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -668,7 +200,7 @@
         <div class="grid-item">
           <img src="img/canalConstruction.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/23/2024</h4>
+              <h4>10/01/2024</h4>
               <p class="description">A city street scene with a construction zone featuring two orange and white striped steam pipes venting white steam. The pipes are supported by caution barricades with reflective orange-and-white warning signs. The street has yellow double lines, and a firetruck from the FDNY (Ladder 8) is parked in the background. The surrounding area includes a modern cityscape with mid-rise buildings, including a white and beige apartment complex with large rectangular windows and a taller building with glass and steel architecture.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -749,7 +281,7 @@
         <div class="grid-item">
           <img src="img/trainRailing.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/22/2024</h4>
+              <h4>9/30/2024</h4>
               <p class="description">A wooden toy train with three cars is placed on a light gray metal railing inside a modern home. The first car is a white van-like engine, followed by a green car with a red roof and a black rear engine. The background features a staircase with white railings and steps. The walls are light beige, and bright red and yellow decorative garlands hang from the stairs. A decorative black and beige wall art resembling Mickey Mouse is visible on the left side, mounted on the wall.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -805,7 +337,7 @@
         <div class="grid-item">
           <img src="img/kaiPlane.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/21/2024</h4>
+              <h4>9/29/2024</h4>
               <p class="description">A toddler with short brown hair plays at a wooden table, holding a red-and-white toy airplane. The child wears a white Snoopy-themed shirt and has a small colorful tattoo on their arm. In the background, a circular, intricate art piece filled with geometric shapes and scenes hangs on the wall. A vase of white flowers with green stems leans to the left of the image on the table, adding natural detail.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -862,7 +394,7 @@
         <div class="grid-item">
           <img src="img/firstDeskView.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/20/2024</h4>
+              <h4>9/28/2024</h4>
               <p class="description">The image shows a row of potted plants placed on a window sill behind a white railing. The windows are large and clear, with sunlight streaming through them, casting shadows. Beyond the windows, a bright blue sky with scattered clouds is visible, along with some string lights hanging outside. There is also a glimpse of outdoor greenery, including trees and a large outdoor umbrella. The overall scene feels peaceful and filled with natural light, with the plants neatly arranged and flourishing.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -936,7 +468,7 @@
         <div class="grid-item">
           <img src="img/kaiFunnyTrain.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/19/2024</h4>
+              <h4>9/27/2024</h4>
               <p class="description">A cozy living room scene featuring a young child leaning on a dark blue couch, intently looking at a colorful mechanical toy with gears inside a transparent case. The background includes a modern setting with a brown couch, a yellow striped pillow, a laptop, colorful wooden puzzle pieces, and large green plants under warm lighting from a floor lamp.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -994,7 +526,7 @@
         <div class="grid-item">
           <img src="img/kaiButterflyFace.png" class="hover-image">
           <div class="overlay">
-              <h4>9/18/2024</h4>
+              <h4>9/26/2024</h4>
               <p class="description">A young child with brown hair, wearing a yellow shirt with a sunburst design, stands outdoors on a sunny day. A monarch butterfly, with vibrant orange and black wings, rests gently on the child's hair. The background features blurred, neutral-toned elements, indicating a peaceful outdoor setting.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -1034,7 +566,7 @@
         <div class="grid-item">
           <img src="img/autumnDiorama.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/17/2024</h4>
+              <h4>9/25/2024</h4>
               <p class="description">A dense autumn forest scene with tall pine trees in the background and scattered deciduous trees in the foreground. The leaves are turning shades of yellow, orange, and red, with sparse green foliage remaining. Thin branches stretch across the view, some nearly bare. The forest floor is covered with rocks, moss, and a few small shrubs. A bright blue sky peeks through the top, contrasting the warm fall colors. A small brown animal can be seen near a large boulder in the lower part of the scene.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -1123,7 +655,7 @@
         <div class="grid-item">
           <img src="img/sruthiSanam.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/16/2024</h4>
+              <h4>9/24/2024</h4>
               <p class="description">Two women are seated at a dinner table engaged in conversation. One woman, standing on the left, is serving food from a black pot while wearing a black and white kurta with red accents. The other woman, seated to the right, wears a light yellow traditional Indian kurta and is smiling while eating with her hand. The table is set with traditional South Indian dishes on banana leaves, including rice, vegetables, papad, and pickles. Several metal pots and glass cups are placed on the table. A large painting of an abstract landscape with blue and green hues hangs on the wall behind them.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -1179,7 +711,7 @@
         <div class="grid-item">
           <img src="img/kaiButterflyHand.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/15/2024</h4>
+              <h4>9/23/2024</h4>
               <p class="description">A young child standing outdoors in a sunlit wooden patio, wearing a light yellow t-shirt with large sunburst patterns and red-striped shorts. The child has straight brown hair, looking down at their arm where a vibrant monarch butterfly with orange and black wings is perched. The background includes wooden fences, a green leafy plant hanging from a wall, and a bright blue sky with scattered clouds.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -1228,7 +760,7 @@
         <div class="grid-item">
           <img src="img/sruthiKaiPlayArea.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/14/2024</h4>
+              <h4>9/22/2024</h4>
               <p class="description">The image shows a cozy, homey scene featuring a woman sitting on a speckled blue-gray play mat with a young child sitting in front of her. The child, who is smiling, wears a white outfit with green palm tree prints, and they are playing with wooden train tracks and colorful toys scattered around. The woman, smiling warmly, is wearing dark, comfortable clothing and is seated on the floor with her legs folded.
                 Behind them is a white play kitchen set, complete with a toy microwave, sink, and accessories.</p>
               <div class="see-more-box">
@@ -1305,7 +837,7 @@
         <div class="grid-item">
           <img src="img/kaiRocks.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/13/2024</h4>
+              <h4>9/21/2024</h4>
               <p class="description">A museum display of various colorful mineral rocks arranged in a grid-like structure. The rocks vary in texture and colors such as green, blue, red, and orange. Each rock is labeled with a small black placard and grouped by their characteristics, such as "Consistent Color" and "Getting Darker." In the foreground, a young child with short brown hair, wearing a patterned shirt with pink and green designs, walks past the display.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -1390,7 +922,7 @@
         <div class="grid-item">
           <img src="img/kaiPhoto.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/12/2024</h4>
+              <h4>9/20/2024</h4>
               <p class="description">A young child standing indoors holds a black-and-white photo in front of their forehead, displaying the image of two smiling people. The child is wearing a white t-shirt with green dinosaur and leaf patterns. The background shows a cozy living room with a large window letting in bright sunlight, a green houseplant, and a red couch. The room has wooden flooring, a small bookshelf, and a relaxed, homey atmosphere. The child’s hair is brown, and they are holding the photo with both hands, slightly covering their eyes.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -1445,7 +977,7 @@
         <div class="grid-item">
           <img src="img/kaiDinner.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/11/2024</h4>
+              <h4>9/19/2024</h4>
               <p class="description">A cheerful toddler is seated in a wooden high chair, wearing a dark-colored bib with a few dotted patterns. The child has mid-length brown hair and is raising both hands, smiling with excitement. On the high chair's tray is a small bowl of creamy food with a spoon nearby, featuring a light green handle with a heart symbol. Two small red gummy-like objects are placed on the tray near the bowl. The background includes a red plastic chair, a staircase with red and yellow garland wrapped along the railing, and a black circular object mounted on the wall.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -1513,7 +1045,7 @@
         <div class="grid-item">
             <img src="img/kaiAmmaDinnerSmile.jpg" class="hover-image">
             <div class="overlay">
-                <h4>9/10/2024</h4>
+                <h4>9/18/2024</h4>
                 <p class="description">A warm, candid moment of a young woman sitting at a wooden dining table with a cheerful expression, resting her chin on her hand. She has long dark hair and is wearing a light-colored shirt, smiling towards the camera. Next to her is a toddler sitting in a wooden high chair, smiling joyfully. The toddler is wearing a green shirt with patterns and is holding a cup with a yellow lid on the tray in front. The background features an industrial-style staircase with metal railings, a black and gold decorative mask mounted on the wall, and modern abstract art with black and orange swirls. </p>
                 <div class="see-more-box">
                     <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -1568,7 +1100,7 @@
         <div class="grid-item">
                   <img src="img/nightFlowers.jpg" class="hover-image">
                   <div class="overlay">
-                      <h4>9/9/2024</h4>
+                      <h4>9/17/2024</h4>
                       <p class="description">A natural scene featuring dense clusters of bright yellow starburst-shaped flowers with long thin petals, set against a dark green background of large leafy plants and climbing vines. The flowers are abundant and radiate outward from brown central disks. The foliage consists of a variety of green shades, with broad and long leaves. The scene has a wild, lush garden-like appearance with rich texture from the vegetation and vines climbing upward in the background.</p>
                       <div class="see-more-box">
                           <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -1630,11 +1162,196 @@
                   </svg>
                   
         </div>
+      <!-- Kai lego -->
+      <div class="grid-item">
+        <img src="img/kaiLego.jpg" class="hover-image">
+        <div class="overlay">
+            <h4>9/16/2024</h4>
+            <p class="description">A young child with short brown hair is standing beside a white play table filled with colorful toy building blocks. The child is wearing a white shirt with a Snoopy design and is focused on the blocks, which are in primary colors (red, blue, yellow, green). The table has two compartments, one filled with blocks and the other with some additional pieces, possibly ramps or slides, in a red tray. The wooden floor and modern chairs in the background complete the cozy, indoor setting.</p>
+            <div class="see-more-box">
+                <span class="see-more" onclick="toggleDescription(this)">See more</span>
+                <span class="see-less" onclick="toggleDescription(this)">See less</span>
+            </div>
+        </div>
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background (wooden floor) -->
+          <rect x="0" y="0" width="100%" height="100%" fill="oldlace"/>
+        
+          <!-- Table structure -->
+          <rect x="50" y="200" width="300" height="150" fill="white" stroke="black" stroke-width="4"/>
+          
+          <!-- Left compartment filled with colorful blocks -->
+          <rect x="60" y="210" width="140" height="130" fill="none" stroke="black" stroke-width="2"/>
+          <!-- Blocks inside left compartment -->
+          <rect x="70" y="220" width="30" height="30" fill="red"/>
+          <rect x="110" y="220" width="40" height="20" fill="blue"/>
+          <rect x="160" y="220" width="30" height="30" fill="green"/>
+          <rect x="70" y="260" width="40" height="20" fill="yellow"/>
+          <rect x="120" y="260" width="40" height="30" fill="red"/>
+          <rect x="170" y="260" width="30" height="40" fill="green"/>
+        
+          <!-- Right compartment with ramps/slides -->
+          <rect x="210" y="210" width="130" height="130" fill="none" stroke="black" stroke-width="2"/>
+          <rect x="220" y="220" width="100" height="20" fill="red"/>
+          <rect x="220" y="250" width="50" height="10" fill="blue"/>
+          <rect x="220" y="270" width="80" height="15" fill="yellow"/>
+        
+          <!-- Enlarged child figure -->
+          <circle cx="200" cy="120" r="35" fill="#F5C1A8" /> <!-- Head -->
+          <rect x="170" y="160" width="60" height="70" fill="white" stroke="black"/> <!-- Shirt -->
+          
+          <!-- Facial features -->
+          <circle cx="190" cy="115" r="5" fill="black"/> <!-- Left eye -->
+          <circle cx="210" cy="115" r="5" fill="black"/> <!-- Right eye -->
+          <path d="M185 135 Q200 145 215 135" stroke="black" stroke-width="2" fill="none"/> <!-- Smile -->
+        
+          <!-- Arms -->
+          <line x1="175" y1="160" x2="175" y2="190" stroke="black" stroke-width="4"/> <!-- Left arm -->
+          <line x1="225" y1="160" x2="225" y2="190" stroke="black" stroke-width="4"/> <!-- Right arm -->
+        
+          <!-- Detailed Snoopy design on shirt -->
+          <!-- Snoopy head -->
+          <circle cx="200" cy="180" r="12" fill="white" stroke="black" stroke-width="2"/> 
+          <circle cx="195" cy="178" r="2" fill="black"/> <!-- Snoopy's nose -->
+          <circle cx="202" cy="174" r="2" fill="black"/> <!-- Snoopy's eye -->
+          <!-- Snoopy's ear -->
+          <path d="M200 170 Q190 175 192 182" fill="black"/>
+          <!-- Snoopy's body -->
+          <ellipse cx="200" cy="195" rx="6" ry="10" fill="white" stroke="black" stroke-width="2"/>
+          <line x1="200" y1="185" x2="200" y2="205" stroke="black" stroke-width="2"/> <!-- Snoopy's leg -->
+          <circle cx="200" cy="200" r="1.5" fill="black"/> <!-- Snoopy's foot -->
+          
+        </svg>
+        
+        </div>
+      <!-- neon Holiday -->
+        <div class="grid-item" style="background-color: rgb(221, 223, 237);">
+        <img src="img/neonHoliday.jpg" class="hover-image">
+        <div class="overlay">
+            <h4>9/16/2024</h4>
+            <p class="description">A vibrant display of holiday neon lights featuring a snowman with a top hat, scarf, and a large snowflake. The snowman is outlined in red, white, and green neon lights, while the top hat has blue accents. The snowflake is in glittery white with glowing neon edges. Behind the snowman are additional festive neon shapes like mittens and stars. The neon colors are bold and bright, creating a glowing, festive holiday atmosphere.</p>
+            <div class="see-more-box">
+                <span class="see-more" onclick="toggleDescription(this)">See more</span>
+                <span class="see-less" onclick="toggleDescription(this)">See less</span>
+            </div>
+        </div>
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Snowman Body -->
+          <circle cx="50" cy="65" r="15" fill="none" stroke="#00FF00" stroke-width="2" />
+          <circle cx="50" cy="45" r="10" fill="none" stroke="#FFFFFF" stroke-width="2" />
+          
+          <!-- Snowman Hat -->
+          <rect x="42" y="30" width="16" height="5" fill="none" stroke="#0000FF" stroke-width="2" />
+          <line x1="40" y1="35" x2="60" y2="35" stroke="#0000FF" stroke-width="2" />
+          <ellipse cx="50" cy="28" rx="10" ry="2" fill="none" stroke="#0000FF" stroke-width="2" />
+          
+          <!-- Snowman Face and Details -->
+          <circle cx="47" cy="42" r="1.5" fill="#FFFFFF" />
+          <circle cx="53" cy="42" r="1.5" fill="#FFFFFF" />
+          <circle cx="50" cy="46" r="2" fill="#FFA500" />  <!-- Orange nose -->
+          <path d="M 48 48 Q 50 50 52 48" stroke="#FF0000" stroke-width="0.5" fill="none" /> <!-- Smile -->
+          <line x1="47" y1="55" x2="53" y2="55" stroke="#FF0000" stroke-width="2" /> <!-- Scarf horizontal -->
+          <path d="M 50 55 Q 55 60 52 65" stroke="#FF0000" stroke-width="2" fill="none" /> <!-- Scarf end -->
+        
+          <!-- Snowman's Arms -->
+          <line x1="45" y1="50" x2="40" y2="60" stroke="#FFFFFF" stroke-width="2" />
+          <line x1="55" y1="50" x2="60" y2="60" stroke="#FFFFFF" stroke-width="2" />
+          
+          <!-- Snowflake -->
+          <g stroke="#FFFFFF" stroke-width="2">
+            <line x1="25" y1="35" x2="35" y2="45" />
+            <line x1="25" y1="45" x2="35" y2="35" />
+            <line x1="30" y1="30" x2="30" y2="50" />
+            <line x1="20" y1="40" x2="40" y2="40" />
+            <circle cx="30" cy="40" r="3" fill="none" stroke="#00FF00" />
+            <line x1="27" y1="37" x2="33" y2="43" stroke="#00FF00" />
+            <line x1="33" y1="37" x2="27" y2="43" stroke="#00FF00" />
+          </g>
+          
+          <!-- Background festive shapes -->
+          <!-- Red mitten -->
+          <path d="M 65 25 Q 68 28 72 25 Q 74 20 72 18 Q 68 18 65 22 Z" fill="none" stroke="#FF0000" stroke-width="2" />
+          <!-- Yellow star -->
+          <polygon points="65,45 67,48 70,46 68,50 70,54 65,52 60,54 62,50 60,46 63,48" fill="none" stroke="#FFFF00" stroke-width="2" />
+          
+          <!-- Blue candy cane -->
+          <path d="M 15 55 Q 17 50 22 52 T 25 62 T 22 68 Q 20 70 18 68 Q 16 65 18 62 T 22 60 T 25 62" fill="none" stroke="#0000FF" stroke-width="2" />
+          
+          <!-- Green Christmas Tree -->
+          <polygon points="80,60 85,55 90,60 85,65" fill="none" stroke="#00FF00" stroke-width="2" />
+          <polygon points="83,63 85,60 87,63" fill="none" stroke="#00FF00" stroke-width="2" />
+          <rect x="84" y="66" width="2" height="3" fill="#964B00" /> <!-- Tree trunk -->
+        
+          <!-- Snowman's Buttons -->
+          <circle cx="50" cy="55" r="1.5" fill="#FFFFFF" />
+          <circle cx="50" cy="60" r="1.5" fill="#FFFFFF" />
+          <circle cx="50" cy="65" r="1.5" fill="#FFFFFF" />
+          
+          <!-- Decorative Neon Effect Lines -->
+          <path d="M 10 20 Q 20 30 30 20" stroke="#00FF00" stroke-width="1.5" fill="none" />
+          <path d="M 70 80 Q 75 85 80 80" stroke="#FF0000" stroke-width="1.5" fill="none" />
+        </svg>
+        
+
+        </div>
+      <!-- kai running -->
+        <div class="grid-item">
+        <img src="img/kaiRunning.jpg" class="hover-image">
+        <div class="overlay">
+            <h4>9/15/2024</h4>
+            <p class="description">A cozy indoor scene with a child in pajamas standing on wooden floors, surrounded by toys. A train track curves across the floor, with a toy box and puzzle board nearby. Behind the child, there's a play kitchen set with miniature dishes and utensils. The room has modern decor, featuring a large, round abstract art piece on the left wall and a graphic, wavy black-and-white print on the right. A soft, dark sofa and a floor lamp are in the background under soft lighting.</p>
+            <div class="see-more-box">
+                <span class="see-more" onclick="toggleDescription(this)">See more</span>
+                <span class="see-less" onclick="toggleDescription(this)">See less</span>
+            </div>
+        </div>
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background with wooden floor pattern -->
+          <rect width="100" height="100" fill="#F4E0B5"/>
+          
+          <!-- Round abstract art piece on the left -->
+          <circle cx="25" cy="20" r="10" fill="#2C3E50"/>
+          <path d="M22 20 A8 8 0 0 1 28 20 L25 15 Z" fill="#ECF0F1"/>
+          
+          <!-- Wavy black and white art on the right -->
+          <rect x="70" y="10" width="20" height="30" fill="#ECF0F1"/>
+          <path d="M70 10 Q75 20 70 30 Q75 40 70 50" stroke="#000" stroke-width="1" fill="none"/>
+          <path d="M90 10 Q85 20 90 30 Q85 40 90 50" stroke="#000" stroke-width="1" fill="none"/>
+          
+          <!-- Child figure with face -->
+          <circle cx="40" cy="55" r="5" fill="#F1C40F"/>
+          <!-- Eyes -->
+          <circle cx="39" cy="54" r="0.5" fill="#000"/>
+          <circle cx="41" cy="54" r="0.5" fill="#000"/>
+          <!-- Mouth -->
+          <path d="M39 56 Q40 57 41 56" stroke="#000" stroke-width="0.5" fill="none"/>
+          
+          <!-- Body and clothing -->
+          <rect x="37" y="60" width="6" height="10" fill="#ECF0F1"/>
+          
+          <!-- Train track on the floor -->
+          <path d="M30 70 Q40 60 50 70" stroke="#8E44AD" stroke-width="1" fill="none"/>
+          
+          <!-- Toy box -->
+          <rect x="55" y="70" width="10" height="5" fill="#E74C3C"/>
+          
+          <!-- Play kitchen set -->
+          <rect x="70" y="60" width="15" height="10" fill="#3498DB"/>
+          <rect x="70" y="60" width="5" height="3" fill="#ECF0F1"/>
+          <rect x="80" y="60" width="3" height="3" fill="#ECF0F1"/>
+        
+          <!-- Sofa and lamp in the background -->
+          <rect x="10" y="65" width="20" height="7" fill="#34495E"/>
+          <rect x="12" y="57" width="1.5" height="5" fill="#F39C12"/>
+          <circle cx="12.75" cy="57" r="2" fill="#F1C40F"/>
+        </svg>
+        
+        </div>
       <!-- 3 faces -->
         <div class="grid-item">
           <img src="img/3faces.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/8/2024</h4>
+              <h4>9/14/2024</h4>
               <p class="description">A joyful family portrait featuring a smiling toddler in the center wearing a Snoopy-themed shirt. The child has dark, slightly long hair and is standing in front of two adults who are partially visible, both smiling affectionately. The background includes a bookshelf filled with books, small objects, and a postcard showing a futuristic cityscape, with a glass bottle holding a single plant on top of the shelf.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -1691,11 +1408,236 @@
           </svg>
           
         </div>
+      <!-- Monkey -->
+      <div class="grid-item">
+        <img src="img/monkey.jpg" class="hover-image">
+        <div class="overlay">
+            <h4>9/13/2024</h4>
+            <p class="description">A lush jungle scene with several colobus monkeys perched on branches. The colobus monkeys are distinguished by their black bodies with white fur on their backs and long white tails. They are climbing and resting on tree branches surrounded by thick green foliage, vines, and hanging moss. In the background, there is a hazy sky with a distant landscape of more forested areas. The overall atmosphere feels serene and natural, with monkeys positioned at various heights in the scene.</p>
+            <div class="see-more-box">
+                <span class="see-more" onclick="toggleDescription(this)">See more</span>
+                <span class="see-less" onclick="toggleDescription(this)">See less</span>
+            </div>
+        </div>
+        <div class="svg-container">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background sky and distant forest -->
+            <rect width="200" height="200" fill="lightblue" />
+            <ellipse cx="100" cy="160" rx="90" ry="30" fill="forestgreen" opacity="0.5"/>
+            <ellipse cx="100" cy="180" rx="100" ry="20" fill="darkgreen" opacity="0.4"/>
+          
+            <!-- Tree branches -->
+            <g id="tree">
+              <path d="M40 50 C50 30, 80 25, 100 50 S150 90, 170 80" stroke="saddlebrown" stroke-width="5" fill="none"/>
+              <path d="M30 70 C40 50, 60 60, 90 80 S120 120, 140 100" stroke="saddlebrown" stroke-width="5" fill="none"/>
+              <path d="M50 110 C60 90, 80 85, 110 110 S130 140, 160 130" stroke="saddlebrown" stroke-width="5" fill="none"/>
+            </g>
+          
+            <!-- Leaves on branches -->
+            <g id="leaves">
+              <circle cx="50" cy="50" r="6" fill="green" />
+              <circle cx="55" cy="65" r="5" fill="green" />
+              <circle cx="100" cy="50" r="7" fill="green" />
+              <circle cx="110" cy="60" r="5" fill="green" />
+              <circle cx="150" cy="90" r="6" fill="green" />
+              <circle cx="70" cy="120" r="7" fill="green" />
+              <circle cx="130" cy="130" r="6" fill="green" />
+              <circle cx="160" cy="80" r="5" fill="green" />
+              <circle cx="90" cy="90" r="7" fill="green" />
+              <circle cx="100" cy="120" r="6" fill="green" />
+            </g>
+          
+            <!-- Colobus Monkeys -->
+            <g id="monkeys">
+              <!-- Monkey 1 (left side) -->
+              <circle cx="40" cy="60" r="6" fill="black"/> <!-- head -->
+              <rect x="36" y="65" width="8" height="20" fill="black"/> <!-- body -->
+              <path d="M40 80 C37 85, 43 85, 40 90" fill="black"/> <!-- legs -->
+              <line x1="40" y1="90" x2="40" y2="120" stroke="white" stroke-width="2"/> <!-- tail -->
+              <path d="M38 60 C38 58, 42 58, 42 60" stroke="white" stroke-width="1" fill="none"/> <!-- face stripe -->
+          
+              <!-- Monkey 2 (center, climbing) -->
+              <circle cx="80" cy="90" r="6" fill="black"/> <!-- head -->
+              <rect x="76" y="95" width="8" height="20" fill="black"/> <!-- body -->
+              <path d="M80 110 C77 115, 83 115, 80 120" fill="black"/> <!-- legs -->
+              <line x1="80" y1="120" x2="80" y2="150" stroke="white" stroke-width="2"/> <!-- tail -->
+              <path d="M78 90 C78 88, 82 88, 82 90" stroke="white" stroke-width="1" fill="none"/> <!-- face stripe -->
+          
+              <!-- Monkey 3 (right side) -->
+              <circle cx="130" cy="70" r="6" fill="black"/> <!-- head -->
+              <rect x="126" y="75" width="8" height="20" fill="black"/> <!-- body -->
+              <path d="M130 90 C127 95, 133 95, 130 100" fill="black"/> <!-- legs -->
+              <line x1="130" y1="100" x2="130" y2="130" stroke="white" stroke-width="2"/> <!-- tail -->
+              <path d="M128 70 C128 68, 132 68, 132 70" stroke="white" stroke-width="1" fill="none"/> <!-- face stripe -->
+          
+              <!-- Monkey 4 (back, sitting) -->
+              <circle cx="150" cy="100" r="5" fill="black"/> <!-- head -->
+              <rect x="147" y="105" width="6" height="15" fill="black"/> <!-- body -->
+              <path d="M150 115 C148 118, 152 118, 150 120" fill="black"/> <!-- legs -->
+              <line x1="150" y1="120" x2="150" y2="140" stroke="white" stroke-width="2"/> <!-- tail -->
+              <path d="M148 100 C148 99, 152 99, 152 100" stroke="white" stroke-width="1" fill="none"/> <!-- face stripe -->
+            </g>
+          
+            <!-- Hanging moss -->
+            <g id="moss">
+              <path d="M50 30 C50 40, 55 45, 55 55" stroke="saddlebrown" stroke-width="1.5"/>
+              <path d="M100 20 C100 30, 105 35, 105 45" stroke="saddlebrown" stroke-width="1.5"/>
+              <path d="M130 40 C130 50, 135 55, 135 65" stroke="saddlebrown" stroke-width="1.5"/>
+              <path d="M150 60 C150 70, 155 75, 155 85" stroke="saddlebrown" stroke-width="1.5"/>
+            </g>
+          </svg>
+          
+        </div>
+  
+      </div>
+      <!-- Dino -->
+        <div class="grid-item">
+  <img src="img/dino.jpg" class="hover-image">
+  <div class="overlay">
+      <h4>9/12/2024</h4>
+      <p class="description">Two large dinosaur skeletons on display in a museum exhibit, featuring an ornithopod species with elongated necks and tails. The foremost skeleton is in a crouched posture with its head lowered, while the second one stands upright behind it with its head elevated, showing a crest-like structure. The scene is set against a clean museum backdrop with soft lighting from ceiling lamps, glass display cases, and a sandy-textured floor beneath the skeletons.</p>
+      <div class="see-more-box">
+          <span class="see-more" onclick="toggleDescription(this)">See more</span>
+          <span class="see-less" onclick="toggleDescription(this)">See less</span>
+      </div>
+  </div>
+  <div class="svg-container">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+      <!-- Background -->
+      <rect width="100%" height="100%" fill="#eaeaea"/>
+    
+      <!-- Foreground Dinosaur (Crouched) -->
+      <g transform="translate(100, 350)">
+        <!-- Body -->
+        <ellipse cx="100" cy="50" rx="60" ry="30" fill="none" stroke="#3b3b3b" stroke-width="3"/>
+        <!-- Tail -->
+        <path d="M100,50 Q150,70 220,60" stroke="#3b3b3b" stroke-width="3" fill="none"/>
+        <!-- Neck -->
+        <path d="M100,40 Q70,20 50,5" stroke="#3b3b3b" stroke-width="3" fill="none"/>
+        <!-- Head -->
+        <ellipse cx="45" cy="5" rx="15" ry="8" fill="none" stroke="#3b3b3b" stroke-width="3"/>
+        <!-- Legs -->
+        <line x1="90" y1="70" x2="80" y2="110" stroke="#3b3b3b" stroke-width="4"/>
+        <line x1="110" y1="70" x2="120" y2="110" stroke="#3b3b3b" stroke-width="4"/>
+        <!-- Feet -->
+        <circle cx="80" cy="110" r="5" fill="#3b3b3b"/>
+        <circle cx="120" cy="110" r="5" fill="#3b3b3b"/>
+        <!-- Front Legs (Arms) -->
+        <line x1="90" y1="50" x2="80" y2="70" stroke="#3b3b3b" stroke-width="3"/>
+        <line x1="110" y1="50" x2="120" y2="70" stroke="#3b3b3b" stroke-width="3"/>
+        <!-- Hands -->
+        <circle cx="80" cy="70" r="4" fill="#3b3b3b"/>
+        <circle cx="120" cy="70" r="4" fill="#3b3b3b"/>
+      </g>
+    
+      <!-- Background Dinosaur (Upright) -->
+      <g transform="translate(200, 150)">
+        <!-- Body -->
+        <ellipse cx="100" cy="50" rx="70" ry="35" fill="none" stroke="#555555" stroke-width="3"/>
+        <!-- Tail -->
+        <path d="M100,50 Q180,100 260,80" stroke="#555555" stroke-width="3" fill="none"/>
+        <!-- Neck -->
+        <path d="M100,40 Q120,20 140,5" stroke="#555555" stroke-width="3" fill="none"/>
+        <!-- Head -->
+        <ellipse cx="145" cy="5" rx="20" ry="10" fill="none" stroke="#555555" stroke-width="3"/>
+        <!-- Crest -->
+        <path d="M155,0 Q160,-20 140,-20" stroke="#555555" stroke-width="2" fill="none"/>
+        <!-- Legs -->
+        <line x1="90" y1="70" x2="85" y2="120" stroke="#555555" stroke-width="4"/>
+        <line x1="110" y1="70" x2="115" y2="120" stroke="#555555" stroke-width="4"/>
+        <!-- Feet -->
+        <circle cx="85" cy="120" r="5" fill="#555555"/>
+        <circle cx="115" cy="120" r="5" fill="#555555"/>
+        <!-- Front Legs (Arms) -->
+        <line x1="90" y1="50" x2="80" y2="70" stroke="#555555" stroke-width="3"/>
+        <line x1="110" y1="50" x2="120" y2="70" stroke="#555555" stroke-width="3"/>
+        <!-- Hands -->
+        <circle cx="80" cy="70" r="4" fill="#555555"/>
+        <circle cx="120" cy="70" r="4" fill="#555555"/>
+      </g>
+    
+      <!-- Ground Texture -->
+      <g fill="#d9d9d9">
+        <circle cx="50" cy="480" r="10"/>
+        <circle cx="100" cy="470" r="8"/>
+        <circle cx="150" cy="460" r="12"/>
+        <circle cx="200" cy="490" r="10"/>
+        <circle cx="250" cy="470" r="8"/>
+        <circle cx="300" cy="460" r="12"/>
+        <circle cx="350" cy="490" r="10"/>
+        <circle cx="400" cy="470" r="8"/>
+      </g>
+    
+      <!-- Museum Lights -->
+      <g fill="#bbbbbb">
+        <circle cx="70" cy="30" r="15"/>
+        <circle cx="430" cy="30" r="15"/>
+        <circle cx="250" cy="30" r="15"/>
+      </g>
+    </svg>
+    
+  </div>
+
+        </div>
+      <!-- Kai Funny train -->
+        <div class="grid-item" style="background-color: rgb(245, 246, 252);">
+        <img src="img/kaiFunnyTrain2.jpg" class="hover-image">
+        <div class="overlay">
+            <h4>9/11/2024</h4>
+            <p class="description">A child holding a translucent, futuristic toy spaceship with colorful lights inside, sitting on a dark couch. The child is focused, with soft brown hair, wearing a light-colored shirt. In the background, there is a circular wall art featuring abstract human figures in a geometric structure. The scene captures a sense of curiosity and imagination.</p>
+            <div class="see-more-box">
+                <span class="see-more" onclick="toggleDescription(this)">See more</span>
+                <span class="see-less" onclick="toggleDescription(this)">See less</span>
+            </div>
+        </div>
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Child's head -->
+          <circle cx="35" cy="50" r="10" fill="#d2a17e" />
+        
+          <!-- Hair -->
+          <path d="M30,45 Q35,35 40,45" fill="#4a2b15" />
+          <path d="M30,47 Q35,40 40,47" fill="#4a2b15" />
+        
+          <!-- Face details -->
+          <!-- Eyes -->
+          <circle cx="33" cy="50" r="1.5" fill="#000" />
+          <circle cx="37" cy="50" r="1.5" fill="#000" />
+          <!-- Mouth -->
+          <path d="M33,54 Q35,56 37,54" stroke="#000" stroke-width="0.5" fill="none" />
+        
+          <!-- Shirt -->
+          <rect x="25" y="60" width="20" height="15" fill="#f1e4d3" />
+          <path d="M27,63 Q32,57 38,63" fill="#f7dcb3" />
+        
+          <!-- Toy spaceship -->
+          <rect x="45" y="45" width="30" height="10" rx="5" ry="5" fill="transparent" stroke="gray" stroke-width="1" />
+          <circle cx="50" cy="50" r="3" fill="red" />
+          <circle cx="60" cy="50" r="3" fill="blue" />
+          <circle cx="70" cy="50" r="3" fill="green" />
+          
+          <!-- Glow effect on toy -->
+          <circle cx="50" cy="50" r="5" fill="none" stroke="red" stroke-width="0.5" opacity="0.7" />
+          <circle cx="60" cy="50" r="5" fill="none" stroke="blue" stroke-width="0.5" opacity="0.7" />
+          <circle cx="70" cy="50" r="5" fill="none" stroke="green" stroke-width="0.5" opacity="0.7" />
+        
+          <!-- Child's hand holding the spaceship -->
+          <circle cx="43" cy="50" r="3.5" fill="#d2a17e" />
+          <circle cx="41" cy="50" r="3.5" fill="#d2a17e" />
+        
+          <!-- Background circle art -->
+          <circle cx="80" cy="30" r="15" fill="#888" />
+          <path d="M70,25 L75,20 L80,25 L85,20 L90,25" stroke="black" fill="none" />
+          <circle cx="80" cy="30" r="3" fill="yellow" />
+          <circle cx="85" cy="33" r="1.5" fill="red" />
+          <circle cx="75" cy="33" r="1.5" fill="green" />
+        </svg>
+        
+        </div>
       <!-- plantCredenza -->
         <div class="grid-item">
           <img src="img/plantCredenza.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/7/2024</h4>
+              <h4>9/10/2024</h4>
               <p class="description">A well-lit modern interior featuring a tall, dark green window with sunlight streaming through. Two pink and purple lilies are placed in small, transparent vases on the windowsill. Below the window is a large potted monstera plant with wide, split leaves in a transparent vase. To the right, a red glossy cabinet with metallic legs stands against a white wall. On top of the cabinet is a small Mickey Mouse figurine. Behind the cabinet is a colorful, abstract artwork made up of thin, multicolored lines in a grid pattern. The room has wooden flooring.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
@@ -1759,7 +1701,7 @@
         <div class="grid-item">
           <img src="img/chatsMeeting.jpg" class="hover-image">
           <div class="overlay">
-              <h4>9/6/2024</h4>
+              <h4>9/9/2024</h4>
               <p class="description">A modern office meeting room with six people seated around a rectangular wooden table. The participants are casually dressed, working on laptops, and engaged in a video conference. The room has large windows allowing natural light to enter from the right, while a glass wall on the left reveals an open office space. Two screens on the wall display a video call with multiple participants and a shared document. The furniture includes ergonomic office chairs, and there are personal items on the table such as water bottles and notebooks.</p>
               <div class="see-more-box">
                   <span class="see-more" onclick="toggleDescription(this)">See more</span>
