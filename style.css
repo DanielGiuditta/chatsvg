@@ -119,6 +119,7 @@ ol li {
   aspect-ratio: 1 / 1; /* Maintain 1:1 aspect ratio */
 }
 
+
 .grid-item svg {
   position: absolute; /* Position the SVG absolutely */
   top: 0;
