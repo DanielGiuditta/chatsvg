@@ -3,62 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVG Animation with Smooth Pulsating Dots</title>
+    <title>SVG Animation with Blend Modes</title>
     <style>
         body {
             margin: 0;
+            padding: 20px;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #ededed;
-            
+            flex-direction: column;
+            align-items: flex-start;
+            min-height: 100vh;
+            background-color: #fff9c4; /* Light yellow background */
+            color: #000;
+            font-family: Arial, sans-serif;
+        }
+        .controls {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        select {
+            width: 150px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+        }
+        .sliders {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 200px;
+            height: 4px;
+            background: #333;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity .2s;
+        }
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 0 2px rgba(0,0,0,0.3);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 0 2px rgba(0,0,0,0.3);
+        }
+        #red::-webkit-slider-thumb, #red::-moz-range-thumb {
+            background-color: red;
+        }
+        #green::-webkit-slider-thumb, #green::-moz-range-thumb {
+            background-color: lime;
+        }
+        #blue::-webkit-slider-thumb, #blue::-moz-range-thumb {
+            background-color: blue;
         }
         .container {
             width: 800px;
             height: 800px;
             position: relative;
-            
-
+            align-self: center;
         }
         .path {
-            mix-blend-mode: darken;
-        }
-        .dot {
-            fill: white;
-            mix-blend-mode: difference;
-        }
-        @keyframes pulsate1 {
-            0%, 100% { r: 40; }
-            50% { r: 80; }
-        }
-        @keyframes pulsate2 {
-            0%, 100% { r: 40; }
-            50% { r: 75; }
-        }
-        @keyframes pulsate3 {
-            0%, 100% { r: 40; }
-            50% { r: 70; }
-        }
-        @keyframes pulsate4 {
-            0%, 100% { r: 40; }
-            50% { r: 65; }
-        }
-        .dot:nth-child(4n+1) {
-            animation: pulsate1 3s cubic-bezier(0.4, 0, 0.6, 1) 0s infinite;
-        }
-        .dot:nth-child(4n+2) {
-            animation: pulsate2 4s cubic-bezier(0.4, 0, 0.6, 1) 0.5s infinite;
-        }
-        .dot:nth-child(4n+3) {
-            animation: pulsate3 3.5s cubic-bezier(0.4, 0, 0.6, 1) 1s infinite;
-        }
-        .dot:nth-child(4n) {
-            animation: pulsate4 4.5s cubic-bezier(0.4, 0, 0.6, 1) 1.5s infinite;
+            mix-blend-mode: color-burn;
         }
     </style>
 </head>
 <body>
+    <div class="controls">
+        <div class="control-group">
+            <label for="blend-mode">Blend</label>
+            <select id="blend-mode">
+                <option value="color-burn" selected>Color Burn</option>
+                <option value="darken">Darken</option>
+                <option value="multiply">Multiply</option>
+                <option value="difference">Difference</option>
+                <option value="hard-light">Hard Light</option>
+                <option value="lighten">Lighten</option>
+                <option value="screen">Screen</option>
+                <option value="exclusion">Exclusion</option>
+                <option value="overlay">Overlay</option>
+                <option value="color-dodge">Color Dodge</option>
+                <option value="color">Color</option>
+                <option value="soft-light">Soft Light</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label>Background</label>
+            <div class="sliders">
+                <input type="range" id="red" min="0" max="255" value="240">
+                <input type="range" id="green" min="0" max="255" value="240">
+                <input type="range" id="blue" min="0" max="255" value="240">
+            </div>
+        </div>
+    </div>
     <div class="container">
         <svg id="_0" data-name="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1266.17 1250.37">
             <defs>
@@ -139,5 +204,74 @@
             </g>
         </svg>
     </div>
+    <script>
+        const blendModeSelect = document.getElementById('blend-mode');
+        const redSlider = document.getElementById('red');
+        const greenSlider = document.getElementById('green');
+        const blueSlider = document.getElementById('blue');
+        const paths = document.querySelectorAll('.path');
+
+        const blendModeColors = {
+            'color-burn': [240, 240, 240],
+            'darken': [240, 240, 240],
+            'multiply': [240, 240, 240],
+            'difference': [240, 240, 240],
+            'hard-light': [0, 0, 0],
+            'lighten': [0, 0, 0],
+            'screen': [0, 0, 0],
+            'exclusion': [0, 0, 0],
+            'overlay': [244, 127, 0],
+            'color-dodge': [12, 30, 40],
+            'color': [244, 127, 0],
+            'soft-light': [128, 0, 0]
+        };
+
+        blendModeSelect.addEventListener('change', (e) => {
+            const selectedMode = e.target.value;
+            paths.forEach(path => {
+                path.style.mixBlendMode = selectedMode;
+            });
+            
+            const [r, g, b] = blendModeColors[selectedMode];
+            redSlider.value = r;
+            greenSlider.value = g;
+            blueSlider.value = b;
+            updateBackgroundColor();
+        });
+
+        function updateBackgroundColor() {
+            const r = redSlider.value;
+            const g = greenSlider.value;
+            const b = blueSlider.value;
+            document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
+            // Calculate brightness
+            const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+            // Adjust text and control colors based on brightness
+            if (brightness > 128) {
+                document.body.style.color = '#000';
+                blendModeSelect.style.backgroundColor = '#333';
+                blendModeSelect.style.color = '#fff';
+                [redSlider, greenSlider, blueSlider].forEach(slider => {
+                    slider.style.backgroundColor = '#333';
+                });
+            } else {
+                document.body.style.color = '#fff';
+                blendModeSelect.style.backgroundColor = '#ddd';
+                blendModeSelect.style.color = '#000';
+                [redSlider, greenSlider, blueSlider].forEach(slider => {
+                    slider.style.backgroundColor = '#ddd';
+                });
+            }
+        }
+
+        redSlider.addEventListener('input', updateBackgroundColor);
+        greenSlider.addEventListener('input', updateBackgroundColor);
+        blueSlider.addEventListener('input', updateBackgroundColor);
+
+        // Initialize background color
+        updateBackgroundColor();
+    </script>
 </body>
 </html>
