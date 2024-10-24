@@ -10,6 +10,7 @@
             padding: 0;
             height: 100%;
             overflow: hidden;
+            touch-action: manipulation;
         }
 
         body {
@@ -33,22 +34,25 @@
 
         .content-wrapper {
             width: min(calc(100vh - 300px), calc(100vw - 48px));
-            height: 100%;
+            height: calc(100vh - 48px);
             display: flex;
             flex-direction: column;
+            min-height: 0;
         }
 
         .header {
             width: 100%;
             display: flex;
             align-items: center;
+            pointer-events: auto;
+            z-index: 10;
         }
-
 
         .svg-container {
             flex: 1;
             position: relative;
             margin: -40px;
+            min-height: 0;
         }
 
         svg {
@@ -57,27 +61,33 @@
             left: 0;
             width: 100%;
             height: 100%;
+            pointer-events: none;
         }
 
         .controls {
             width: 100%;
-            height: 100px;
+            height: auto;
             display: flex;
             gap: 30px;
+            z-index: 10;
+            pointer-events: auto;
         }
 
         .control-group {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            pointer-events: auto;
+            z-index: 10;
         }
 
         label {
             margin-bottom: 5px;
             font-weight: bold;
+            pointer-events: auto;
         }
 
-        select, select option{
+        select, select option {
             width: 150px;
             padding: 5px;
             border-radius: 5px;
@@ -86,12 +96,17 @@
             color: #fff;
             border: none;
             transition: background-color 0.3s, color 0.3s;
+            pointer-events: auto;
+            z-index: 10;
+            cursor: pointer;
         }
 
         .sliders {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            pointer-events: auto;
+            z-index: 10;
         }
 
         input[type="range"] {
@@ -100,6 +115,8 @@
             height: 2px;
             border-radius: 2px;
             background: #000000;
+            pointer-events: auto;
+            z-index: 10;
         }
 
         input[type="range"]::-webkit-slider-thumb {
@@ -172,6 +189,7 @@
     <div class="app-wrapper">
         <div class="content-wrapper">
             <header class="header">Stapati Logo Maker</header>
+
             <div class="svg-container">
                 <svg id="_0" data-name="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1266.17 1250.37">
                     <defs>
@@ -289,8 +307,6 @@
         const greenSlider = document.getElementById('green');
         const blueSlider = document.getElementById('blue');
         const paths = document.querySelectorAll('.path');
-        const logoWhite = document.getElementById('logo-white');
-        const logoBlack = document.getElementById('logo-black');
 
         const blendModeColors = {
             'color-burn': [240, 240, 240],
@@ -332,14 +348,10 @@
                 document.body.style.color = '#000';
                 blendModeSelect.style.backgroundColor = '#333';
                 blendModeSelect.style.color = '#fff';
-                logoWhite.style.display = 'none';
-                logoBlack.style.display = 'block';
             } else {
                 document.body.style.color = '#fff';
                 blendModeSelect.style.backgroundColor = '#ddd';
                 blendModeSelect.style.color = '#000';
-                logoWhite.style.display = 'block';
-                logoBlack.style.display = 'none';
             }
         }
 
