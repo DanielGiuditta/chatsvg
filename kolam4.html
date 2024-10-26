@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stapati Logo Maker</title>
+    <title>Responsive Layout</title>
     <style>
+        /* Base styles */
         body, html {
             margin: 0;
             padding: 0;
@@ -14,360 +15,228 @@
         }
 
         body {
+            font-family: 'Courier New', Courier, monospace;
             background-color: #fff;
             color: #000;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: 900;
-            font-size: 1em;
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Updated .app-wrapper to use flex layout */
+        /* Main app layout */
         .app-wrapper {
-            width: 100vw;
+            display: flex;
+            flex-direction: column;
             height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            width: 100vw;
             box-sizing: border-box;
-            padding: 0;
+            overflow: hidden;
         }
 
-        /* Adjusted .content-wrapper to allow svg-container to expand */
-        .content-wrapper {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Keeps header at top and controls at bottom */
-            align-items: center;
-            width: min(calc(100vh - 200px), calc(100vw - 24px));
-            gap: 0;
-        }
-
-        /* Header styling remains the same */
+        /* Header positioned at the top */
         .header {
             width: 100%;
             display: flex;
             align-items: center;
-            padding: 8px 0;
+            padding: 8px;
             font-size: 1.2em;
-            pointer-events: auto;
+            background-color: #fff;
             z-index: 10;
+            flex-shrink: 0;
         }
 
-        /* Center-align the svg-container */
+        /* SVG container fills available middle space */
         .svg-container {
-            flex: 1; /* Allows svg-container to take available space between header and controls */
+            flex-grow: 1;
             width: 100%;
-            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0;
+            position: relative;
         }
 
-        /* SVG styles */
-        svg {
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* SVG styling for responsive scaling */
+        .svg-container svg {
             width: 100%;
             height: 100%;
             pointer-events: none;
         }
 
-        /* Ensure .controls is docked at the bottom */
+        /* Controls docked at the bottom */
         .controls {
             width: 100%;
             padding: 8px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: left; /* Center-align controls horizontally */
+            justify-content: center;
             gap: 16px;
+            flex-shrink: 0;
             box-sizing: border-box;
+            background-color: #fff;
+            position: sticky;
+            bottom: 0;
             z-index: 10;
         }
 
-        /* Control groups */
+        /* Styles for control groups */
         .control-group {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             gap: 4px;
-            pointer-events: auto;
-            z-index: 10;
         }
 
         label {
             font-weight: bold;
-            pointer-events: auto;
         }
 
-        select, select option {
-            width: 150px;
-            padding: 5px;
-            border-radius: 5px;
+        select, input[type="range"] {
+            padding: 4px;
             font-family: 'Courier New', Courier, monospace;
             background-color: #333;
             color: #fff;
             border: none;
-            transition: background-color 0.3s, color 0.3s;
-            pointer-events: auto;
-            z-index: 10;
+            border-radius: 4px;
+            width: 150px;
             cursor: pointer;
         }
 
-        .sliders {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            pointer-events: auto;
-            z-index: 10;
-        }
-
-        /* Range input styles */
-        input[type="range"] {
-            -webkit-appearance: none;
-            width: 200px;
-            height: 2px;
-            border-radius: 2px;
-            background: #000000;
-            pointer-events: auto;
-            z-index: 10;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: none;
-        }
-
-        input[type="range"]::-moz-range-thumb {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: none;
-        }
-
-        #red::-webkit-slider-thumb { background-color: #f00; }
-        #red::-moz-range-thumb { background-color: #f00; }
-
-        #green::-webkit-slider-thumb { background-color: #0f0; }
-        #green::-moz-range-thumb { background-color: #0f0; }
-
-        #blue::-webkit-slider-thumb { background-color: #00f; }
-        #blue::-moz-range-thumb { background-color: #00f; }
-
-        /* Animations */
-        .path {
-            mix-blend-mode: color-burn;
-        }
-
-        .dot {
-            fill: white;
-            mix-blend-mode: difference;
-        }
-
-        @keyframes pulsate1 {
-            0%, 100% { r: 40; }
-            50% { r: 80; }
-        }
-
-        @keyframes pulsate2 {
-            0%, 100% { r: 40; }
-            50% { r: 75; }
-        }
-
-        @keyframes pulsate3 {
-            0%, 100% { r: 40; }
-            50% { r: 70; }
-        }
-
-        @keyframes pulsate4 {
-            0%, 100% { r: 40; }
-            50% { r: 65; }
-        }
-
-        .dot:nth-child(4n+1) {
-            animation: pulsate1 3s cubic-bezier(0.4, 0, 0.6, 1) 0s infinite;
-        }
-
-        .dot:nth-child(4n+2) {
-            animation: pulsate2 4s cubic-bezier(0.4, 0, 0.6, 1) 0.5s infinite;
-        }
-
-        .dot:nth-child(4n+3) {
-            animation: pulsate3 3.5s cubic-bezier(0.4, 0, 0.6, 1) 1s infinite;
-        }
-
-        .dot:nth-child(4n) {
-            animation: pulsate4 4.5s cubic-bezier(0.4, 0, 0.6, 1) 1.5s infinite;
-        }
-
-        /* Media query for smaller screens */
+        /* Adjustments for small screen heights */
         @media (max-height: 700px) {
-            .content-wrapper {
-                gap: 8px;
-            }
-
             .header {
                 font-size: 1em;
-                padding: 4px 0;
+                padding: 4px;
             }
 
             .controls {
                 gap: 12px;
             }
 
-            label {
-                margin-bottom: 2px;
-            }
-
-            input[type="range"] {
-                width: 150px;
-            }
-
-            select, select option {
+            input[type="range"], select {
                 width: 120px;
-                padding: 4px;
             }
         }
-
     </style>
 </head>
 <body>
     <div class="app-wrapper">
-        <div class="content-wrapper">
-            <header class="header">Stapati Logo Maker $</header>
+        <div class="header">Responsive Header</div>
+        
+        <div class="svg-container">
+            <svg id="_0" data-name="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1266.17 1250.37">
+                <defs>
+                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="red">
+                            <animate attributeName="offset" values="0;1;0" dur="10s" repeatCount="indefinite" />
+                        </stop>
+                        <stop offset="50%" stop-color="yellow">
+                            <animate attributeName="offset" values="0.5;1.5;0.5" dur="10s" repeatCount="indefinite" />
+                        </stop>
+                        <stop offset="100%" stop-color="red">
+                            <animate attributeName="offset" values="1;2;1" dur="10s" repeatCount="indefinite" />
+                        </stop>
+                    </linearGradient>
+                    
+                    <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="blue">
+                            <animate attributeName="offset" values="0;1;0" dur="8s" repeatCount="indefinite" />
+                        </stop>
+                        <stop offset="50%" stop-color="green">
+                            <animate attributeName="offset" values="0.5;1.5;0.5" dur="8s" repeatCount="indefinite" />
+                        </stop>
+                        <stop offset="100%" stop-color="blue">
+                            <animate attributeName="offset" values="1;2;1" dur="8s" repeatCount="indefinite" />
+                        </stop>
+                    </linearGradient>
+                    
+                    <linearGradient id="gradient3" x1="100%" y1="100%" x2="0%" y2="0%">
+                        <stop offset="0%" stop-color="purple">
+                            <animate attributeName="offset" values="0;1;0" dur="12s" repeatCount="indefinite" />
+                        </stop>
+                        <stop offset="50%" stop-color="orange">
+                            <animate attributeName="offset" values="0.5;1.5;0.5" dur="12s" repeatCount="indefinite" />
+                        </stop>
+                        <stop offset="100%" stop-color="purple">
+                            <animate attributeName="offset" values="1;2;1" dur="12s" repeatCount="indefinite" />
+                        </stop>
+                    </linearGradient>
+                    
+                    <linearGradient id="gradient4" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="cyan">
+                            <animate attributeName="offset" values="0;1;0" dur="15s" repeatCount="indefinite" />
+                        </stop>
+                        <stop offset="50%" stop-color="magenta">
+                            <animate attributeName="offset" values="0.5;1.5;0.5" dur="15s" repeatCount="indefinite" />
+                        </stop>
+                        <stop offset="100%" stop-color="cyan">
+                            <animate attributeName="offset" values="1;2;1" dur="15s" repeatCount="indefinite" />
+                        </stop>
+                    </linearGradient>
+                </defs>
+                
+                <path class="path" fill="url(#gradient1)" d="M986.17,1140.99c40.22,40.22,105.44,40.22,145.67,0,40.22-40.22,40.22-105.44,0-145.67l-437-437c-40.22-40.22-40.22-105.44,0-145.67,40.22-40.22,105.44-40.22,145.67,0l145.67,145.67c40.22,40.22,105.44,40.22,145.67,0s40.22-105.44,0-145.67l-72.83-72.83-218.5-218.5c-40.22-40.22-105.44-40.22-145.67,0l-145.67,145.67c-40.22,40.22-105.44,40.22-145.67,0l-145.67-145.67c-40.22-40.22-105.44-40.22-145.67,0-40.22,40.22-40.22,105.44,0,145.67l437,437c40.22,40.22,40.22,105.44,0,145.67-40.22,40.22-105.44,40.22-145.67,0l-145.67-145.67c-40.22-40.22-105.44-40.22-145.67,0-40.22,40.22-40.22,105.44,0,145.67l291.33,291.33c40.22,40.22,105.44,40.22,145.67,0l145.67-145.67c40.22-40.22,105.44-40.22,145.67,0l145.67,145.67Z"/>
+                
+                <path class="path" fill="url(#gradient2)" d="M112.18,995.32l437-437c40.22-40.22,40.22-105.44,0-145.67-40.22-40.22-105.44-40.22-145.67,0l-145.67,145.67c-40.22,40.22-105.44,40.22-145.67,0-40.22-40.22-40.22-105.44,0-145.67l72.83-72.83,218.5-218.5c40.22-40.22,105.44-40.22,145.67,0l145.67,145.67c40.22,40.22,105.44,40.22,145.67,0l145.67-145.67c40.22-40.22,105.44-40.22,145.67,0,40.22,40.22,40.22,105.44,0,145.67l-437,437c-40.22,40.22-40.22,105.44,0,145.67,40.22,40.22,105.44,40.22,145.67,0l145.67-145.67c40.22-40.22,105.44-40.22,145.67,0s40.22,105.44,0,145.67l-291.33,291.33c-40.22,40.22-105.44,40.22-145.67,0l-145.67-145.67c-40.22-40.22-105.44-40.22-145.67,0l-145.67,145.67c-40.22,40.22-105.44,40.22-145.67,0-40.22-40.22-40.22-105.44,0-145.67Z"/>
+                
+                <path class="path" fill="url(#gradient3)" d="M986.17,1140.99l-437-437c-40.22-40.22-105.44-40.22-145.67,0-40.22,40.22-40.22,105.44,0,145.67l145.67,145.67c40.22,40.22,40.22,105.44,0,145.67s-105.44,40.22-145.67,0l-72.83-72.83-218.5-218.5c-40.22-40.22-40.22-105.44,0-145.67l145.67-145.67c40.22-40.22,40.22-105.44,0-145.67l-145.67-145.67c-40.22-40.22-40.22-105.44,0-145.67,40.22-40.22,105.44-40.22,145.67,0l437,437c40.22,40.22,105.44,40.22,145.67,0,40.22-40.22,40.22-105.44,0-145.67l-145.67-145.67c-40.22-40.22-40.22-105.44,0-145.67s105.44-40.22,145.67,0l291.33,291.33c40.22,40.22,40.22,105.44,0,145.67l-145.67,145.67c-40.22,40.22-40.22,105.44,0,145.67l145.67,145.67c40.22,40.22,40.22,105.44,0,145.67-40.22,40.22-105.44,40.22-145.67,0Z"/>
+                
+                <path class="path" fill="url(#gradient4)" d="M112.18,995.32c-40.22,40.22-40.22,105.44,0,145.67,40.22,40.22,105.44,40.22,145.67,0l437-437c40.22-40.22,105.44-40.22,145.67,0,40.22,40.22,40.22,105.44,0,145.67l-145.67,145.67c-40.22,40.22-40.22,105.44,0,145.67s105.44,40.22,145.67,0l72.83-72.83,218.5-218.5c40.22-40.22,40.22-105.44,0-145.67l-145.67-145.67c-40.22-40.22-40.22-105.44,0-145.67l145.67-145.67c40.22-40.22,40.22-105.44,0-145.67s-105.44-40.22-145.67,0l-437,437c-40.22,40.22-105.44,40.22-145.67,0-40.22-40.22-40.22-105.44,0-145.67l145.67-145.67c40.22-40.22,40.22-105.44,0-145.67-40.22-40.22-105.44-40.22-145.67,0L112.18,412.66c-40.22,40.22-40.22,105.44,0,145.67l145.67,145.67c40.22,40.22,40.22,105.44,0,145.67l-145.67,145.67Z"/>
 
-            <div class="svg-container">
-                <svg id="_0" data-name="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1266.17 1250.37">
-                    <defs>
-                        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="red">
-                                <animate attributeName="offset" values="0;1;0" dur="10s" repeatCount="indefinite" />
-                            </stop>
-                            <stop offset="50%" stop-color="yellow">
-                                <animate attributeName="offset" values="0.5;1.5;0.5" dur="10s" repeatCount="indefinite" />
-                            </stop>
-                            <stop offset="100%" stop-color="red">
-                                <animate attributeName="offset" values="1;2;1" dur="10s" repeatCount="indefinite" />
-                            </stop>
-                        </linearGradient>
-                        
-                        <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="blue">
-                                <animate attributeName="offset" values="0;1;0" dur="8s" repeatCount="indefinite" />
-                            </stop>
-                            <stop offset="50%" stop-color="green">
-                                <animate attributeName="offset" values="0.5;1.5;0.5" dur="8s" repeatCount="indefinite" />
-                            </stop>
-                            <stop offset="100%" stop-color="blue">
-                                <animate attributeName="offset" values="1;2;1" dur="8s" repeatCount="indefinite" />
-                            </stop>
-                        </linearGradient>
-                        
-                        <linearGradient id="gradient3" x1="100%" y1="100%" x2="0%" y2="0%">
-                            <stop offset="0%" stop-color="purple">
-                                <animate attributeName="offset" values="0;1;0" dur="12s" repeatCount="indefinite" />
-                            </stop>
-                            <stop offset="50%" stop-color="orange">
-                                <animate attributeName="offset" values="0.5;1.5;0.5" dur="12s" repeatCount="indefinite" />
-                            </stop>
-                            <stop offset="100%" stop-color="purple">
-                                <animate attributeName="offset" values="1;2;1" dur="12s" repeatCount="indefinite" />
-                            </stop>
-                        </linearGradient>
-                        
-                        <linearGradient id="gradient4" x1="0%" y1="100%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="cyan">
-                                <animate attributeName="offset" values="0;1;0" dur="15s" repeatCount="indefinite" />
-                            </stop>
-                            <stop offset="50%" stop-color="magenta">
-                                <animate attributeName="offset" values="0.5;1.5;0.5" dur="15s" repeatCount="indefinite" />
-                            </stop>
-                            <stop offset="100%" stop-color="cyan">
-                                <animate attributeName="offset" values="1;2;1" dur="15s" repeatCount="indefinite" />
-                            </stop>
-                        </linearGradient>
-                    </defs>
-                    
-                    <path class="path" fill="url(#gradient1)" d="M986.17,1140.99c40.22,40.22,105.44,40.22,145.67,0,40.22-40.22,40.22-105.44,0-145.67l-437-437c-40.22-40.22-40.22-105.44,0-145.67,40.22-40.22,105.44-40.22,145.67,0l145.67,145.67c40.22,40.22,105.44,40.22,145.67,0s40.22-105.44,0-145.67l-72.83-72.83-218.5-218.5c-40.22-40.22-105.44-40.22-145.67,0l-145.67,145.67c-40.22,40.22-105.44,40.22-145.67,0l-145.67-145.67c-40.22-40.22-105.44-40.22-145.67,0-40.22,40.22-40.22,105.44,0,145.67l437,437c40.22,40.22,40.22,105.44,0,145.67-40.22,40.22-105.44,40.22-145.67,0l-145.67-145.67c-40.22-40.22-105.44-40.22-145.67,0-40.22,40.22-40.22,105.44,0,145.67l291.33,291.33c40.22,40.22,105.44,40.22,145.67,0l145.67-145.67c40.22-40.22,105.44-40.22,145.67,0l145.67,145.67Z"/>
-                    
-                    <path class="path" fill="url(#gradient2)" d="M112.18,995.32l437-437c40.22-40.22,40.22-105.44,0-145.67-40.22-40.22-105.44-40.22-145.67,0l-145.67,145.67c-40.22,40.22-105.44,40.22-145.67,0-40.22-40.22-40.22-105.44,0-145.67l72.83-72.83,218.5-218.5c40.22-40.22,105.44-40.22,145.67,0l145.67,145.67c40.22,40.22,105.44,40.22,145.67,0l145.67-145.67c40.22-40.22,105.44-40.22,145.67,0,40.22,40.22,40.22,105.44,0,145.67l-437,437c-40.22,40.22-40.22,105.44,0,145.67,40.22,40.22,105.44,40.22,145.67,0l145.67-145.67c40.22-40.22,105.44-40.22,145.67,0s40.22,105.44,0,145.67l-291.33,291.33c-40.22,40.22-105.44,40.22-145.67,0l-145.67-145.67c-40.22-40.22-105.44-40.22-145.67,0l-145.67,145.67c-40.22,40.22-105.44,40.22-145.67,0-40.22-40.22-40.22-105.44,0-145.67Z"/>
-                    
-                    <path class="path" fill="url(#gradient3)" d="M986.17,1140.99l-437-437c-40.22-40.22-105.44-40.22-145.67,0-40.22,40.22-40.22,105.44,0,145.67l145.67,145.67c40.22,40.22,40.22,105.44,0,145.67s-105.44,40.22-145.67,0l-72.83-72.83-218.5-218.5c-40.22-40.22-40.22-105.44,0-145.67l145.67-145.67c40.22-40.22,40.22-105.44,0-145.67l-145.67-145.67c-40.22-40.22-40.22-105.44,0-145.67,40.22-40.22,105.44-40.22,145.67,0l437,437c40.22,40.22,105.44,40.22,145.67,0,40.22-40.22,40.22-105.44,0-145.67l-145.67-145.67c-40.22-40.22-40.22-105.44,0-145.67s105.44-40.22,145.67,0l291.33,291.33c40.22,40.22,40.22,105.44,0,145.67l-145.67,145.67c-40.22,40.22-40.22,105.44,0,145.67l145.67,145.67c40.22,40.22,40.22,105.44,0,145.67-40.22,40.22-105.44,40.22-145.67,0Z"/>
-                    
-                    <path class="path" fill="url(#gradient4)" d="M112.18,995.32c-40.22,40.22-40.22,105.44,0,145.67,40.22,40.22,105.44,40.22,145.67,0l437-437c40.22-40.22,105.44-40.22,145.67,0,40.22,40.22,40.22,105.44,0,145.67l-145.67,145.67c-40.22,40.22-40.22,105.44,0,145.67s105.44,40.22,145.67,0l72.83-72.83,218.5-218.5c40.22-40.22,40.22-105.44,0-145.67l-145.67-145.67c-40.22-40.22-40.22-105.44,0-145.67l145.67-145.67c40.22-40.22,40.22-105.44,0-145.67s-105.44-40.22-145.67,0l-437,437c-40.22,40.22-105.44,40.22-145.67,0-40.22-40.22-40.22-105.44,0-145.67l145.67-145.67c40.22-40.22,40.22-105.44,0-145.67-40.22-40.22-105.44-40.22-145.67,0L112.18,412.66c-40.22,40.22-40.22,105.44,0,145.67l145.67,145.67c40.22,40.22,40.22,105.44,0,145.67l-145.67,145.67Z"/>
-    
-                    <g id="dots">
-                        <circle class="dot" cx="185.01" cy="1068.16" r="40"/>
-                        <circle class="dot" cx="1059.01" cy="1068.16" r="40"/>
-                        <circle class="dot" cx="767.67" cy="1068.16" r="40"/>
-                        <circle class="dot" cx="476.34" cy="1068.16" r="40"/>
-                        <circle class="dot" cx="185.01" cy="194.16" r="40"/>
-                        <circle class="dot" cx="185.01" cy="776.82" r="40"/>
-                        <circle class="dot" cx="185.01" cy="485.49" r="40"/>
-                        <circle class="dot" cx="1059.01" cy="194.16" r="40"/>
-                        <circle class="dot" cx="767.67" cy="194.16" r="40"/>
-                        <circle class="dot" cx="476.34" cy="194.16" r="40"/>
-                        <circle class="dot" cx="1059.01" cy="776.82" r="40"/>
-                        <circle class="dot" cx="1059.01" cy="485.49" r="40"/>
-                        <circle class="dot" cx="767.67" cy="776.82" r="40"/>
-                        <circle class="dot" cx="476.34" cy="776.82" r="40"/>
-                        <circle class="dot" cx="476.34" cy="485.49" r="40"/>
-                        <circle class="dot" cx="767.67" cy="485.49" r="40"/>
-                    </g>
-                </svg>
+                <g id="dots">
+                    <circle class="dot" cx="185.01" cy="1068.16" r="40"/>
+                    <circle class="dot" cx="1059.01" cy="1068.16" r="40"/>
+                    <circle class="dot" cx="767.67" cy="1068.16" r="40"/>
+                    <circle class="dot" cx="476.34" cy="1068.16" r="40"/>
+                    <circle class="dot" cx="185.01" cy="194.16" r="40"/>
+                    <circle class="dot" cx="185.01" cy="776.82" r="40"/>
+                    <circle class="dot" cx="185.01" cy="485.49" r="40"/>
+                    <circle class="dot" cx="1059.01" cy="194.16" r="40"/>
+                    <circle class="dot" cx="767.67" cy="194.16" r="40"/>
+                    <circle class="dot" cx="476.34" cy="194.16" r="40"/>
+                    <circle class="dot" cx="1059.01" cy="776.82" r="40"/>
+                    <circle class="dot" cx="1059.01" cy="485.49" r="40"/>
+                    <circle class="dot" cx="767.67" cy="776.82" r="40"/>
+                    <circle class="dot" cx="476.34" cy="776.82" r="40"/>
+                    <circle class="dot" cx="476.34" cy="485.49" r="40"/>
+                    <circle class="dot" cx="767.67" cy="485.49" r="40"/>
+                </g>
+            </svg>
+        </div>
+
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="blend-mode">Blend</label>
+                <select id="blend-mode">
+                    <option value="color-burn" selected>Color Burn</option>
+                    <option value="darken">Darken</option>
+                    <option value="multiply">Multiply</option>
+                    <option value="difference">Difference</option>
+                    <option value="hard-light">Hard Light</option>
+                    <option value="lighten">Lighten</option>
+                    <option value="screen">Screen</option>
+                    <option value="exclusion">Exclusion</option>
+                    <option value="overlay">Overlay</option>
+                    <option value="color-dodge">Color Dodge</option>
+                    <option value="color">Color</option>
+                    <option value="soft-light">Soft Light</option>
+                </select>
             </div>
-
-            <div class="controls">
-                <div class="control-group">
-                    <label for="blend-mode">Blend</label>
-                    <select id="blend-mode">
-                        <option value="color-burn" selected>Color Burn</option>
-                        <option value="darken">Darken</option>
-                        <option value="multiply">Multiply</option>
-                        <option value="difference">Difference</option>
-                        <option value="hard-light">Hard Light</option>
-                        <option value="lighten">Lighten</option>
-                        <option value="screen">Screen</option>
-                        <option value="exclusion">Exclusion</option>
-                        <option value="overlay">Overlay</option>
-                        <option value="color-dodge">Color Dodge</option>
-                        <option value="color">Color</option>
-                        <option value="soft-light">Soft Light</option>
-                    </select>
-                </div>
-                <div class="control-group">
-                    <label>Background</label>
-                    <div class="sliders">
-                        <input type="range" id="red" min="0" max="255" value="240">
-                        <input type="range" id="green" min="0" max="255" value="240">
-                        <input type="range" id="blue" min="0" max="255" value="240">
-                    </div>
+            
+            <div class="control-group">
+                <label>Background</label>
+                <div class="sliders">
+                    <input type="range" id="red" min="0" max="255" value="240">
+                    <input type="range" id="green" min="0" max="255" value="240">
+                    <input type="range" id="blue" min="0" max="255" value="240">
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        function setVH() {
-            let vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
-        setVH();
-        window.addEventListener('resize', setVH);
-
         const blendModeSelect = document.getElementById('blend-mode');
         const redSlider = document.getElementById('red');
         const greenSlider = document.getElementById('green');
         const blueSlider = document.getElementById('blue');
-        const paths = document.querySelectorAll('.path');
+        const paths = document.querySelectorAll('.path'); // Ensure .path is defined in SVG content
 
         const blendModeColors = {
             'color-burn': [240, 240, 240],
