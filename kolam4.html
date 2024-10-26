@@ -5,220 +5,227 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stapati Logo Maker</title>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            touch-action: manipulation;
-        }
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    touch-action: manipulation;
+}
 
-        body {
-            background-color: #fff;
-            color: #000;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: 900;
-            font-size: 1em;
-            transition: background-color 0.3s, color 0.3s;
-        }
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: 1em;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-        .app-wrapper {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-sizing: border-box;
-            padding: 32px;
-        }
+.app-wrapper {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 32px;
+}
 
-        .content-wrapper {
-            width: min(calc(100vh - 200px), calc(100vw - 24px));
-            height: calc(100vh - 24px);
-            display: flex;
-            flex-direction: column;
-            min-height: 0;
-        }
+.content-wrapper {
+    width: min(calc(100vh - 200px), calc(100vw - 24px));
+    height: calc(100vh - 24px);
+    height: calc(100dvh - 24px);
+    height: calc(-webkit-fill-available - 24px);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
 
-        .header {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            padding: 8px 0;
-            font-size: 1.2em;
-            pointer-events: auto;
-            z-index: 10;
-        }
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 1.2em;
+    pointer-events: auto;
+    z-index: 10;
+}
 
-        .svg-container {
-            flex: 1;
-            position: relative;
-            margin: 0;
-            min-height: 0;
-        }
+.svg-container {
+    flex: 1;
+    position: relative;
+    margin: 0;
+    min-height: 0;
+}
 
-        svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
 
-        .controls {
-            width: 100%;
-            height: auto;
-            display: flex;
-            gap: 16px;
-            z-index: 10;
-            pointer-events: auto;
-        }
+.controls {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 16px;
+    z-index: 10;
+    pointer-events: auto;
+}
 
-        .control-group {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 4px;
-            pointer-events: auto;
-            z-index: 10;
-        }
+.control-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    pointer-events: auto;
+    z-index: 10;
+}
 
-        label {
-            font-weight: bold;
-            pointer-events: auto;
-        }
+label {
+    font-weight: bold;
+    pointer-events: auto;
+}
 
-        select, select option {
-            width: 150px;
-            padding: 5px;
-            border-radius: 5px;
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            transition: background-color 0.3s, color 0.3s;
-            pointer-events: auto;
-            z-index: 10;
-            cursor: pointer;
-        }
+select, select option {
+    width: 150px;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+    pointer-events: auto;
+    z-index: 10;
+    cursor: pointer;
+}
 
-        .sliders {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            pointer-events: auto;
-            z-index: 10;
-        }
+.sliders {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: auto;
+    z-index: 10;
+}
 
-        input[type="range"] {
-            -webkit-appearance: none;
-            width: 200px;
-            height: 2px;
-            border-radius: 2px;
-            background: #000000;
-            pointer-events: auto;
-            z-index: 10;
-        }
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 200px;
+    height: 2px;
+    border-radius: 2px;
+    background: #000000;
+    pointer-events: auto;
+    z-index: 10;
+}
 
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: none;
-        }
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
 
-        input[type="range"]::-moz-range-thumb {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: none;
-        }
+input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
 
-        #red::-webkit-slider-thumb { background-color: #f00; }
-        #red::-moz-range-thumb { background-color: #f00; }
+#red::-webkit-slider-thumb { background-color: #f00; }
+#red::-moz-range-thumb { background-color: #f00; }
 
-        #green::-webkit-slider-thumb { background-color: #0f0; }
-        #green::-moz-range-thumb { background-color: #0f0; }
+#green::-webkit-slider-thumb { background-color: #0f0; }
+#green::-moz-range-thumb { background-color: #0f0; }
 
-        #blue::-webkit-slider-thumb { background-color: #00f; }
-        #blue::-moz-range-thumb { background-color: #00f; }
+#blue::-webkit-slider-thumb { background-color: #00f; }
+#blue::-moz-range-thumb { background-color: #00f; }
 
-        .path {
-            mix-blend-mode: color-burn;
-        }
+.path {
+    mix-blend-mode: color-burn;
+}
 
-        .dot {
-            fill: white;
-            mix-blend-mode: difference;
-        }
+.dot {
+    fill: white;
+    mix-blend-mode: difference;
+}
 
-        @keyframes pulsate1 {
-            0%, 100% { r: 40; }
-            50% { r: 80; }
-        }
-        @keyframes pulsate2 {
-            0%, 100% { r: 40; }
-            50% { r: 75; }
-        }
-        @keyframes pulsate3 {
-            0%, 100% { r: 40; }
-            50% { r: 70; }
-        }
-        @keyframes pulsate4 {
-            0%, 100% { r: 40; }
-            50% { r: 65; }
-        }
+@keyframes pulsate1 {
+    0%, 100% { r: 40; }
+    50% { r: 80; }
+}
+@keyframes pulsate2 {
+    0%, 100% { r: 40; }
+    50% { r: 75; }
+}
+@keyframes pulsate3 {
+    0%, 100% { r: 40; }
+    50% { r: 70; }
+}
+@keyframes pulsate4 {
+    0%, 100% { r: 40; }
+    50% { r: 65; }
+}
 
-        .dot:nth-child(4n+1) {
-            animation: pulsate1 3s cubic-bezier(0.4, 0, 0.6, 1) 0s infinite;
-        }
-        .dot:nth-child(4n+2) {
-            animation: pulsate2 4s cubic-bezier(0.4, 0, 0.6, 1) 0.5s infinite;
-        }
-        .dot:nth-child(4n+3) {
-            animation: pulsate3 3.5s cubic-bezier(0.4, 0, 0.6, 1) 1s infinite;
-        }
-        .dot:nth-child(4n) {
-            animation: pulsate4 4.5s cubic-bezier(0.4, 0, 0.6, 1) 1.5s infinite;
-        }
+.dot:nth-child(4n+1) {
+    animation: pulsate1 3s cubic-bezier(0.4, 0, 0.6, 1) 0s infinite;
+}
+.dot:nth-child(4n+2) {
+    animation: pulsate2 4s cubic-bezier(0.4, 0, 0.6, 1) 0.5s infinite;
+}
+.dot:nth-child(4n+3) {
+    animation: pulsate3 3.5s cubic-bezier(0.4, 0, 0.6, 1) 1s infinite;
+}
+.dot:nth-child(4n) {
+    animation: pulsate4 4.5s cubic-bezier(0.4, 0, 0.6, 1) 1.5s infinite;
+}
 
-        @media (max-width: 400px) {
-            .content-wrapper {
-                padding-bottom: 80px;
-            }
-            
-            .header {
-                font-size: 1em;
-                padding: 12px 0;
-            }
+@media (max-width: 400px) {
+    .content-wrapper {
+        min-height: calc(100vh - 24px);
+        min-height: calc(100dvh - 24px);
+        min-height: calc(-webkit-fill-available - 24px);
+    }
+    
+    .header {
+        font-size: 1em;
+        padding: 12px 0;
+    }
 
-            .controls {
-                gap: 12px;
-            }
+    .controls {
+        gap: 12px;
+        padding-bottom: env(safe-area-inset-bottom);
+    }
 
-            label {
-                margin-bottom: 2px;
-            }
+    label {
+        margin-bottom: 2px;
+    }
 
-            input[type="range"] {
-                width: 150px;
-            }
+    input[type="range"] {
+        width: 150px;
+    }
 
-            select, select option {
-                width: 120px;
-                padding: 4px;
-            }
-        }
+    select, select option {
+        width: 120px;
+        padding: 4px;
+    }
+}
     </style>
 </head>
 <body>
     <div class="app-wrapper">
         <div class="content-wrapper">
-            <header class="header">Stapati Logo Maker %</header>
+            <header class="header">Stapati Logo Maker !</header>
 
             <div class="svg-container">
                 <svg id="_0" data-name="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1266.17 1250.37">
