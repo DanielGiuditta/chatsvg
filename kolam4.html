@@ -24,24 +24,21 @@ body {
 
 .app-wrapper {
     width: 100vw;
-    height: 100vh;
     height: 100dvh;
-    height: -webkit-fill-available;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
-    padding: 32px;
+    padding: 16px 32px;
+    position: relative;
 }
 
 .content-wrapper {
     width: min(calc(100vh - 200px), calc(100vw - 24px));
-    height: calc(100vh - 24px);
-    height: calc(100dvh - 24px);
-    height: calc(-webkit-fill-available - 24px);
+    height: 100%;
     display: flex;
     flex-direction: column;
-    min-height: 0;
+    position: relative;
 }
 
 .header {
@@ -50,14 +47,12 @@ body {
     align-items: center;
     padding: 8px 0;
     font-size: 1.2em;
-    pointer-events: auto;
-    z-index: 10;
 }
 
 .svg-container {
     flex: 1;
     position: relative;
-    margin: 0;
+    margin: 16px 0;
     min-height: 0;
 }
 
@@ -72,11 +67,12 @@ svg {
 
 .controls {
     width: 100%;
-    height: auto;
+    position: absolute;
+    bottom: 16px;
+    left: 0;
     display: flex;
     gap: 16px;
     z-index: 10;
-    pointer-events: auto;
 }
 
 .control-group {
@@ -191,10 +187,8 @@ input[type="range"]::-moz-range-thumb {
 }
 
 @media (max-width: 400px) {
-    .content-wrapper {
-        min-height: calc(100vh - 24px);
-        min-height: calc(100dvh - 24px);
-        min-height: calc(-webkit-fill-available - 24px);
+    .app-wrapper {
+        padding: 16px;
     }
     
     .header {
@@ -204,11 +198,7 @@ input[type="range"]::-moz-range-thumb {
 
     .controls {
         gap: 12px;
-        padding-bottom: env(safe-area-inset-bottom);
-    }
-
-    label {
-        margin-bottom: 2px;
+        bottom: max(16px, env(safe-area-inset-bottom));
     }
 
     input[type="range"] {
@@ -225,7 +215,7 @@ input[type="range"]::-moz-range-thumb {
 <body>
     <div class="app-wrapper">
         <div class="content-wrapper">
-            <header class="header">Stapati Logo Maker !</header>
+            <header class="header">Stapati Logo Maker$</header>
 
             <div class="svg-container">
                 <svg id="_0" data-name="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1266.17 1250.37">
