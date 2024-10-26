@@ -22,6 +22,7 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
+        /* Updated .app-wrapper to use flex layout */
         .app-wrapper {
             width: 100vw;
             height: 100vh;
@@ -29,18 +30,21 @@
             flex-direction: column;
             align-items: center;
             box-sizing: border-box;
-            padding: 12px;
+            padding: 0;
         }
 
+        /* Adjusted .content-wrapper to allow svg-container to expand */
         .content-wrapper {
-            width: min(calc(100vh - 200px), calc(100vw - 24px));
-            height: calc(100vh - 24px);
+            flex: 1;
             display: flex;
             flex-direction: column;
-            min-height: 0;
-            gap: 12px;
+            justify-content: space-between; /* Keeps header at top and controls at bottom */
+            align-items: center;
+            width: min(calc(100vh - 200px), calc(100vw - 24px));
+            gap: 0;
         }
 
+        /* Header styling remains the same */
         .header {
             width: 100%;
             display: flex;
@@ -51,13 +55,18 @@
             z-index: 10;
         }
 
+        /* Center-align the svg-container */
         .svg-container {
-            flex: 1;
+            flex: 1; /* Allows svg-container to take available space between header and controls */
+            width: 100%;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin: 0;
-            min-height: 0;
         }
 
+        /* SVG styles */
         svg {
             position: absolute;
             top: 0;
@@ -67,16 +76,19 @@
             pointer-events: none;
         }
 
+        /* Ensure .controls is docked at the bottom */
         .controls {
             width: 100%;
-            height: auto;
+            padding: 8px;
             display: flex;
+            flex-wrap: wrap;
+            justify-content: left; /* Center-align controls horizontally */
             gap: 16px;
-            padding: 8px 0;
+            box-sizing: border-box;
             z-index: 10;
-            pointer-events: auto;
         }
 
+        /* Control groups */
         .control-group {
             display: flex;
             flex-direction: column;
@@ -113,6 +125,7 @@
             z-index: 10;
         }
 
+        /* Range input styles */
         input[type="range"] {
             -webkit-appearance: none;
             width: 200px;
@@ -149,6 +162,7 @@
         #blue::-webkit-slider-thumb { background-color: #00f; }
         #blue::-moz-range-thumb { background-color: #00f; }
 
+        /* Animations */
         .path {
             mix-blend-mode: color-burn;
         }
@@ -162,14 +176,17 @@
             0%, 100% { r: 40; }
             50% { r: 80; }
         }
+
         @keyframes pulsate2 {
             0%, 100% { r: 40; }
             50% { r: 75; }
         }
+
         @keyframes pulsate3 {
             0%, 100% { r: 40; }
             50% { r: 70; }
         }
+
         @keyframes pulsate4 {
             0%, 100% { r: 40; }
             50% { r: 65; }
@@ -178,21 +195,25 @@
         .dot:nth-child(4n+1) {
             animation: pulsate1 3s cubic-bezier(0.4, 0, 0.6, 1) 0s infinite;
         }
+
         .dot:nth-child(4n+2) {
             animation: pulsate2 4s cubic-bezier(0.4, 0, 0.6, 1) 0.5s infinite;
         }
+
         .dot:nth-child(4n+3) {
             animation: pulsate3 3.5s cubic-bezier(0.4, 0, 0.6, 1) 1s infinite;
         }
+
         .dot:nth-child(4n) {
             animation: pulsate4 4.5s cubic-bezier(0.4, 0, 0.6, 1) 1.5s infinite;
         }
 
+        /* Media query for smaller screens */
         @media (max-height: 700px) {
             .content-wrapper {
                 gap: 8px;
             }
-            
+
             .header {
                 font-size: 1em;
                 padding: 4px 0;
@@ -215,12 +236,13 @@
                 padding: 4px;
             }
         }
+
     </style>
 </head>
 <body>
     <div class="app-wrapper">
         <div class="content-wrapper">
-            <header class="header">Stapati Logo Maker +</header>
+            <header class="header">Stapati Logo Maker $</header>
 
             <div class="svg-container">
                 <svg id="_0" data-name="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1266.17 1250.37">
@@ -334,6 +356,13 @@
     </div>
 
     <script>
+        function setVH() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        setVH();
+        window.addEventListener('resize', setVH);
+
         const blendModeSelect = document.getElementById('blend-mode');
         const redSlider = document.getElementById('red');
         const greenSlider = document.getElementById('green');
