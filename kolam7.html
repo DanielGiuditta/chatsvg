@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stapati Logo Maker</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+
+        body {
+            background-color: #fff;
+            color: #000;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 900;
+            font-size: 1em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .app-wrapper {
+            width: 100vw;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 16px 32px;
+            position: relative;
+        }
+
+        .content-wrapper {
+            width: min(calc(100vh - 200px), calc(100vw - 24px));
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            font-size: 1.2em;
+        }
+
+        .svg-container {
+            flex: 1;
+            position: relative;
+            margin-top: -100px;
+            min-height: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .controls {
+            width: 100%;
+            position: absolute;
+            bottom: 16px;
+            left: 0;
+            display: flex;
+            gap: 16px;
+            z-index: 10;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+            pointer-events: auto;
+            z-index: 10;
+        }
+
+        label {
+            font-weight: bold;
+            pointer-events: auto;
+        }
+
+        select, select option {
+            width: 150px;
+            padding: 5px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #858585;
+            color: #fff;
+            border: none;
+            transition: background-color 0.3s, color 0.3s;
+            pointer-events: auto;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .sliders {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            pointer-events: auto;
+            z-index: 10;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 200px;
+            height: 2px;
+            border-radius: 4px;
+            background: #858585;
+            pointer-events: auto;
+            z-index: 10;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        #red::-webkit-slider-thumb { background-color: #f00; }
+        #red::-moz-range-thumb { background-color: #f00; }
+
+        #green::-webkit-slider-thumb { background-color: #0f0; }
+        #green::-moz-range-thumb { background-color: #0f0; }
+
+        #blue::-webkit-slider-thumb { background-color: #00f; }
+        #blue::-moz-range-thumb { background-color: #00f; }
+
+        .path {
+            mix-blend-mode: color-burn;
+        }
+
+        .dot {
+            fill: white;
+            mix-blend-mode: difference;
+            transform-box: fill-box;
+            transform-origin: center;
+            will-change: r;
+        }
+
+        @keyframes pulsate1 {
+            0% { r: 40px; }
+            50% { r: 80px; }
+            100% { r: 40px; }
+        }
+
+        @keyframes pulsate2 {
+            0% { r: 40px; }
+            50% { r: 75px; }
+            100% { r: 40px; }
+        }
+
+        @keyframes pulsate3 {
+            0% { r: 40px; }
+            50% { r: 70px; }
+            100% { r: 40px; }
+        }
+
+        @keyframes pulsate4 {
+            0% { r: 40px; }
+            50% { r: 65px; }
+            100% { r: 40px; }
+        }
+
+        .dot:nth-child(4n+1) {
+            animation: pulsate1 3s ease-in-out infinite;
+        }
+
+        .dot:nth-child(4n+2) {
+            animation: pulsate2 4s ease-in-out infinite;
+        }
+
+        .dot:nth-child(4n+3) {
+            animation: pulsate3 3.5s ease-in-out infinite;
+        }
+
+        .dot:nth-child(4n+4) {
+            animation: pulsate4 4.5s ease-in-out infinite;
+        }
+
+        @media (max-width: 400px) {
+            .app-wrapper {
+                padding: 16px;
+            }
+            
+            .header {
+                font-size: 1em;
+                padding: 12px 0;
+            }
+
+            .controls {
+                gap: 12px;
+                bottom: max(16px, env(safe-area-inset-bottom));
+            }
+
+            input[type="range"] {
+                width: 150px;
+            }
+
+            select, select option {
+                width: 120px;
+                padding: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-wrapper">
+        <div class="content-wrapper">
+            <header class="header">Stapati Logo Maker</header>
+
+            <div class="svg-container">
+                <svg id="_0" data-name="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1266.17 1250.37">
+                    <defs>
+                        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="red">
+                                <animate attributeName="offset" values="0;1;0" dur="10s" repeatCount="indefinite" />
+                            </stop>
+                            <stop offset="50%" stop-color="yellow">
+                                <animate attributeName="offset" values="0.5;1.5;0.5" dur="10s" repeatCount="indefinite" />
+                            </stop>
+                            <stop offset="100%" stop-color="red">
+                                <animate attributeName="offset" values="1;2;1" dur="10s" repeatCount="indefinite" />
+                            </stop>
+                        </linearGradient>
+                        
+                        <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="blue">
+                                <animate attributeName="offset" values="0;1;0" dur="8s" repeatCount="indefinite" />
+                            </stop>
+                            <stop offset="50%" stop-color="green">
+                                <animate attributeName="offset" values="0.5;1.5;0.5" dur="8s" repeatCount="indefinite" />
+                            </stop>
+                            <stop offset="100%" stop-color="blue">
+                                <animate attributeName="offset" values="1;2;1" dur="8s" repeatCount="indefinite" />
+                            </stop>
+                        </linearGradient>
+                        
+                        <linearGradient id="gradient3" x1="100%" y1="100%" x2="0%" y2="0%">
+                            <stop offset="0%" stop-color="purple">
+                                <animate attributeName="offset" values="0;1;0" dur="12s" repeatCount="indefinite" />
+                            </stop>
+                            <stop offset="50%" stop-color="orange">
+                                <animate attributeName="offset" values="0.5;1.5;0.5" dur="12s" repeatCount="indefinite" />
+                            </stop>
+                            <stop offset="100%" stop-color="purple">
+                                <animate attributeName="offset" values="1;2;1" dur="12s" repeatCount="indefinite" />
+                            </stop>
+                        </linearGradient>
+                        
+                        <linearGradient id="gradient4" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="cyan">
+                                <animate attributeName="offset" values="0;1;0" dur="15s" repeatCount="indefinite" />
+                            </stop>
+                            <stop offset="50%" stop-color="magenta">
+                                <animate attributeName="offset" values="0.5;1.5;0.5" dur="15s" repeatCount="indefinite" />
+                            </stop>
+                            <stop offset="100%" stop-color="cyan">
+                                <animate attributeName="offset" values="1;2;1" dur="15s" repeatCount="indefinite" />
+                            </stop>
+                        </linearGradient>
+                    </defs>
+                    
+                    <path class="path" fill="url(#gradient1)" d="M986.17,1140.99c40.22,40.22,105.44,40.22,145.67,0,40.22-40.22,40.22-105.44,0-145.67l-437-437c-40.22-40.22-40.22-105.44,0-145.67,40.22-40.22,105.44-40.22,145.67,0l145.67,145.67c40.22,40.22,105.44,40.22,145.67,0s40.22-105.44,0-145.67l-72.83-72.83-218.5-218.5c-40.22-40.22-105.44-40.22-145.67,0l-145.67,145.67c-40.22,40.22-105.44,40.22-145.67,0l-145.67-145.67c-40.22-40.22-105.44-40.22-145.67,0-40.22,40.22-40.22,105.44,0,145.67l437,437c40.22,40.22,40.22,105.44,0,145.67-40.22,40.22-105.44,40.22-145.67,0l-145.67-145.67c-40.22-40.22-105.44-40.22-145.67,0-40.22,40.22-40.22,105.44,0,145.67l291.33,291.33c40.22,40.22,105.44,40.22,145.67,0l145.67-145.67c40.22-40.22,105.44-40.22,145.67,0l145.67,145.67Z"/>
+                    
+                    <path class="path" fill="url(#gradient2)" d="M112.18,995.32l437-437c40.22-40.22,40.22-105.44,0-145.67-40.22-40.22-105.44-40.22-145.67,0l-145.67,145.67c-40.22,40.22-105.44,40.22-145.67,0-40.22-40.22-40.22-105.44,0-145.67l72.83-72.83,218.5-218.5c40.22-40.22,105.44-40.22,145.67,0l145.67,145.67c40.22,40.22,105.44,40.22,145.67,0l145.67-145.67c40.22-40.22,105.44-40.22,145.67,0,40.22,40.22,40.22,105.44,0,145.67l-437,437c-40.22,40.22-40.22,105.44,0,145.67,40.22,40.22,105.44,40.22,145.67,0l145.67-145.67c40.22-40.22,105.44-40.22,145.67,0s40.22,105.44,0,145.67l-291.33,291.33c-40.22,40.22-105.44,40.22-145.67,0l-145.67-145.67c-40.22-40.22-105.44-40.22-145.67,0l-145.67,145.67c-40.22,40.22-105.44,40.22-145.67,0-40.22-40.22-40.22-105.44,0-145.67Z"/>
+                    
+                    <path class="path" fill="url(#gradient3)" d="M986.17,1140.99l-437-437c-40.22-40.22-105.44-40.22-145.67,0-40.22,40.22-40.22,105.44,0,145.67l145.67,145.67c40.22,40.22,40.22,105.44,0,145.67s-105.44,40.22-145.67,0l-72.83-72.83-218.5-218.5c-40.22-40.22-40.22-105.44,0-145.67l145.67-145.67c40.22-40.22,40.22-105.44,0-145.67l-145.67-145.67c-40.22-40.22-40.22-105.44,0-145.67,40.22-40.22,105.44-40.22,145.67,0l437,437c40.22,40.22,105.44,40.22,145.67,0,40.22-40.22,40.22-105.44,0-145.67l-145.67-145.67c-40.22-40.22-40.22-105.44,0-145.67s105.44-40.22,145.67,0l291.33,291.33c40.22,40.22,40.22,105.44,0,145.67l-145.67,145.67c-40.22,40.22-40.22,105.44,0,145.67l145.67,145.67c40.22,40.22,40.22,105.44,0,145.67-40.22,40.22-105.44,40.22-145.67,0Z"/>
+                    
+                    <path class="path" fill="url(#gradient4)" d="M112.18,995.32c-40.22,40.22-40.22,105.44,0,145.67,40.22,40.22,105.44,40.22,145.67,0l437-437c40.22-40.22,105.44-40.22,145.67,0,40.22,40.22,40.22,105.44,0,145.67l-145.67,145.67c-40.22,40.22-40.22,105.44,0,145.67s105.44,40.22,145.67,0l72.83-72.83,218.5-218.5c40.22-40.22,40.22-105.44,0-145.67l-145.67-145.67c-40.22-40.22-40.22-105.44,0-145.67l145.67-145.67c40.22-40.22,40.22-105.44,0-145.67s-105.44-40.22-145.67,0l-437,437c-40.22,40.22-105.44,40.22-145.67,0-40.22-40.22-40.22-105.44,0-145.67l145.67-145.67c40.22-40.22,40.22-105.44,0-145.67-40.22-40.22-105.44-40.22-145.67,0L112.18,412.66c-40.22,40.22-40.22,105.44,0,145.67l145.67,145.67c40.22,40.22,40.22,105.44,0,145.67l-145.67,145.67Z"/>
+    
+                    <g id="dots">
+                        <circle class="dot" cx="185.01" cy="1068.16" r="40"/>
+                        <circle class="dot" cx="1059.01" cy="1068.16" r="40"/>
+                        <circle class="dot" cx="767.67" cy="1068.16" r="40"/>
+                        <circle class="dot" cx="476.34" cy="1068.16" r="40"/>
+                        <circle class="dot" cx="185.01" cy="194.16" r="40"/>
+                        <circle class="dot" cx="185.01" cy="776.82" r="40"/>
+                        <circle class="dot" cx="185.01" cy="485.49" r="40"/>
+                        <circle class="dot" cx="1059.01" cy="194.16" r="40"/>
+                        <circle class="dot" cx="767.67" cy="194.16" r="40"/>
+                        <circle class="dot" cx="476.34" cy="194.16" r="40"/>
+                        <circle class="dot" cx="1059.01" cy="776.82" r="40"/>
+                        <circle class="dot" cx="1059.01" cy="485.49" r="40"/>
+                        <circle class="dot" cx="767.67" cy="776.82" r="40"/>
+                        <circle class="dot" cx="476.34" cy="776.82" r="40"/>
+                        <circle class="dot" cx="476.34" cy="485.49" r="40"/>
+                        <circle class="dot" cx="767.67" cy="485.49" r="40"/>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label for="blend-mode">Blend</label>
+                    <select id="blend-mode">
+                        <option value="color-burn" selected>Color Burn</option>
+                        <option value="exclusion">Exclusion</option>
+                        <option value="difference">Difference</option>
+                        <option value="lighten">Lighten</option>
+                        <option value="darken">Darken</option>
+                        <option value="color-dodge">Color Dodge</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Background</label>
+                    <div class="sliders">
+                        <input type="range" id="red" min="0" max="255" value="240">
+                        <input type="range" id="green" min="0" max="255" value="240">
+                        <input type="range" id="blue" min="0" max="255" value="240">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const blendModeSelect = document.getElementById('blend-mode');
+        const redSlider = document.getElementById('red');
+        const greenSlider = document.getElementById('green');
+        const blueSlider = document.getElementById('blue');
+        const paths = document.querySelectorAll('.path');
+
+        const blendModeColors = {
+            'color-burn': [240, 240, 240],
+            'exclusion': [0, 0, 0],
+            'difference': [240, 240, 240],
+            'lighten': [0, 0, 0],
+            'darken': [240, 240, 240],
+            'color-dodge': [12, 30, 40],
+        };
+
+        blendModeSelect.addEventListener('change', (e) => {
+            const selectedMode = e.target.value;
+            paths.forEach(path => {
+                path.style.mixBlendMode = selectedMode;
+            });
+            
+            const [r, g, b] = blendModeColors[selectedMode];
+            redSlider.value = r;
+            greenSlider.value = g;
+            blueSlider.value = b;
+            updateBackgroundColor();
+        });
+
+        function updateBackgroundColor() {
+            const r = redSlider.value;
+            const g = greenSlider.value;
+            const b = blueSlider.value;
+            document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
+            const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+            const sliders = [redSlider, greenSlider, blueSlider];
+
+            if (brightness > 128) {
+                // Light background
+                document.body.style.color = '#000';
+                blendModeSelect.style.backgroundColor = '#333';
+                blendModeSelect.style.color = '#fff';
+                
+                // Update sliders for light background
+                sliders.forEach(slider => {
+                    slider.style.backgroundColor = '#333';
+                    slider.style.setProperty('--thumb-color', '#333');
+                });
+            } else {
+                // Dark background
+                document.body.style.color = '#fff';
+                blendModeSelect.style.backgroundColor = '#ddd';
+                blendModeSelect.style.color = '#000';
+                
+                // Update sliders for dark background
+                sliders.forEach(slider => {
+                    slider.style.backgroundColor = '#ddd';
+                    slider.style.setProperty('--thumb-color', '#ddd');
+                });
+            }
+        }
+
+        redSlider.addEventListener('input', updateBackgroundColor);
+        greenSlider.addEventListener('input', updateBackgroundColor);
+        blueSlider.addEventListener('input', updateBackgroundColor);
+
+        updateBackgroundColor();
+    </script>
+</body>
+</html>
