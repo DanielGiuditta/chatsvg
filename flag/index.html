@@ -1,0 +1,512 @@
+ <!doctype html>
+<html lang="en">
+  <head>
+  <meta name="robots" content="noimageindex">
+  <meta charset="utf-8" />
+  <title>Flag Pattern Maker</title>
+  <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery.isotope.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48995259-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+</head>
+  <body>
+    <div class="wrapper">
+    <h1 id="headline">FlagPatternMaker</h1>
+
+
+  <!--This is the modal window-->
+  <!-- #dialog is the id of a DIV defined in the code below -->
+
+
+<div id="boxes">
+
+  <!-- #customize your modal window here -->
+
+  <div id="dialog" class="window">
+    
+    <a href="#" class="close"> X </a>
+    <br><br>
+   <p><u>Select one or more graphic attributes listed in the side panel to make a corresponding flag pattern</u></p>
+    <p>There are 196 countries. But, perhaps more importantly, there is a flag for each one of them.</p>
+    <p>Spanning all sorts of colors, shapes, and sizes, this project is a visualization of all the ways lands and heritages are defined within their respective rectangles. And triangles if you do your own thing like Nepal.</p>
+    <p>Here, elements like crescents, stars, stripes, and multiple colors can all co-exist. The Flag Pattern Maker puts asides our cultural and societal differences, and instead shows us what really unites (and divides) us as a flag-loving species.</p><br>
+   <p>created by <u><a href="http://www.sruthikainady.com"target="_blank">Sruthi Kainady</a></u></p>
+
+  </div>
+
+  
+  <!-- Do not remove div#mask, because you'll need it to fill the whole screen -->  
+  <div id="mask"></div>
+</div>
+
+
+
+
+
+
+    <!--This is the panel that comes out when you pull-->
+    <section class="mainmenu">
+      <div class="sidepanel">
+        <div id="options">
+          <div class="section" id="shapes">
+		  <a href="#dialog" name="modal"><div class="numberCircle">?</div></a>
+		  <br><br>
+            <p>↓ Select attributes ↓</p> 
+            <h1><b>SHAPES</b></h1>
+            <ul>
+               <!--<li>
+               <div class="option-set" data-group="circle">
+                  <input type="checkbox" value=".circle" id="circle" />
+                  <label for="circle">Circle</label>
+                </div>
+              </li>-->
+                <li>
+                <div class="option-set" data-group="circular">
+                  <input type="checkbox" value=".circular" id="circular" />
+                  <label for="circular">Circular</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="circlesolid">
+                  <input type="checkbox" value=".circlesolid" id="circlesolid" />
+                  <label for="circlesolid">Circle Solid</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="crescent">
+                  <input type="checkbox" value=".crescent" id="crescent" />
+                  <label for="crescent">Crescent</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="cross">
+                  <input type="checkbox" value=".cross" id="cross" />
+                  <label for="cross">Cross</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="plus">
+                  <input type="checkbox" value=".plus" id="plus" />
+                  <label for="plus">Plus</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="star">
+                  <input type="checkbox" value=".star" id="star" />
+                  <label for="star">Star</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="stars">
+                  <input type="checkbox" value=".stars" id="stars" />
+                  <label for="stars">Stars</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="triangle">
+                  <input type="checkbox" value=".triangle" id="triangle" />
+                  <label for="triangle">Triangle</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="triangles">
+                  <input type="checkbox" value=".triangles" id="triangles" />
+                  <label for="triangles">Triangles</label>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="section">
+            <h1>STRIPES</h1>
+            <ul>
+              <li>
+                <div class="option-set" data-group="s_vertical">
+                  <input type="checkbox" value=".s_vertical" id="s_vertical" />
+                  <label for="s_vertical">Vertical</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="s_horizontal">
+                  <input type="checkbox" value=".s_horizontal" id="s_horizontal" />
+                  <label for="s_horizontal">Horizontal</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="s_3stripes">
+                  <input type="checkbox" value=".s_3stripes" id="s_3stripes" />
+                  <label for="s_3stripes">3 Stripes</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="s_2stripes">
+                  <input type="checkbox" value=".s_2stripes" id="s_2stripes" />
+                  <label for="s_2stripes">2 Stripes</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="s_plain">
+                  <input type="checkbox" value=".s_plain" id="s_plain" />
+                  <label for="s_plain">Plain</label>
+                </div>
+              </li>
+            </ul>
+            <!--<h1>THINGS</h1>
+                    <ul>
+                        <li><div class="option-set" data-group="flora"><input type="checkbox" value=".flora" id="flora" /><label for="flora">Flora</label>
+                        </div></li>
+
+                        <ul>
+                        <li><div class="option-set" data-group="fauna"><input type="checkbox" value=".fauna" id="fauna" /><label for="fauna">Fauna</label>
+                        </div></li>
+                    </ul>!-->
+          </div>
+          <div class="section" id="color">
+            <h1>COLOR</h1>
+            <ul>
+              <li>
+                <div class="option-set" data-group="c_2colors">
+                  <input type="checkbox" value=".c_2colors" id="c_2colors" />
+                  <label for="c_2colors">2 Colors</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="c_red">
+                  <input type="checkbox" value=".c_red" id="c_red" />
+                  <label for="c_red">Red</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="c_blue">
+                  <input type="checkbox" value=".c_blue" id="c_blue" />
+                  <label for="c_blue">Blue</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="c_green">
+                  <input type="checkbox" value=".c_green" id="c_green" />
+                  <label for="c_green">Green</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="c_yellow">
+                  <input type="checkbox" value=".c_yellow" id="c_yellow" />
+                  <label for="c_yellow">Yellow</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="c_white">
+                  <input type="checkbox" value=".c_white" id="c_white" />
+                  <label for="c_white">White</label>
+                </div>
+              </li>
+              <li>
+                <div class="option-set" data-group="c_black">
+                  <input type="checkbox" value=".c_black" id="c_black" />
+                  <label for="c_black">Black</label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--closing the options-->
+      </div>
+    </section>
+    <!--closing the panel-->
+
+    <div class="main-content">
+	<div id="noResultsContainer" style="position:absolute; top: 45%;
+    left: 45%; font-size:26px;">
+   <div>! TRY UNSELECTING <br> SOME ATTRIBUTES OR <br> ANOTHER COMBINATION !</div>
+</div>
+      <div id="container" >
+        <div class="element photo s_vertical s_3stripes c_blue c_yellow c_red "> <img class="sidsimg" src="images/ab.png"></img></div>
+        <div class="element photo s_horizontal s_3stripes c_red c_white c_green c_black "> <img class="sidsimg" src="images/ae.png"></img></div>
+        <div class="element photo s_vertical s_3stripes c_red c_green c_black "> <img class="sidsimg" src="images/af.png"></img></div>
+        <div class="element photo triangles c_red"> <img class="sidsimg" src="images/ag.png"></img></div>
+        <div class="element photo c_blue"> <img class="sidsimg" src="images/ai.png"></img></div>
+        <div class="element photo c_red fauna"> <img class="sidsimg" src="images/al.png"></img></div>
+        <div class="element s_3stripes s_horizontal s_plain c_yellow c_red c_blue"> <img class="sidsimg" src="images/am.png"></img></div>
+        <div class="element crescent s_horizontal s_2stripes c_red c_black"> <img class="sidsimg" src="images/ao.png"></img></div>
+        <div class="element photo c_blue c_2colors"> <img class="sidsimg" src="images/aq.png"></img></div>
+        <div class="element photo circular s_3stripes c_blue "> <img class="sidsimg" src="images/ar.png"></img></div>
+        <div class="element photo c_blue c_white fauna "> <img class="sidsimg" src="images/as.png"></img></div>
+        <div class="element s_plain s_3stripes c_2colors c_red c_white "> <img class="sidsimg" src="images/at.png"></img></div>
+        <div class="element stars c_blue "> <img class="sidsimg" src="images/au.png"></img></div>
+        <div class="element stars star c_blue "> <img class="sidsimg" src="images/aw.png"></img></div>
+        <div class="element photo plus c_blue "> <img class="sidsimg" src="images/ax.png"></img></div>
+        <div class="element crescent star stars s_3stripes s_horizontal c_red c_blue c_green isotope-item"> <img class="sidsimg" src="images/az.png"></img></div>
+        <div class="element photo stars triangles c_blue c_yellow isotope-item"> <img class="sidsimg" src="images/ba.png"></img></div>
+        <div class="element photo s_3stripes s_vertical c_blue isotope-item"> <img class="sidsimg" src="images/bb.png"></img></div>
+        <div class="element photo circle circular circlesolid c_2colors c_green isotope-item"> <img class="sidsimg" src="images/bd.png"></img></div>
+        <div class="element photo s_plain s_3stripes s_vertical c_yellow c_red c_black isotope-item"> <img class="sidsimg" src="images/be.png"></img></div>
+        <div class="element photo star stars s_2stripes s_horizontal c_red c_green isotope-item"> <img class="sidsimg" src="images/bf.png"></img></div>
+        <div class="element photo s_plain s_3stripes s_horizontal c_red c_green c_white isotope-item"> <img class="sidsimg" src="images/bg.png"></img></div>
+        <div class="element photo triangles c_2colors c_red isotope-item"> <img class="sidsimg" src="images/bh.png"></img></div>
+        <div class="element photo stars circular cross c_red c_green isotope-item"> <img class="sidsimg" src="images/bi.png"></img></div>
+        <div class="element photo s_2stripes s_horizontal c_red c_green c_yellow isotope-item"> <img class="sidsimg" src="images/bj.png"></img></div>
+        <div class="element photo s_3stripes s_vertical s_plain c_red c_blue c_white isotope-item"> <img class="sidsimg" src="images/bl.png"></img></div>
+        <div class="element photo c_red isotope-item"> <img class="sidsimg" src="images/bm.png"></img></div>
+        <div class="element photo c_yellow isotope-item"> <img class="sidsimg" src="images/bn.png"></img></div>
+        <div class="element photo s_3stripes s_horizontal s_plain c_red c_green c_yellow isotope-item"> <img class="sidsimg" src="images/bo.png"></img></div>
+        <div class="element photo s_3stripes s_horizontal s_plain s_white c_red c_blue c_white isotope-item"> <img class="sidsimg" src="images/bq.png"></img></div>
+        <div class="element circular circle c_green isotope-item"> <img class="sidsimg" src="images/br.png"></img></div>
+        <div class="element triangle triangles s_3stripes s_horizontal c_blue isotope-item"> <img class="sidsimg" src="images/bs.png"></img></div>
+        <div class="element triangles c_yellow fauna isotope-item"> <img class="sidsimg" src="images/bt.png"></img></div>
+        <div class="element plus c_red isotope-item"> <img class="sidsimg" src="images/bv.png"></img></div>
+        <div class="element s_horizontal c_blue isotope-item"> <img class="sidsimg" src="images/bw.png"></img></div>
+        <div class="element s_horizontal c_red isotope-item"> <img class="sidsimg" src="images/by.png"></img></div>
+        <div class="element circle circular s_horizontal c_blue isotope-item"> <img class="sidsimg" src="images/bz.png"></img></div>
+        <div class="element s_vertical s_3stripes c_red c_white c_2colors flora isotope-item"> <img class="sidsimg" src="images/ca.png"></img></div>
+        <div class="element stars c_blue isotope-item"> <img class="sidsimg" src="images/cc.png"></img></div>
+        <div class="element star stars triangles c_blue isotope-item"> <img class="sidsimg" src="images/cd.png"></img></div>
+        <div class="element star stars s_horizontal isotope-item"> <img class="sidsimg" src="images/cf.png"></img></div>
+        <div class="element triangles c_red c_green c_yellow isotope-item"> <img class="sidsimg" src="images/cg.png"></img></div>
+        <div class="element plus c_2colors c_red isotope-item"> <img class="sidsimg" src="images/ch.png"></img></div>
+        <div class="element s_3stripes s_vertical s_plain c_green c_white isotope-item"> <img class="sidsimg" src="images/ci.png"></img></div>
+        <div class="element stars circular c_blue isotope-item"> <img class="sidsimg" src="images/ck.png"></img></div>
+        <div class="element star stars s_2stripes s_horizontal c_red c_white isotope-item"> <img class="sidsimg" src="images/cl.png"></img></div>
+        <div class="element star stars s_3stripes s_vertical c_red c_green c_yellow isotope-item"> <img class="sidsimg" src="images/cm.png"></img></div>
+        <div class="element stars c_red c_2colors isotope-item"> <img class="sidsimg" src="images/cn.png"></img></div>
+        <div class="element s_horizontal s_3stripes s_plain c_yellow isotope-item"> <img class="sidsimg" src="images/co.png"></img></div>
+        <div class="element s_horizontal s_plain isotope-item"> <img class="sidsimg" src="images/cr.png"></img></div>
+        <div class="element star stars s_horizontal c_blue isotope-item"> <img class="sidsimg" src="images/cu.png"></img></div>
+        <div class="element stars circular c_blue isotope-item"> <img class="sidsimg" src="images/cv.png"></img></div>
+        <div class="element stars c_blue isotope-item"> <img class="sidsimg" src="images/cw.png"></img></div>
+        <div class="element circle circular stars triangles c_blue c_green isotope-item"> <img class="sidsimg" src="images/cx.png"></img></div>
+        <div class="element c_white flora isotope-item"> <img class="sidsimg" src="images/cy.png"></img></div>
+        <div class="element triangle triangles s_horizontal s_2stripes c_blue c_red c_white isotope-item"> <img class="sidsimg" src="images/cz.png"></img></div>
+        <div class="element s_horizontal s_3stripes s_plain c_red c_yellow c_black isotope-item"> <img class="sidsimg" src="images/de.png"></img></div>
+        <div class="element triangle triangles star stars s_horizontal s_2stripes c_blue c_green c_white isotope-item"> <img class="sidsimg" src="images/dj.png"></img></div>
+        <div class="element plus c_2colors c_red isotope-item"> <img class="sidsimg" src="images/dk.png"></img></div>
+        <div class="element circle circular stars plus c_green fauna isotope-item"> <img class="sidsimg" src="images/dm.png"></img></div>
+        <div class="element plus c_red c_blue isotope-item"> <img class="sidsimg" src="images/do.png"></img></div>
+        <div class="element crescent star stars s_vertical s_2stripes c_green c_white isotope-item"> <img class="sidsimg" src="images/dz.png"></img></div>
+        <div class="element s_horizontal s_3stripes c_yellow fauna isotope-item"> <img class="sidsimg" src="images/ec.png"></img></div>
+        <div class="element s_horizontal s_3stripes s_plain c_blue c_black c_white isotope-item"> <img class="sidsimg" src="images/ee.png"></img></div>
+        <div class="element s_horizontal s_3stripes c_red c_white fauna isotope-item"> <img class="sidsimg" src="images/eg.png"></img></div>
+        <div class="element triangle triangles star stars crescent s_3stripes s_horizontal isotope-item"> <img class="sidsimg" src="images/eh.png"></img></div>
+        <div class="element triangles circular c_red flora isotope-item"> <img class="sidsimg" src="images/er.png"></img></div>
+        <div class="element s_horizontal s_3stripes c_yellow isotope-item"> <img class="sidsimg" src="images/es.png"></img></div>
+        <div class="element star stars circle circular s_horizontal s_3stripes c_red c_green c_yellow isotope-item"> <img class="sidsimg" src="images/et.png"></img></div>
+        <div class="element plus c_2colors c_white isotope-item"> <img class="sidsimg" src="images/fi.png"></img></div>
+        <div class="element c_blue isotope-item"> <img class="sidsimg" src="images/fj.png"></img></div>
+        <div class="element c_blue fauna isotope-item"> <img class="sidsimg" src="images/fk.png"></img></div>
+        <div class="element stars c_2colors c_blue isotope-item"> <img class="sidsimg" src="images/fm.png"></img></div>
+        <div class="element plus c_white isotope-item"> <img class="sidsimg" src="images/fo.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_red c_blue c_white isotope-item"> <img class="sidsimg" src="images/fr.png"></img></div>
+        <div class="element s_horizontal s_3stripes s_plain c_green c_blue c_yellow isotope-item"> <img class="sidsimg" src="images/ga.png"></img></div>
+        <div class="element plus isotope-item"> <img class="sidsimg" src="images/gb.png"></img></div>
+        <div class="element circle circular stars c_red isotope-item"> <img class="sidsimg" src="images/gd.png"></img></div>
+        <div class="element plus c_2colors c_white isotope-item"> <img class="sidsimg" src="images/ge.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_blue c_red c_white isotope-item"> <img class="sidsimg" src="images/gf.png"></img></div>
+        <div class="element plus c_white isotope-item"> <img class="sidsimg" src="images/gg.png"></img></div>
+        <div class="element star stars s_horizontal s_3stripes c_red c_green c_yellow isotope-item"> <img class="sidsimg" src="images/gh.png"></img></div>
+        <div class="element c_red c_white isotope-item"> <img class="sidsimg" src="images/gi.png"></img></div>
+        <div class="element circle circular s_2stripes s_horizontal c_2colors c_red c_white isotope-item"> <img class="sidsimg" src="images/gl.png"></img></div>
+        <div class="element s_horizontal s_plain c_red c_blue c_green isotope-item"> <img class="sidsimg" src="images/gm.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_red c_green c_yellow isotope-item"> <img class="sidsimg" src="images/gn.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_red c_blue c_white isotope-item"> <img class="sidsimg" src="images/gp.png"></img></div>
+        <div class="element triangle triangles s_horizontal s_3stripes isotope-item"> <img class="sidsimg" src="images/gq.png"></img></div>
+        <div class="element plus s_horizontal c_2colors c_blue isotope-item"> <img class="sidsimg" src="images/gr.png"></img></div>
+        <div class="element c_blue isotope-item"> <img class="sidsimg" src="images/gs.png"></img></div>
+        <div class="element s_3stripes s_vertical c_blue isotope-item"> <img class="sidsimg" src="images/gt.png"></img></div>
+        <div class="element c_blue isotope-item"> <img class="sidsimg" src="images/gu.png"></img></div>
+        <div class="element star stars s_2stripes s_horizontal isotope-item"> <img class="sidsimg" src="images/gw.png"></img></div>
+        <div class="element triangles isotope-item"> <img class="sidsimg" src="images/gy.png"></img></div>
+        <div class="element c_2colors c_red flora isotope-item"> <img class="sidsimg" src="images/hk.png"></img></div>
+        <div class="element stars c_blue isotope-item"> <img class="sidsimg" src="images/hm.png"></img></div>
+        <div class="element stars c_blue c_2colors isotope-item"> <img class="sidsimg" src="images/hn.png"></img></div>
+        <div class="element s_horizontal s_3stripes c_blue c_red c_white isotope-item"> <img class="sidsimg" src="images/hr.png"></img></div>
+        <div class="element s_horizontal s_2stripes s_plain c_2colors c_blue c_red isotope-item"> <img class="sidsimg" src="images/ht.png"></img></div>
+        <div class="element s_horizontal s_3stripes s_plain c_white c_green isotope-item"> <img class="sidsimg" src="images/hu.png"></img></div>
+        <div class="element s_horizontal s_2stripes s_plain s_white c_2colors c_red c_white isotope-item"> <img class="sidsimg" src="images/id.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_green c_white isotope-item"> <img class="sidsimg" src="images/ie.png"></img></div>
+        <div class="element star stars c_white isotope-item"> <img class="sidsimg" src="images/il.png"></img></div>
+        <div class="element c_red isotope-item"> <img class="sidsimg" src="images/im.png"></img></div>
+        <div class="element circle circular s_horizontal s_3stripes c_green c_white isotope-item"> <img class="sidsimg" src="images/in.png"></img></div>
+        <div class="element flora isotope-item"> <img class="sidsimg" src="images/io.png"></img></div>
+        <div class="element stars s_3stripes s_horizontal c_red c_white c_black isotope-item"> <img class="sidsimg" src="images/iq.png"></img></div>
+        <div class="element s_3stripes s_horizontal c_red c_green c_white isotope-item"> <img class="sidsimg" src="images/ir.png"></img></div>
+        <div class="element plus c_blue isotope-item"> <img class="sidsimg" src="images/is.png"></img></div>
+        <div class="element s_3stripes s_vertical s_plain c_red c_green c_white isotope-item"> <img class="sidsimg" src="images/it.png"></img></div>
+        <div class="element cross c_white isotope-item"> <img class="sidsimg" src="images/je.png"></img></div>
+        <div class="element cross c_black c_green isotope-item"> <img class="sidsimg" src="images/jm.png"></img></div>
+        <div class="element triangle triangles star stars s_horizontal s_3stripes isotope-item"> <img class="sidsimg" src="images/jo.png"></img></div>
+        <div class="element circle circlesolid circular c_white c_2colors isotope-item"> <img class="sidsimg" src="images/jp.png"></img></div>
+        <div class="element s_horizontal isotope-item"> <img class="sidsimg" src="images/ke.png"></img></div>
+        <div class="element circular c_red isotope-item"> <img class="sidsimg" src="images/kg.png"></img></div>
+        <div class="element s_3stripes s_horizontal isotope-item"> <img class="sidsimg" src="images/kh.png"></img></div>
+        <div class="element c_red fauna isotope-item"> <img class="sidsimg" src="images/ki.png"></img></div>
+        <div class="element triangle triangles crescent stars s_horizontal isotope-item"> <img class="sidsimg" src="images/km.png"></img></div>
+        <div class="element triangles stars c_red c_green isotope-item"> <img class="sidsimg" src="images/kn.png"></img></div>
+        <div class="element circle circular star stars c_red isotope-item"> <img class="sidsimg" src="images/kp.png"></img></div>
+        <div class="element circle circular c_white isotope-item"> <img class="sidsimg" src="images/kr.png"></img></div>
+        <div class="element s_horizontal s_3stripes isotope-item"> <img class="sidsimg" src="images/kw.png"></img></div>
+        <div class="element isotope-item"> <img class="sidsimg" src="images/ky.png"></img></div>
+        <div class="element circular c_2colors c_blue isotope-item"> <img class="sidsimg" src="images/kz.png"></img></div>
+        <div class="element circle circlesolid circular s_horizontal s_3stripes isotope-item"> <img class="sidsimg" src="images/la.png"></img></div>
+        <div class="element s_horizontal s_3stripes flora isotope-item"> <img class="sidsimg" src="images/lb.png"></img></div>
+        <div class="element triangles c_blue isotope-item"> <img class="sidsimg" src="images/lc.png"></img></div>
+        <div class="element s_horizontal s_2stripes isotope-item"> <img class="sidsimg" src="images/li.png"></img></div>
+        <div class="element fauna isotope-item"> <img class="sidsimg" src="images/lk.png"></img></div>
+        <div class="element star stars s_horizontal isotope-item"> <img class="sidsimg" src="images/lr.png"></img></div>
+        <div class="element s_horizontal s_3stripes c_green c_blue c_white isotope-item"> <img class="sidsimg" src="images/ls.png"></img></div>
+        <div class="element s_horizontal s_3stripes s_plain c_green c_red c_yellow isotope-item"> <img class="sidsimg" src="images/lt.png"></img></div>
+        <div class="element s_horizontal s_3stripes s_plain c_blue c_red c_white isotope-item"> <img class="sidsimg" src="images/lu.png"></img></div>
+        <div class="element s_horizontal s_3stripes s_plain c_2colors c_red isotope-item"> <img class="sidsimg" src="images/lv.png"></img></div>
+        <div class="element star stars crescent s_horizontal s_3stripes c_black isotope-item"> <img class="sidsimg" src="images/ly.png"></img></div>
+        <div class="element star stars c_red isotope-item"> <img class="sidsimg" src="images/ma.png"></img></div>
+        <div class="element s_horizontal s_2stripes s_plain c_2colors c_red c_white isotope-item"> <img class="sidsimg" src="images/mc.png"></img></div>
+        <div class="element s_vertical s_3stripes c_red c_blue c_yellow fauna isotope-item"> <img class="sidsimg" src="images/md.png"></img></div>
+        <div class="element c_red fauna isotope-item"> <img class="sidsimg" src="images/me.png"></img></div>
+        <div class="element triangle triangles s_horizontal s_2stripes c_red c_blue isotope-item"> <img class="sidsimg" src="images/mf.png"></img></div>
+        <div class="element s_horizontal s_2stripes c_red c_green c_white isotope-item"> <img class="sidsimg" src="images/mg.png"></img></div>
+        <div class="element circular c_blue isotope-item"> <img class="sidsimg" src="images/mh.png"></img></div>
+        <div class="element circle circular isotope-item"> <img class="sidsimg" src="images/mk.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_red c_green c_yellow isotope-item"> <img class="sidsimg" src="images/ml.png"></img></div>
+        <div class="element star stars s_horizontal s_3stripes c_red c_green c_yellow isotope-item"> <img class="sidsimg" src="images/mm.png"></img></div>
+        <div class="element s_vertical s_3stripes c_red isotope-item"> <img class="sidsimg" src="images/mn.png"></img></div>
+        <div class="element c_green isotope-item"> <img class="sidsimg" src="images/mo.png"></img></div>
+        <div class="element circular star stars c_blue isotope-item"> <img class="sidsimg" src="images/mp.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_red c_blue c_white isotope-item"> <img class="sidsimg" src="images/mq.png"></img></div>
+        <div class="element star stars crescent c_green isotope-item"> <img class="sidsimg" src="images/mr.png"></img></div>
+        <div class="element c_blue isotope-item"> <img class="sidsimg" src="images/ms.png"></img></div>
+        <div class="element plus s_vertical s_2stripes c_red c_white isotope-item"> <img class="sidsimg" src="images/mt.png"></img></div>
+        <div class="element s_horizontal s_plain isotope-item"> <img class="sidsimg" src="images/mu.png"></img></div>
+        <div class="element crescent c_green isotope-item"> <img class="sidsimg" src="images/mv.png"></img></div>
+        <div class="element s_horizontal s_3stripes c_red c_green c_black isotope-item"> <img class="sidsimg" src="images/mw.png"></img></div>
+        <div class="element s_vertical s_3stripes c_red c_green c_white fauna isotope-item"> <img class="sidsimg" src="images/mx.png"></img></div>
+        <div class="element crescent star stars s_horizontal isotope-item"> <img class="sidsimg" src="images/my.png"></img></div>
+        <div class="element triangle triangles star stars s_horizontal isotope-item"> <img class="sidsimg" src="images/mz.png"></img></div>
+        <div class="element triangles circular isotope-item"> <img class="sidsimg" src="images/na.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_red c_blue c_white isotope-item"> <img class="sidsimg" src="images/nc.png"></img></div>
+        <div class="element circle circlesolid circular s_horizontal s_3stripes c_green c_white isotope-item"> <img class="sidsimg" src="images/ne.png"></img></div>
+        <div class="element s_3stripes s_vertical c_2colors c_green flora isotope-item"> <img class="sidsimg" src="images/nf.png"></img></div>
+        <div class="element s_3stripes s_vertical s_plain c_2colors c_green isotope-item"> <img class="sidsimg" src="images/ng.png"></img></div>
+        <div class="element circular s_3stripes s_horizontal c_blue isotope-item"> <img class="sidsimg" src="images/ni.png"></img></div>
+        <div class="element s_3stripes s_horizontal s_plain c_blue c_red c_white isotope-item"> <img class="sidsimg" src="images/nl.png"></img></div>
+        <div class="element plus isotope-item"> <img class="sidsimg" src="images/no.png"></img></div>
+        <div class="element triangles circular isotope-item"> <img class="sidsimg" src="images/np.png"></img></div>
+        <div class="element star stars c_blue isotope-item"> <img class="sidsimg" src="images/nr.png"></img></div>
+        <div class="element stars isotope-item"> <img class="sidsimg" src="images/nu.png"></img></div>
+        <div class="element stars c_blue isotope-item"> <img class="sidsimg" src="images/nz.png"></img></div>
+        <div class="element s_horizontal s_3stripes c_red isotope-item"> <img class="sidsimg" src="images/om.png"></img></div>
+        <div class="element stars isotope-item"> <img class="sidsimg" src="images/pa.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_red isotope-item"> <img class="sidsimg" src="images/pe.png"></img></div>
+        <div class="element circular s_horizontal s_3stripes isotope-item"> <img class="sidsimg" src="images/pf.png"></img></div>
+        <div class="element triangles stars c_red c_black fauna isotope-item"> <img class="sidsimg" src="images/pg.png"></img></div>
+        <div class="element triangle triangles stars circular s_horizontal s_2stripes isotope-item"> <img class="sidsimg" src="images/ph.png"></img></div>
+        <div class="element star stars crescent c_green isotope-item"> <img class="sidsimg" src="images/pk.png"></img></div>
+        <div class="element s_horizontal s_2stripes s_plain c_2colors c_red c_white isotope-item"> <img class="sidsimg" src="images/pl.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_red c_blue c_white isotope-item"> <img class="sidsimg" src="images/pm.png"></img></div>
+        <div class="element c_blue isotope-item"> <img class="sidsimg" src="images/pn.png"></img></div>
+        <div class="element triangle triangles star stars s_horizontal isotope-item"> <img class="sidsimg" src="images/pr.png"></img></div>
+        <div class="element triangle triangles s_horizontal s_3stripes isotope-item"> <img class="sidsimg" src="images/ps.png"></img></div>
+        <div class="element circle circular c_red isotope-item"> <img class="sidsimg" src="images/pt.png"></img></div>
+        <div class="element circle circlesolid circular c_blue c_2colors isotope-item"> <img class="sidsimg" src="images/pw.png"></img></div>
+        <div class="element circle circular s_horizontal s_3stripes c_blue c_red c_white isotope-item"> <img class="sidsimg" src="images/py.png"></img></div>
+        <div class="element triangles isotope-item"> <img class="sidsimg" src="images/qa.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_red c_blue c_white isotope-item"> <img class="sidsimg" src="images/re.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_red c_blue c_yellow isotope-item"> <img class="sidsimg" src="images/ro.png"></img></div>
+        <div class="element s_horizontal s_3stripes c_red c_blue c_white isotope-item"> <img class="sidsimg" src="images/rs.png"></img></div>
+        <div class="element s_horizontal s_3stripes s_plain c_red c_blue c_white isotope-item"> <img class="sidsimg" src="images/ru.png"></img></div>
+        <div class="element circular s_horizontal s_3stripes isotope-item"> <img class="sidsimg" src="images/rw.png"></img></div>
+        <div class="element c_green isotope-item"> <img class="sidsimg" src="images/sa.png"></img></div>
+        <div class="element stars c_blue isotope-item"> <img class="sidsimg" src="images/sb.png"></img></div>
+        <div class="element isotope-item"> <img class="sidsimg" src="images/sc.png"></img></div>
+        <div class="element triangle triangles s_horizontal s_3stripes c_red c_white c_black isotope-item"> <img class="sidsimg" src="images/sd.png"></img></div>
+        <div class="element plus c_2colors c_blue isotope-item"> <img class="sidsimg" src="images/se.png"></img></div>
+        <div class="element crescent stars s_horizontal s_2stripes c_2colors c_red c_white isotope-item"> <img class="sidsimg" src="images/sg.png"></img></div>
+        <div class="element c_blue isotope-item"> <img class="sidsimg" src="images/sh.png"></img></div>
+        <div class="element s_3stripes s_horizontal c_red c_blue c_white isotope-item"> <img class="sidsimg" src="images/si.png"></img></div>
+        <div class="element plus c_red isotope-item"> <img class="sidsimg" src="images/sj.png"></img></div>
+        <div class="element s_horizontal s_3stripes c_red c_blue c_white isotope-item"> <img class="sidsimg" src="images/sk.png"></img></div>
+        <div class="element s_horizontal s_3stripes s_plain c_green c_blue c_white isotope-item"> <img class="sidsimg" src="images/sl.png"></img></div>
+        <div class="element s_horizontal s_2stripes c_blue c_white isotope-item"> <img class="sidsimg" src="images/sm.png"></img></div>
+        <div class="element star stars s_vertical s_3stripes c_green c_red c_yellow isotope-item"> <img class="sidsimg" src="images/sn.png"></img></div>
+        <div class="element star stars c_blue isotope-item"> <img class="sidsimg" src="images/so.png"></img></div>
+        <div class="element star stars s_horizontal  isotope-item"> <img class="sidsimg" src="images/sr.png"></img></div>
+        <div class="element triangle triangles s_horizontal isotope-item"> <img class="sidsimg" src="images/ss.png"></img></div>
+        <div class="element triangle triangles stars s_horizontal s_3stripes c_green isotope-item"> <img class="sidsimg" src="images/st.png"></img></div>
+        <div class="element circular s_horizontal s_3stripes c_blue isotope-item"> <img class="sidsimg" src="images/sv.png"></img></div>
+        <div class="element triangle triangles s_horizontal s_2stripes c_red c_blue isotope-item"> <img class="sidsimg" src="images/sx.png"></img></div>
+        <div class="element stars s_horizontal s_3stripes c_red c_white c_black isotope-item"> <img class="sidsimg" src="images/sy.png"></img></div>
+        <div class="element isotope-item"> <img class="sidsimg" src="images/sz.png"></img></div>
+        <div class="element c_blue isotope-item"> <img class="sidsimg" src="images/tc.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_blue c_red c_yellow isotope-item"> <img class="sidsimg" src="images/td.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_blue c_red c_white isotope-item"> <img class="sidsimg" src="images/tf.png"></img></div>
+        <div class="element star stars s_horizontal c_green c_yellow isotope-item"> <img class="sidsimg" src="images/tg.png"></img></div>
+        <div class="element s_horizontal s_plain c_red c_white c_blue c_white isotope-item"> <img class="sidsimg" src="images/th.png"></img></div>
+        <div class="element s_horizontal s_3stripes c_white isotope-item"> <img class="sidsimg" src="images/tj.png"></img></div>
+        <div class="element stars c_blue isotope-item"> <img class="sidsimg" src="images/tk.png"></img></div>
+        <div class="element stars stars triangles c_red isotope-item"> <img class="sidsimg" src="images/tl.png"></img></div>
+        <div class="element crescent stars c_green isotope-item"> <img class="sidsimg" src="images/tm.png"></img></div>
+        <div class="element crescent star stars c_red c_2colors isotope-item"> <img class="sidsimg" src="images/tn.png"></img></div>
+        <div class="element plus c_red c_2colors isotope-item"> <img class="sidsimg" src="images/to.png"></img></div>
+        <div class="element crescent star stars c_red c_2colors isotope-item"> <img class="sidsimg" src="images/tr.png"></img></div>
+        <div class="element triangles c_red isotope-item"> <img class="sidsimg" src="images/tt.png"></img></div>
+        <div class="element stars c_blue isotope-item"> <img class="sidsimg" src="images/tv.png"></img></div>
+        <div class="element circular c_red isotope-item"> <img class="sidsimg" src="images/tw.png"></img></div>
+        <div class="element triangles c_blue c_green isotope-item"> <img class="sidsimg" src="images/tz.png"></img></div>
+        <div class="element s_horizontal s_2stripes s_plain c_2colors c_yellow c_blue isotope-item"> <img class="sidsimg" src="images/ua.png"></img></div>
+        <div class="element circle circular s_horizontal fauna isotope-item"> <img class="sidsimg" src="images/ug.png"></img></div>
+        <div class="element stars s_horizontal isotope-item"> <img class="sidsimg" src="images/um.png"></img></div>
+        <div class="element stars s_horizontal isotope-item"> <img class="sidsimg" src="images/us.png"></img></div>
+        <div class="element circular s_horizontal c_white c_blue isotope-item"> <img class="sidsimg" src="images/uy.png"></img></div>
+        <div class="element crescent stars s_horizontal c_white c_blue c_green isotope-item"> <img class="sidsimg" src="images/uz.png"></img></div>
+        <div class="element s_vertical s_2stripes c_yellow c_white isotope-item"> <img class="sidsimg" src="images/va.png"></img></div>
+        <div class="element s_vertical s_3stripes c_yellow isotope-item"> <img class="sidsimg" src="images/vc.png"></img></div>
+        <div class="element stars s_horizontal s_3stripes c_blue c_red isotope-item"> <img class="sidsimg" src="images/ve.png"></img></div>
+        <div class="element c_blue isotope-item"> <img class="sidsimg" src="images/vg.png"></img></div>
+        <div class="element c_blue isotope-item"> <img class="sidsimg" src="images/vi.png"></img></div>
+        <div class="element star stars c_red c_2colors isotope-item"> <img class="sidsimg" src="images/vn.png"></img></div>
+        <div class="element triangle triangles c_green c_red isotope-item"> <img class="sidsimg" src="images/vu.png"></img></div>
+        <div class="element s_3stripes s_vertical s_plain c_blue c_red c_white isotope-item"> <img class="sidsimg" src="images/wf.png"></img></div>
+        <div class="element stars c_red isotope-item"> <img class="sidsimg" src="images/ws.png"></img></div>
+        <div class="element s_horizontal s_3stripes s_plain c_red c_black c_white isotope-item"> <img class="sidsimg" src="images/ye.png"></img></div>
+        <div class="element s_vertical s_3stripes s_plain c_red c_blue c_white isotope-item"> <img class="sidsimg" src="images/yt.png"></img></div>
+        <div class="element triangle triangles isotope-item"> <img class="sidsimg" src="images/za.png"></img></div>
+        <div class="element c_green fauna isotope-item"> <img class="sidsimg" src="images/zm.png"></img></div>
+        <div class="element triangle triangles s_horizontal fauna isotope-item"> <img class="sidsimg" src="images/zw.png"></img></div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=11012417; 
+var sc_invisible=1; 
+var sc_security="32b7054f"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="shopify visitor
+statistics" href="http://statcounter.com/shopify/"
+target="_blank"><img class="statcounter"
+src="//c.statcounter.com/11012417/0/32b7054f/1/"
+alt="shopify visitor statistics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+  </body>
+</html>
